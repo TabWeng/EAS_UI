@@ -1,0 +1,32 @@
+
+/*注册框*/
+#registerId{
+	height: 400px;
+	background-color: #fff;
+	margin-top: 120px;
+	box-shadow: 0 0 10px #ccc;
+}
+
+/*表单名称*/
+#registerId p {
+	padding: 30px 0 10px;
+	font-family: Microsoft Jhenghei;
+}
+
+/*确认注册按钮*/
+#finishReg {
+	margin: 30px 30px 0;
+}
+
+/*表单*/
+.D-inputMaxWidth {
+	margin: 0 30px;
+	margin-bottom: 10px;
+}
+
+.D-form {
+	height: 45px;
+	line-height: 45px;
+	font-size: 12pt;
+}
+

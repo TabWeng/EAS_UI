@@ -1,6 +1,8 @@
 $(function() {
 	// 随机加载背景图片
 	changerHeadPic(10);
+	// 表单验证
+	$("#registerForm").validationEngine();
 
 	// 监听
     $(window).resize(function() {
