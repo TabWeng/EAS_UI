@@ -109,6 +109,12 @@ body {
 	margin: auto;
 }
 
+/*分页*/
+.pagi{
+	display: block;
+	text-align: center;
+}
+
 /*=====================
 页尾
 =====================*/
