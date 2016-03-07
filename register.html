@@ -17,6 +17,8 @@
     <link rel="stylesheet" type="text/css" href="css/myCss/register.css">
     <!-- 引入表单验证样式 -->
     <link rel="stylesheet" type="text/css" href="css/validationEngine-jquery/validationEngine.jquery.css">
+    <!-- 引入自己的less文件，该文件主要用来控制不同的屏幕大小 -->
+    <link rel="stylesheet/less" type="text/css" href="css/myCSS/main.less">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -27,7 +29,7 @@
   </head>
   <body>
     
-    
+
 <!-- #！bootstrap组件-导航条 -->
 <nav class="navbar navbar-inverse navbar-fixed-top" id="navbarId">
   <div class="container">
@@ -81,9 +83,9 @@
           <div class="form-group D-inputMaxWidth">
             <input id="regUser" type="text" class="form-control D-form validate[required]" placeholder="注册用户名">
           </div>
-          <!-- 邮箱 -->
+          <!-- 姓名 -->
           <div class="form-group D-inputMaxWidth">
-            <input id="userEmail" type="email" class="form-control D-form validate[required] validate[custom[email]]" placeholder="你的邮箱">
+            <input id="userName" type="text" class="form-control D-form validate[required]" placeholder="姓名">
           </div>
           <!-- 密码 -->
           <div class="form-group D-inputMaxWidth">
