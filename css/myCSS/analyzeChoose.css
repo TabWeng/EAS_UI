@@ -45,7 +45,6 @@ body {
 	background: #F7F7F7;
 }
 
-
 /*==========================
 导航条
 ==========================*/
@@ -107,6 +106,12 @@ body {
 	width: 240px;
 	height: 180px;
 	margin: auto;
+}
+
+/*分页*/
+.pagi{
+	display: block;
+	text-align: center;
 }
 
 /*=====================

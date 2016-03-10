@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8">
@@ -9,8 +10,13 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入按钮样式 -->
+    <link rel="stylesheet" type="text/css" href="css/buttons.css">
     <!-- 引入我们自己的css文件 -->
     <link rel="stylesheet" type="text/css" href="css/myCSS/index.css">
+    <!-- 引入自己的less文件，该文件主要用来控制不同的屏幕大小 -->
+    <link rel="stylesheet/less" type="text/css" href="css/myCSS/main.less">
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,6 +25,7 @@
       <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
+
   <body>
     
 <!-- #！bootstrap组件-导航条 -->
@@ -35,22 +42,10 @@
       </button>
       <a class="navbar-brand" href="#" id="theBrand"><span>EAS</span>.COM</a>
     </div>
-
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-inverse" id="bs-example-navbar-collapse-1">
-      
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 
-            <!-- 添加三角图标 -->
-            <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" ></span> 
-          </a>
-          <ul class="dropdown-menu" id="smallSys">
-            <li><a href="#" >学立方大数据试卷分析系统</a></li>
-          </ul>
-        </li>
-      </ul>
-     
+      <!-- 小三角标签 -->
+      <span class="glyphicon glyphicon-triangle-bottom" id="triStyle" aria-hidden="true" ></span>         
       <ul class="nav navbar-nav navbar-right"> 
         <li><a href="#">数据分析服务</a></li>
         <li><a href="register.html">注册</a></li>
@@ -58,6 +53,19 @@
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
+
+  <!-- 载入子系统超链接 -->
+  <div id="smallSysForLink">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+            <a href="" class="D-mediumWord" id="mediumWord"><span>基于学立方</span>数据学习分析系统</a>
+            <!-- <a href="#" class="button button-raised button-pill button-inverse">进入使用</a> -->
+            <a href="" class="button button-primary hidden-xs" id="intoSmallSysBtn">进入使用</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </nav>
 
 <!-- #！bootstrap组件-页头 -->
@@ -155,5 +163,7 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- 我自己的JavaScript -->
     <script src="js/myJS/index.js" type="text/javascript"></script>
+        <!-- 引入Less.js -->
+    <script src="js/less.min.js" type="text/javascript"></script>
   </body>
 </html>

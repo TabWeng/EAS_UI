@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8">
@@ -9,12 +10,15 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入bootstrap按钮样式 -->
     <link rel="stylesheet" type="text/css" href="css/buttons.css">
     <!-- 引入我们自己的css文件 -->
     <link rel="stylesheet" type="text/css" href="css/myCSS/index.css">
     <link rel="stylesheet" type="text/css" href="css/myCss/register.css">
     <!-- 引入表单验证样式 -->
     <link rel="stylesheet" type="text/css" href="css/validationEngine-jquery/validationEngine.jquery.css">
+    <!-- 引入自己的less文件，该文件主要用来控制不同的屏幕大小 -->
+    <link rel="stylesheet/less" type="text/css" href="css/myCSS/main.less">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -25,6 +29,7 @@
   </head>
   <body>
     
+
 <!-- #！bootstrap组件-导航条 -->
 <nav class="navbar navbar-inverse navbar-fixed-top" id="navbarId">
   <div class="container">
@@ -37,32 +42,34 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html" id="theBrand"><span>EAS</span>.COM</a>
+      <a class="navbar-brand" href="#" id="theBrand"><span>EAS</span>.COM</a>
     </div>
-
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-inverse" id="bs-example-navbar-collapse-1">
-      
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 
-            <!-- 添加三角图标 -->
-            <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" ></span> 
-          </a>
-          <ul class="dropdown-menu" id="smallSys">
-            <li><a href="#" >学立方大数据试卷分析系统</a></li>
-          </ul>
-        </li>
-      </ul>
-     
+      <!-- 小三角标签 -->
+      <span class="glyphicon glyphicon-triangle-bottom" id="triStyle" aria-hidden="true" ></span>         
       <ul class="nav navbar-nav navbar-right"> 
         <li><a href="#">数据分析服务</a></li>
-        <li><a href="#">注册</a></li>
+        <li><a href="register.html">注册</a></li>
         <li><a href="#">登录</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
+
+  <!-- 载入子系统超链接 -->
+  <div id="smallSysForLink">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+            <a href="" class="D-mediumWord" id="mediumWord"><span>基于学立方</span>数据学习分析系统</a>
+            <!-- <a href="#" class="button button-raised button-pill button-inverse">进入使用</a> -->
+            <a href="" class="button button-primary hidden-xs" id="intoSmallSysBtn">进入使用</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </nav>
+
 
 <!-- 栅格系统 -->
 <div class="container">
@@ -76,16 +83,16 @@
           <div class="form-group D-inputMaxWidth">
             <input id="regUser" type="text" class="form-control D-form validate[required]" placeholder="注册用户名">
           </div>
-          <!-- 邮箱 -->
+          <!-- 姓名 -->
           <div class="form-group D-inputMaxWidth">
-            <input id="userEmail" type="email" class="form-control D-form validate[required] validate[custom[email]]" placeholder="你的邮箱">
+            <input id="userName" type="text" class="form-control D-form validate[required]" placeholder="姓名">
           </div>
           <!-- 密码 -->
           <div class="form-group D-inputMaxWidth">
             <input type="password" class="form-control D-form validate[required]" id="accountPwd" placeholder="输入密码">
           </div>
           <div class="form-group D-inputMaxWidth">
-            <input type="password" class="form-control D-form validate[required] validate[required,equals[accountPwd]]" id="re-accountPwd" placeholder="重新输入密码">
+            <input type="password" class="form-control D-form validate[required,equals[accountPwd]]" id="re-accountPwd" placeholder="重新输入密码">
           </div>
           <!-- 同意用户条款(备份) -->
 <!--           <div class="form-group D-inputMaxWidth">
@@ -115,10 +122,11 @@
     <script src="js/jquery-1.12.0.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    <!-- 表单验证 -->
+    <!-- 表单验证-注册界面特有 -->
     <script src="js/jQuery-Validation-Engine/jquery.validationEngine.js" type="text/javascript"></script>
     <script src="js/jQuery-Validation-Engine/jquery.validationEngine-zh_CN.js" type="text/javascript"></script>
-
+    <!-- 引入Less.js -->
+    <script src="js/less.min.js" type="text/javascript"></script>
     <!-- 我自己的JavaScript放在最下面 -->
     <script src="js/myJS/index.js" type="text/javascript"></script>
   </body>
