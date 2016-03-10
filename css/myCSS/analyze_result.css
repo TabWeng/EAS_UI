@@ -14,10 +14,7 @@ padding: 0px;
 margin-top: 10px;
  
 }
-#word{
-
-overflow: scroll;
-}
+ 
  
 /***********************模态框*******************/
 #note{
@@ -28,6 +25,7 @@ overflow: scroll;
 	line-height: 30px;
 }
 /*******************结果呈现区********************/
+
 .result_explain{
 
 	border-radius: 10px;
@@ -37,20 +35,24 @@ overflow: scroll;
    margin-bottom: -40px;
 }
 #word{
-    background-color: #f0ad4e;
+    background-color: rgba(240,173,78,0.8);
     overflow: scroll;
+    max-width: 100%;
+    font-size:15px;
 }
-.result_explain h4{
+.result_explain h3{
 	text-align: center;
 }
 .result_explain p{
-	 
+	 font-size: 18px;
 	line-height: 25px;
-	margin: 10px 10px;
+	margin: 10px 0 10px 10px;
+    
 
 }
 .result_explain img{
-max-width:100%;
+ max-width: 100%;
+ 
 
 }
 
@@ -64,8 +66,8 @@ margin-top: 70px;
 
 
 }
-  ul.nav-tabs{
-       
+    ul.nav-tabs{
+        width: 140px;
         margin-top: 20px;
         border-radius: 4px;
         border: 1px solid #ddd;
@@ -95,11 +97,7 @@ margin-top: 70px;
         border-radius: 0 0 4px 4px;
     }
     ul.nav-tabs.affix{
-        top: 10px; /* Set the top position of pinned element */
-    }
-    body{
-
-    	position:relative;
+        top: 30px; /* Set the top position of pinned element */
     }
 ul li{
 

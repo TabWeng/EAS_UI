@@ -8,5 +8,5 @@
             }
 //更新数据            
    function updateLogin() {
-       $("#myNav").width($(".col-xs-5").width());
+       $("#myNav").width($(".col-xs-6").width());
    };
