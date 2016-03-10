@@ -29,7 +29,7 @@ margin-top: 10px;
 .result_explain{
 
 	border-radius: 10px;
-	
+	border: 1px solid black;
 	overflow: hidden;
 	margin-top: 70px;
    margin-bottom: -40px;
