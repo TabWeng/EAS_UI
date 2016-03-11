@@ -42,7 +42,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#" id="theBrand"><span>EAS</span>.COM</a>
+      <a class="navbar-brand" href="index.html" id="theBrand"><span>EAS</span>.COM</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-inverse" id="bs-example-navbar-collapse-1">
@@ -89,11 +89,26 @@
           </div>
           <!-- 密码 -->
           <div class="form-group D-inputMaxWidth">
-            <input type="password" class="form-control D-form validate[required]" id="accountPwd" placeholder="输入密码">
+            <input type="password" class="form-control D-form validate[required] validate[minSize[6]]" id="accountPwd" placeholder="输入密码">
           </div>
           <div class="form-group D-inputMaxWidth">
             <input type="password" class="form-control D-form validate[required,equals[accountPwd]]" id="re-accountPwd" placeholder="重新输入密码">
           </div>
+          <div class="form-group D-inputMaxWidth">
+            <input type="text" class="form-control D-form validate[custom[phone]]" id="mobile" name="mobile" placeholder="手机号码">
+          </div>
+          
+          <!-- 验证手机号码，调用短信API -->
+          <div class="row form-group D-inputMaxWidth">
+            <div class="clearLeftPadding form-group col-md-7">
+              <input type="text" class="form-control D-form" name="mobile_code" id="phoneNum" placeholder="输入手机验证码">
+            </div>
+            <div class="col-md-1"></div>
+            <div class="clearRightPadding form-group col-md-4">
+             <input id="zphone" class="form-control D-form-1" type="button" value=" 发送手机验证码" onClick="get_mobile_code();">
+            </div>
+          </div>
+
           <!-- 同意用户条款(备份) -->
 <!--           <div class="form-group D-inputMaxWidth">
             <div class="checkbox">
