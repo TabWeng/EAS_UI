@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<!-- 解除IE对本地运行脚本文件的限制 -->
+<!-- saved from url=(0014)about:internet -->
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>教育大数据学习分析系统</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入我们自己的css文件 -->
+    <link rel="stylesheet" type="text/css" href="css/myCSS/index.css">
+    <link rel="stylesheet" type="text/css" href="css/myCSS/specialProjectChoose.css">
+    <link rel="stylesheet/less" type="text/css" href="css/myCSS/specialProjectChoose.less">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    
+<!-- #！bootstrap组件-导航条 -->
+<nav class="navbar navbar-inverse navbar-fixed-top" id="navbarId">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <!-- 响应式导航按钮 -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#" id="theBrand"><span>EAS</span>.COM</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-inverse" id="bs-example-navbar-collapse-1">
+      
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 
+            <!-- 添加三角图标 -->
+            <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" ></span> 
+          </a>
+          <ul class="dropdown-menu" id="smallSys">
+            <li><a href="#" >学立方大数据试卷分析系统</a></li>
+          </ul>
+        </li>
+      </ul>
+     
+      <ul class="nav navbar-nav navbar-right"> 
+        <li><a href="#">数据分析服务</a></li>
+        <li><a href="register.html">注册</a></li>
+        <li><a href="#">登录</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+
+<!-- #！bootstrap栅格系统 -->
+<div class="container-fluid">
+
+  <!-- 专项分析服务 -->
+<div>
+    <div class="D-intoCenter" id="das">
+      <h2>
+        <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+      </h2>
+    </div>
+    
+    <!-- 容器 -->
+    <div id="oa-And-sa">
+      <div class="row" id="HTU">
+        <div class="col-md-10"></div>
+        <div class="col-md-2" id="howToUse">
+          <!-- Button trigger modal -->
+          <a data-toggle="modal" data-target="#myModal" id="linkHTU">
+            使用说明
+          </a>
+
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">使用教程</h4>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 分析模板定制 -->
+      <div class="row" id="oa">
+        <div class="col-md-3">
+          <div class="D-bigWord-S D-intoCenter">
+            <p>分析模板定制</p>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="D-mediumWord">
+            <div class="D-mediumWord-inside">
+              <p>你可以在分析模板定制模块中定制你独具个性的个人专属分析方案</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+            <p class="D-intoCenter">
+              <button type="button" class="btn btn-success btn-lg">进入使用</button>
+            </p>
+        </div>
+      </div>
+
+    <hr class="hrMargin">
+
+        <!-- 人工数据分析 -->
+      <div class="row" id="sa">
+        <div class="col-md-3">
+          <div class="D-bigWord-S D-intoCenter">
+            <p>人工数据分析</p>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="D-mediumWord">
+            <div class="D-mediumWord-inside">
+              <p>你可以直接向我们的分析员提交你想要的分析的数据，我们的分析员将为你分析出精准的分析数据报告</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+            <p class="D-intoCenter">
+              <button type="button" class="btn btn-warning btn-lg ">进入使用</button>
+            </p>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+<!-- 页尾 -->
+<div class="D-footer">
+  <div class="row">
+    <p class="h3" style="text-align: center;margin-top: 40px;">@福建师范大学开发团队</p>
+  </div>
+</div>
+
+</div>
+
+
+
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.12.0.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- 我自己的JavaScript -->
+    <script src="js/myJS/index.js" type="text/javascript"></script>
+    <script src="js/less.min.js" type="text/less"></script>
+  </body>
+</html>
