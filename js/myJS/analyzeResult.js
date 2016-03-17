@@ -76,7 +76,7 @@ function scrollNav() {
 		    currentClass: 'current',
 		    changeHash: false,
 		    scrollSpeed: 500,
-		    scrollThreshold: 0.6,
+		    scrollThreshold: 0.5,
 		    filter: '',
 		    easing: 'swing',
 		    begin: function() {
