@@ -283,7 +283,7 @@ body {
 /*=====================
 页尾
 =====================*/
-.D-footer .row {
+.D-footer {
 	height: 100px;
 	background-color: #ccc;
 }
