@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!-- 解除IE对本地运行脚本文件的限制 -->
+<!-- saved from url=(0014)about:internet -->
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>教育大数据学习分析系统</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入我们自己的css文件 -->
+    <link rel="stylesheet" type="text/css" href="css/myCSS/index.css">
+    <link rel="stylesheet" type="text/css" href="css/myCSS/QRCode.css">
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    
+<!-- #！bootstrap组件-导航条 -->
+<nav class="navbar navbar-inverse navbar-fixed-top" id="navbarId">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <!-- 响应式导航按钮 -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#" id="theBrand"><span>EAS</span>.COM</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-inverse" id="bs-example-navbar-collapse-1">
+      
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 
+            <!-- 添加三角图标 -->
+            <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" ></span> 
+          </a>
+          <ul class="dropdown-menu" id="smallSys">
+            <li><a href="#" >学立方大数据试卷分析系统</a></li>
+          </ul>
+        </li>
+      </ul>
+     
+      <ul class="nav navbar-nav navbar-right"> 
+        <li><a href="#">数据分析服务</a></li>
+        <li><a href="#">注册</a></li>
+        <li><a href="#">登录</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!-- #！bootstrap组件-页头 -->
+<div class="page-header"></div>
+
+<!-- #！二维码扫码付款区域 -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 col-sm-2"></div>
+
+    <div class="col-md-6 col-sm-8 col-xs-12">
+      <form action="" method="post" class="col-md-12 col-sm-12 col-xs-12" id="pay">
+        <div class="col-md-12 col-sm-12 col-xs-12" id="headline">
+          <h1>开通会员</h1>
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-xs-12" id="openUser">
+          <div class="col-md-4 col-sm-5 col-xs-6">
+            <label class="D-littleWord">付费用户：</label>
+          </div>
+          <div class="col-md-4 col-sm-5 col-xs-6">
+            <label class="D-littleWord" id="userName">peter</label>
+          </div>
+          <div class="col-md-4 col-sm-2"></div>
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-xs-12" id="openTime">
+          <div class="col-md-4 col-sm-5 col-xs-6">
+            <label class="D-littleWord">开通时长：</label>
+          </div>
+          <div class="col-md-8 col-sm-7 col-xs-6">
+            <input type="text" class="" id="monthNum">
+            <label class="D-littleWord" >&nbsp;&nbsp;个月</label>
+            <div class="link" id="yearVIP" onclick="change(1)">购买年费会员</div>
+            <div href="" class="link" id="monthVIP" onclick="change(2)">按月购买会员</div>
+          </div>
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-xs-12" id="shouldPay">
+          <div class="col-md-4 col-sm-5 col-xs-6">
+            <label class="D-littleWord">应付金额：</label>
+          </div>
+          <div class="col-md-4 col-sm-5 col-xs-6">
+            <p class="D-littleWord" id="money">100</p>
+            <label class="D-littleWord">&nbsp;&nbsp;元</label>
+          </div>
+          <div class="col-md-4 col-sm-2"></div>
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-xs-12" id="QRCodeArea">
+          <h2 id="QRCodeWord">请使用支付宝完成扫描：</h2>
+          <img src="images/QRCode.jpg" style="width: 180px;height: 180px;" id="QRCode">
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-xs-12" id="numCheck">
+          <div class="col-md-7 col-sm-7 col-xs-8">
+            <label class="D-littleWord">输入订单尾号5位数：</label>
+          </div>
+          <div class="col-md-5 col-sm-5 col-xs-4">
+            <input type="text" id="numCheckBox">
+          </div>
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-xs-12" id="payFinish">
+          <a href="" class="btn btn-success D-littleWord col-md-12 col-sm-12 col-xs-12">完成付款</a>
+          <!-- 模态框按钮 -->
+          <a type="button" class="btn btn-primary D-littleWord col-md-12 col-sm-12 col-xs-12" 
+          data-toggle="modal" href="#myModal">
+            帮助
+          </a>
+          <!-- 模态框 -->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="myModalLabel">关于如何如何使用</h4>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-md-3 col-sm-2"></div>
+  </div>
+</div>
+ 
+
+
+<!-- 页尾 -->
+<div class="D-footer">
+  <div class="row">
+    <p class="h3" style="text-align: center;margin-top: 40px;">@福建师范大学开发团队</p>
+  </div>
+</div>
+
+ 
+
+
+
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.12.0.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- 我自己的JavaScript -->
+    <script src="js/myResponsive.js" type="text/javascript"></script>
+    <script src="js/myJS/QRCode.js" type="text/javascript"></script>
+    <script src="js/myJS/index.js" type="text/javascript"></script>
+  </body>
+</html>
+
+
+
+</script>
