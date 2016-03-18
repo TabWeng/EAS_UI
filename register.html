@@ -72,7 +72,7 @@
 
 
 <!-- 栅格系统 -->
-<div class="container">
+<div class="container-fluid" style="background: url(images/10.jpg)">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <div id="registerId">
@@ -86,6 +86,10 @@
           <!-- 姓名 -->
           <div class="form-group D-inputMaxWidth">
             <input id="userName" type="text" class="form-control D-form validate[required]" placeholder="姓名">
+          </div>
+          <!-- 邮箱 -->
+          <div class="form-group D-inputMaxWidth">
+            <input id="email" type="text" class="form-control D-form  validate[custom[email]]" placeholder="请输入邮箱">
           </div>
           <!-- 密码 -->
           <div class="form-group D-inputMaxWidth">
@@ -143,6 +147,6 @@
     <!-- 引入Less.js -->
     <script src="js/less.min.js" type="text/javascript"></script>
     <!-- 我自己的JavaScript放在最下面 -->
-    <script src="js/myJS/index.js" type="text/javascript"></script>
+    <script src="js/myJS/register.js" type="text/javascript"></script>
   </body>
 </html>

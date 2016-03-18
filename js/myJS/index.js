@@ -1,16 +1,10 @@
 $(function() {
 	// 随机加载背景图片
 	changerHeadPic(10);
-	// 显示或隐藏子系统超链接
-	viewSmallSysLink();
 
 	// 监听
     $(window).resize(function() {
-        
     });
-
-    // 注册表单验证 -- 需要放在最后
-	$("#registerForm").validationEngine();
 });
 
 //==========================

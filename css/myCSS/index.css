@@ -74,6 +74,25 @@ body {
 	cursor: pointer;
 }
 
+/*点击小三角形后的显示*/
+#myClickPic {
+	margin-top: 15px;
+	text-align: center;
+	background-color: #222222;
+}
+
+#myClickPic .divider {
+	background-color: #000;
+}
+
+#myClickPic a {
+	color: #fff;
+}
+
+#myClickPic a:hover {
+	background-color: #333;
+
+}
 
 /*子系统*/
 #smallSys {
@@ -119,6 +138,11 @@ body {
 	top:-2px;
 }
 
+/*用户头像*/
+#myHeadPic {
+	width: 25px;
+	height: 25px;
+}
 
 /*==========================
 页头

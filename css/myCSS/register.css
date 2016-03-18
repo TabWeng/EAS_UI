@@ -1,9 +1,10 @@
 
 /*注册框*/
 #registerId{
-	height: 540px;
+	height: 590px;
 	background-color: #fff;
-	margin-top: 100px;
+	margin-top: 75px;
+	margin-bottom: 10px;
 	box-shadow: 0 0 10px #ccc;
 }
 
