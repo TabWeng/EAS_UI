@@ -1,0 +1,80 @@
+
+$(function(){
+	myResponsive(
+		"#headline",
+		280,400,
+		{
+			"text-align":"center"
+		},
+		[
+		]
+	);
+});
+$(function(){
+	myResponsive(
+		"#apply",
+		280,750,
+		{
+			"margin-top":"10px"
+		},
+		[
+		]
+	);
+});
+$(function(){
+	myResponsive(
+		"#analystEntrance",
+		280,750,
+		{
+			"margin-top":"10px"
+		},
+		[
+		]
+	);
+});
+
+$(function(){
+	myResponsive(
+		".miniPic",
+		974,1182,
+		{
+			"width":"200px",
+			"height":"160px"
+		},
+		[
+		]
+	);
+});
+$(function(){
+	myResponsive(
+		"#firstLine",
+		280,768,
+		{
+			"margin-top":"20px"
+		},
+		[
+		]
+	);
+});
+$(function(){
+	myResponsive(
+		"#linkVIP",
+		280,767,
+		{
+			"display":"none"
+		},
+		[
+		]
+	);
+});
+$(function(){
+	myResponsive(
+		"#btnVIP",
+		280,767,
+		{
+			"display":"block"
+		},
+		[
+		]
+	);
+});
