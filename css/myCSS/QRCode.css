@@ -101,73 +101,84 @@ body {
 	width: 100%;
 }
 
-/*个人中心*/
+/*申请会员二维码付款界面*/
+#applyMenber{
+	display: block;
+}
 #headline{
-	margin-top: 20px;
+	margin-top: 10px;
 	font-size: 50px;
 	color: #78a355;
 }
-#apply{
-	display: block;
-	margin-top: 33px;
+#border{
+	border-style: solid;
+	border-width: 1px ;
+	border-color: #78a355;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-radius: 15px;
 }
-#analystEntrance{
-	display: none;
-	margin-top: 33px;
+.userInfo{
+	margin-top: 15px;
 }
-#firstLine{
-	border-bottom: 1px solid #78a355;
-	margin-top: 10px;
-}
-#userInfo{
-	margin-top: 20px;
-}
-#userType,#normalUser{
+#payUser,#openTime{
 	float: left;
 	display: block;
 	font-size: 15pt;
 	color: #78a355;
 }
+#userName,#money{
+	float: left;
+	display: block;
+	font-size: 15pt;
+}
+#monthBox{
+	width: 50px;
+}
+#month{
+	font-size: 12pt;
+}
 #linkVIP{
 	display: block;
 	font-size: 13pt;
-	margin-top: 25px;
-	margin-left: -100px;
+	margin-top: 20px;
+}
+.link{
+	display: block;
+	font-size: 13pt;
+	cursor: pointer;
+	color: rgb(51,122,183);
+}
+#yearVIP{
+	display: block;
+}
+#monthVIP{
+	display: none;
+}
+#yuan{
+	float: left;
+	display: block;
+	font-size: 15pt;
+	margin-left: 20px;
+}
+#QRCodeArea{
+	margin-bottom: 20px;
+}
+#QRCode,#QRCodeWord{
+	text-align: center;
+}
+#orderNumBox{
+	width: 211px;
+}
+
+.no-padding{
+	padding-left: 0;
+	padding-right: 0;
 }
 .btnGroup{
 	margin-top: 20px;
 }
-#secondLine{
-	border-bottom: 1px solid #78a355; 
-	margin-top: 20px;
-}
 
-.tab-content{
-	background-color: #FFF;
-}
-.no-padding{
-	padding: 0;
-}
-#plans{
-	margin-top: 20px;
-}
-.planBox{
-	text-align: center;
-}
-.picBox{
-	display: block;
-	margin-top: 20px;
-	text-align: center;
-}
-.miniPic{
-	width: 240px;
-	height: 180px;
-	margin: auto;
-}
-.pagi{
-	display: block;
-	text-align: center;
-}
 
 /*=====================
 页尾

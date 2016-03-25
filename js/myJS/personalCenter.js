@@ -2,31 +2,9 @@
 $(function(){
 	myResponsive(
 		"#headline",
-		280,400,
+		280,320,
 		{
 			"text-align":"center"
-		},
-		[
-		]
-	);
-});
-$(function(){
-	myResponsive(
-		"#apply",
-		280,750,
-		{
-			"margin-top":"10px"
-		},
-		[
-		]
-	);
-});
-$(function(){
-	myResponsive(
-		"#analystEntrance",
-		280,750,
-		{
-			"margin-top":"10px"
 		},
 		[
 		]
@@ -35,22 +13,10 @@ $(function(){
 
 $(function(){
 	myResponsive(
-		".miniPic",
-		974,1182,
+		"#linkVIP",
+		280,751,
 		{
-			"width":"200px",
-			"height":"160px"
-		},
-		[
-		]
-	);
-});
-$(function(){
-	myResponsive(
-		"#firstLine",
-		280,768,
-		{
-			"margin-top":"20px"
+			"margin-left":"83px"
 		},
 		[
 		]
@@ -59,9 +25,9 @@ $(function(){
 $(function(){
 	myResponsive(
 		"#linkVIP",
-		280,767,
+		280,360,
 		{
-			"display":"none"
+			"margin-top":"0"
 		},
 		[
 		]
@@ -69,12 +35,49 @@ $(function(){
 });
 $(function(){
 	myResponsive(
-		"#btnVIP",
-		280,767,
+		".userInfo",
+		280,360,
 		{
-			"display":"block"
+			"margin-top":"0"
 		},
 		[
 		]
 	);
 });
+
+$(function(){
+	myResponsive(
+		".col-xs-12",
+		280,400,
+		{
+			"padding":"5px"
+		},
+		[
+		]
+	);
+});
+$(function(){
+	myResponsive(
+		"#QRCodeWord",
+		280,360,
+		{
+			"font-size":"22px"
+		},
+		[
+		]
+	);
+});
+function change(number){
+    switch(number){
+        case 1:
+        document.getElementById("yearVIP").style.display="none";
+        document.getElementById("monthVIP").style.display="block";
+        document.getElementById("monthBox").value=12;
+        break;
+        case 2:
+        document.getElementById("yearVIP").style.display="block";
+        document.getElementById("monthVIP").style.display="none";
+        document.getElementById("monthBox").value="";
+        break;
+    }
+}
