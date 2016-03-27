@@ -5,14 +5,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>教育大数据学习分析系统</title>
+    <!-- ÉÏÊö3¸ömeta±êÇ©*±ØÐë*·ÅÔÚ×îÇ°Ãæ£¬ÈÎºÎÆäËûÄÚÈÝ¶¼*±ØÐë*¸úËæÆäºó£¡ -->
+    <title>½ÌÓý´óÊý¾ÝÑ§Ï°·ÖÎöÏµÍ³</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- 引入按钮样式 -->
+    <!-- ÒýÈë°´Å¥ÑùÊ½ -->
     <link rel="stylesheet" type="text/css" href="css/buttons.css">
-    <!-- 引入我们自己的css文件 -->
+    <!-- ÒýÈëÎÒÃÇ×Ô¼ºµÄcssÎÄ¼þ -->
     <link rel="stylesheet" type="text/css" href="css/myCSS/index.css">
     <link rel="stylesheet" type="text/css" href="css/myCSS/analyzeOperation.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -25,11 +25,11 @@
 
     <body>
     
-<!-- #！bootstrap组件-导航条 -->
+<!-- #£¡bootstrap×é¼þ-µ¼º½Ìõ -->
 <nav class="navbar navbar-inverse navbar-fixed-top" id="navbarId">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <!-- 响应式导航按钮 -->
+    <!-- ÏìÓ¦Ê½µ¼º½°´Å¥ -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -37,70 +37,175 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#" id="theBrand"><span>EAS</span>.COM</a>
+      <a class="navbar-brand" href="#" id="theBrand"><span>EDAS</span>.COM</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-inverse" id="bs-example-navbar-collapse-1">
-      <!-- 小三角标签 -->
+      <!-- Ð¡Èý½Ç±êÇ© -->
 <!--       <span class="glyphicon glyphicon-triangle-bottom" id="triStyle" aria-hidden="true" ></span>   -->       
       <ul class="nav navbar-nav navbar-right"> 
-        <li><a href="#" id="mediumWord">基于学立方数据学习分析系统</a></li>
-        <li><a href="#">首页</a></li>
-        <li><a href="#">服务大厅</a></li>
-        <li><a href="#">消息</a></li>
-        <li><a href="register.html">注册 | 登录</a></li>
+        <li><a href="#" id="mediumWord">»ùÓÚÑ§Á¢·½Êý¾ÝÑ§Ï°·ÖÎöÏµÍ³</a></li>
+        <li><a href="#">Ê×Ò³</a></li>
+        <li><a href="#">·þÎñ´óÌü</a></li>
+        <li><a href="#">ÏûÏ¢</a></li>
+        <li><a href="register.html">×¢²á | µÇÂ¼</a></li>
         
-  <!--*登录后的显示*******************************************-->
-        <!-- 显示用户头像等 -->
+  <!--*µÇÂ¼ºóµÄÏÔÊ¾*******************************************-->
+        <!-- ÏÔÊ¾ÓÃ»§Í·ÏñµÈ -->
         <li>
           <a href="#">
-            <!-- 头像 -->
+            <!-- Í·Ïñ -->
             <img id="myHeadPic" src="images/14.jpg">
           </a>
         </li>
-        <!-- 小三角标签 --> 
+        <!-- Ð¡Èý½Ç±êÇ© --> 
         <li class="dropdown">
           <span class="glyphicon glyphicon-triangle-bottom" id="triStyle" aria-hidden="true" class="dropdown-toggle" data-toggle="dropdown"></span>
           <ul class="dropdown-menu" id="myClickPic">
             <li><a>hlwyfeng</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">个人中心</a></li>
+            <li><a href="#">¸öÈËÖÐÐÄ</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">退出</a></li>
+            <li><a href="#">ÍË³ö</a></li>
           </ul>
         </li>
-  <!--*结束**************************************************-->
+  <!--*½áÊø**************************************************-->
 
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 
-  <!-- 载入子系统超链接 -->
+  <!-- ÔØÈë×ÓÏµÍ³³¬Á´½Ó -->
 <!--   <div id="smallSysForLink">
     <div class="container">
       <div class="row">
         <div class="col-md-8">
-            <a href="" class="D-mediumWord" id="mediumWord"><span>基于学立方</span>数据学习分析系统</a> -->
-            <!-- <a href="#" class="button button-raised button-pill button-inverse">进入使用</a> -->
-<!--             <a href="" class="button button-primary hidden-xs" id="intoSmallSysBtn">进入使用</a>
+            <a href="" class="D-mediumWord" id="mediumWord"><span>»ùÓÚÑ§Á¢·½</span>Êý¾ÝÑ§Ï°·ÖÎöÏµÍ³</a> -->
+            <!-- <a href="#" class="button button-raised button-pill button-inverse">½øÈëÊ¹ÓÃ</a> -->
+<!--             <a href="" class="button button-primary hidden-xs" id="intoSmallSysBtn">½øÈëÊ¹ÓÃ</a>
         </div>
       </div>
     </div>
   </div> -->
 </nav>
 
-<!-- 抵消固定导航的高度 -->
+<!-- µÖÏû¹Ì¶¨µ¼º½µÄ¸ß¶È -->
 <div id="myOffsetNav">
 </div>
 
-<!--编码内容开始*************************************************************-->
+<!--±àÂëÄÚÈÝ¿ªÊ¼*************************************************************-->
 
 <div class="container-fluid" id="conInTro">
   <div class="row">
+    <!-- Í¼Æ¬ -->
+    <img id="myImgBackgorund" src="images/bigData.jpg">
+    <!-- ÕÚÕÖ²ã -->
+    <div id="grayShade"></div>
+    
+    <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-offset-2 col-xs-8">
+      <h3 style="color:#fff; font-family: Microsoft JHenghei">·½°¸¼ò½é</h3>
+    </div>
+
     <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-offset-2 col-xs-8" id="inTro">
-      <p>
+      <p id="introduceWord">
+        ³ýÁË¹Ø¼üµÄÁã¼þÊÇ»¨Ç®¹ºÂòµÄ£¬ÆäÓàµÄÁã¼þ¶¼ÊÇÀÏÀîÒ»ÊÖ´òÔì¡£Ö»ÓÐÐ¡Ñ§ÎÄ»¯µÄÀÏÀî´ò¶¨Ö÷ÒâÖÆ×÷·É»úºó£¬¾ÍÕÒÅóÓÑÉÌÁ¿·½°¸¡£ÀÏÀîµÄÍ¼Ö½¶àÎªÐ¡µË°ïËûÏÂÔØ¡£ÔÚ±³½Ö¾­Óª¾ÆµêµÄÐ¡ÍõÔòÊ±³£¹ýÀ´£¬ºÍÀÏÀîÒ»Æð´òÄ¥Áã¼þ¡£Ëû»¹Òª´ÓÍøÉÏÏÂÔØ×¨Òµ×ÊÁÏ£¬ÕÒÀ´ÊÓÆµ¹Û¿´Ñ§Ï°¡£
       </p>
     </div>
+
+  </div>
+</div>
+
+<div class="container D-containerBorder">
+  <div class="row D-secondRow">
+      
+      <!-- Êý¾ÝÑùÊ½ -->
+      <div class="col-md-4 col-sm-4" id="myDataColOne">
+        <p class="D-fontSize">Êý¾ÝÑùÊ½£º
+          <a href="" class="button button-block button-rounded button-action D-myDataDownload">ÏÂÔØ</a>
+        </p>
+      </div>
+      
+      <!-- ÊÕ²Ø±¾·½°¸ -->
+      <div class="col-md-offset-6 col-md-2 col-sm-offset-5 col-sm-3" id="myDataColTwo">
+        <a href="" class="button button-block button-rounded button-highlight D-myDataDownload">ÊÕ²Ø±¾·½°¸</a>
+      </div>
+  </div> 
+</div>
+
+<!-- ¹¦ÄÜ¿ò -->
+<div class="container">
+  <div class="row">
+    
+    <!-- µÚÒ»ÁÐ -->
+    <div class="col-md-4">
+      <p>ÌåÑé</p>
+      <div class="D-contrlFunction">
+        <!-- ·Ö²ã  -->
+        <div>
+          <select class="form-control">
+            <option>请选择测试分析数据文件</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+
+        <!-- µÚ¶þ²ã -->
+        <div>
+
+        </div> 
+
+      </div>
+
+    </div>
+
+    <!-- µÚ¶þÁÐ -->
+    <div class="col-md-4">
+
+       <!-- ·Ö²ã  -->
+       <div>
+         <!-- ÏÂÀ­²Ëµ¥ -->
+          <div>
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              ÇëÑ¡ÔñÊý¾ÝÎÄ¼þ2
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </div>
+       </div>
+       <!-- µÚ¶þ²ã -->
+       <div >
+         <!-- ÏÂÀ­²Ëµ¥ -->
+          <div>
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              ÇëÑ¡ÔñÊý¾ÝÎÄ¼þ3
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </div>
+       </div>
+
+
+    </div>
+
+    <!-- µÚÈýÁÐ -->
+    <div class="col-md-4">
+      
+
+    </div>
+
   </div>
 </div>
 
@@ -120,13 +225,14 @@
 
 
 
-<!--编码内容结束************************************************************-->
 
-<!-- 页尾 -->
+<!--±àÂëÄÚÈÝ½áÊø************************************************************-->
+
+<!-- Ò³Î² -->
 <div class="D-footer">
   <div class="container">
     <div class="row">
-      <p class="h3" style="text-align: center;margin-top: 40px;">@福建师范大学开发团队</p>
+      <p class="h3" style="text-align: center;margin-top: 40px;">@¸£½¨Ê¦·¶´óÑ§¿ª·¢ÍÅ¶Ó</p>
     </div>
   </div>
 </div>
@@ -138,9 +244,9 @@
     <script src="js/jquery-1.12.0.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    <!-- 引入自己写的响应式页面插件 -->
+    <!-- ÒýÈë×Ô¼ºÐ´µÄÏìÓ¦Ê½Ò³Ãæ²å¼þ -->
     <script src="js/myResponsive.js" type="text/javascript"></script>
-    <!-- 我自己的JavaScript -->
-    
+    <!-- ÎÒ×Ô¼ºµÄJavaScript -->
+    <script src="js/myJS/analyzeOperation.js" type="text/javascript"></script>
   </body>
 </html>

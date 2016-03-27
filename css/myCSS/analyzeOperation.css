@@ -1,10 +1,74 @@
 #conInTro {
 	height: 300px;
-	background-color: red;
+    -moz-background-size:cover;
+    -webkit-background-size:cover;
+    -o-background-size:cover;
+    background-size:cover;
 }
 
 #inTro {
-	height: 300px;
-	background-color: yellow;
-	overflow:auto;
+	height: 220px;
+	background-color: #fff;
+	overflow: auto;
+	border-radius: 10px;
+	opacity: 0.8;
 }
+
+/*介绍内容*/
+#introduceWord {
+	padding: 15px 8px;
+	font-size: 18px;
+}
+
+#myImgBackgorund {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 300px;
+}
+
+/*遮罩层*/
+#grayShade {
+	position: absolute;
+	width: 100%;
+	background-color: #000;
+	height: 300px;
+	opacity: 0.4;
+}
+
+/*数据下载按钮*/
+.D-myDataDownload {
+	display: inline-block;
+	padding-left: 0;
+	padding-right: 0;
+	width:100px;
+}
+
+/*控制container的边距*/
+.D-containerBorder {
+	padding:20px;
+}
+
+/*数据样式下载这里的框框*/
+.D-secondRow {
+	padding: 20px 10px 10px 10px;
+	background-color: #fff;
+	box-shadow: 1px 0 10px #ccc;
+	border-radius: 10px;
+}
+
+/*控制字体*/
+.D-fontSize {
+	font-size: 20px;
+}
+
+/*控制功能区框框的大小*/
+.D-contrlFunction {
+	padding: 10px 30px;
+	border: 1px solid red; 
+	border-radius: 10px;
+}
+
+
+
+

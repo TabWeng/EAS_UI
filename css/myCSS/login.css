@@ -1,15 +1,28 @@
 /* 页首 */
 #Pheader{
 	text-align: center;
+	margin-top: 20px;
 }
 /* 用户div */
  #Duser{
 
  	margin-top: 30px;
  }
+/*登录字体*/
+#Pheader>h2 {
+	font-family: Microsoft Jhenghei;
+}
+/*登录页面窗体*/
+#myLoginWindow {
+	background-color: #fff;
+	margin-top: 40px;
+	padding: 30px;
+	text-align: center;
+	box-shadow: 0 1px 10px #ccc;
+}
+
  /* 选择按钮 */
 .choose{
-
 	color: rgb(51,122,183);
 }
  #forgetPW{
@@ -23,16 +36,14 @@
 }
 /* 注册 */
 #reg{
-	margin-left: 46%;
-
 	margin-top: 20px;
+	font-size: 20px;
 }
 /* 登录 */
 #loginBtn{
 
 	width: 100%;
 	margin-top:50px;
-
 }
 #error{
  
@@ -44,3 +55,4 @@ color: rgb(206,18,18);
   background-color: #f2dede;
   border-color: #a94442;
 }
+

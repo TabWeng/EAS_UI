@@ -14,7 +14,8 @@
     <link rel="stylesheet" type="text/css" href="css/buttons.css">
     <!-- 引入我们自己的css文件 -->
     <link rel="stylesheet" type="text/css" href="css/myCSS/index.css">
-    <link rel="stylesheet" type="text/css" href="css/myCss/login.css">
+    <link rel="stylesheet" type="text/css" href="css/myCSS/vipPay.css">
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -23,7 +24,7 @@
     <![endif]-->
   </head>
 
-    <body >
+    <body>
     
 <!-- #！bootstrap组件-导航条 -->
 <nav class="navbar navbar-inverse navbar-fixed-top" id="navbarId">
@@ -47,7 +48,7 @@
         <li><a href="#" id="mediumWord">基于学立方数据学习分析系统</a></li>
         <li><a href="#">首页</a></li>
         <li><a href="#">服务大厅</a></li>
-        
+        <li><a href="#">消息</a></li>
         <li><a href="register.html">注册 | 登录</a></li>
         
   <!--*登录后的显示*******************************************-->
@@ -90,46 +91,83 @@
 </nav>
 
 <!-- 抵消固定导航的高度 -->
-<div id="myOffsetNav" >
+<div id="myOffsetNav">
 </div>
 
 <!--编码内容开始*************************************************************-->
-<!-- 栅格系统 -->
+
 <div class="container">
   <div class="row">
-    <div class="col-md-6 col-md-offset-3" id="myLoginWindow">
-           <div class="page-header "id="Pheader">
-                <h2>登录</h2>
-            </div>
-             
-                <div class="form-group input-group Dinput"id="Duser">
-                   <sapn class="input-group-addon  "> <span class="glyphicon glyphicon-user"></span></sapn>
-                   <input type="text" class="form-control input-lg " id="username"name="accounts" placeholder="请输入账号">
-                    <span class="glyphicon  form-control-feedback" id="checkUser"></span>
-                </div>
-                <div class="form-group input-group Dinput"id="Dpsw"> 
-                   <sapn class="input-group-addon  "> <span class="glyphicon glyphicon-lock"></span></sapn>
-                   <input type="password" class="form-control input-lg" name="password" placeholder="请输入密码" id="psw">
-                   <span class="glyphicon  form-control-feedback" id="checkPsw"></span>
-                </div>
-                <p class="form-group input-group" id="error"></p>
+    <div class="col-md-offset-3 col-md-6" id="myVipPayWindow">
+      <h2>申请会员</h2>
+      <hr />
+      
+      <form id="applyVipForm" action="" method="post">
+        <div class="D-unifyStyle">
 
-                <div class="checkbox choose">
-                    <label id="rememberMe">
-                      <input type="checkbox">记住我
-                    </label>
-                    <label id="forgetPW">
-                      <a href="#" >忘记密码？</a>
-                    </label>
-                 </div> 
-        
-             <button  class=" button button-block button-rounded button-action button-large" id="loginBtn" >登录  </button>
-           
-           <div id="reg"><a href="register.html" >立即注册</a></div>
- 
-    </div><!-- 栅格系统分格 -->
-  </div><!-- row -->
-</div><!-- 栅格系统 -->
+          <div id="myHelp" class="col-md-offset-9 col-md-3 col-xs-3 col-xs-offset-9">
+            <a href="">使用帮助</a>
+          </div>
+
+          <div class="col-md-offset-1 col-md-7 D-myVip">
+              <p>申请用户：<span class="D-myPositionStyle">JHengHei</span></p>
+          </div>
+          <div class="col-md-3"></div>
+
+          <div class="col-md-offset-1 col-md-7 D-myVip">
+              <p>开通时长：
+                <input type="text" class="form-control" id="inputVipMonth" placeholder="输入月数"  onkeyup="this.value=this.value.replace(/[^\d]/g,'')"
+                onafterpaste="this.value=this.value.replace(/[^\d]/g,'') "
+                >
+                个月            
+              </p>
+
+          </div>
+          <div class="col-md-3"></div>
+
+          <div class="col-md-offset-1 col-md-7 D-myVip">
+            <p>应付金额：<span id="thePrice" class="D-myPositionStyle">0元</span></p>
+          </div>
+          <div class="col-md-3"></div>
+          
+          <div class="col-md-offset-1 col-md-7 D-myVip">
+            <p>请使用支付宝扫码支付：<span class="fitTo-1"></span></p>
+          </div>
+          <div class="col-md-3"></div> 
+          
+          <!-- 二维码扫描 -->
+          <div id="myVipOR" class="D-myVip">
+            <img src="images/QRCode.jpg">
+          </div>   
+
+          <div class="col-md-offset-1 col-md-7 D-myVip">
+            <p>请输入订单尾号五位数：<span class="fitTo-1"></p>
+          </div>
+          <div class="col-md-3"></div>   
+
+          <div class="col-md-offset-3 col-md-6 col-xs-offset-3 col-xs-6 D-myVip">
+            <input id="vipKey" type="text" class="form-control" placeholder="输入订单尾号5位数" onkeyup="this.value=this.value.replace(/[^\d]/g,'')"
+                onafterpaste="this.value=this.value.replace(/[^\d]/g,'') ">
+          </div>
+
+          <div class="col-md-offset-3 col-md-6 col-xs-offset-3 col-xs-6 D-myVip">
+            <a id="surePad" class="button button-block button-rounded button-action D-myBtn">确认扫描付款</a>
+          </div> 
+      </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -139,14 +177,17 @@
 
 <!--编码内容结束************************************************************-->
 
-<!-- 页尾 
-<div class="D-footer" style="margin-top: 40px">
-  <div class="row">
-    <p class="h3" style="text-align: center;margin-top: 40px;">@福建师范大学开发团队</p>
+<!-- 页尾 -->
+<!-- 页尾 -->
+<div class="D-footer">
+  <div class="container">
+    <div class="row">
+      <p class="h3" style="text-align: center;margin-top: 40px;">@福建师范大学开发团队</p>
+    </div>
   </div>
-</div>-->
+</div>
 
-
+</div>
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -155,10 +196,8 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- 引入自己写的响应式页面插件 -->
     <script src="js/myResponsive.js" type="text/javascript"></script>
-   <script src="js/myJS/login.js" type="text/javascript"></script>
-
     <!-- 我自己的JavaScript -->
+    <script src="js/myJS/vipPay.js" type="text/javascript"></script>
     
   </body>
 </html>
- 

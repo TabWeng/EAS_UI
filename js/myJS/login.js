@@ -1,4 +1,7 @@
  $(document).ready(function(){ 
+
+
+
      $("input").blur(function() { //注册blur的事件
     $(this).each(function() { //遍历input元素对象 
         if ("" == $(this).val()) { //判断元素对象的value值
@@ -9,6 +12,7 @@
         }
       });
   });
+
      $("#loginBtn").click(function(){ 
        $("input").each(function() { //遍历input元素对象 
         if ("" == $(this).val()) { //判断元素对象的value值
@@ -17,6 +21,7 @@
             $(this).removeClass("error");
         }
       });
+       
        $.ajax({ 
       type: "GET",  
       url: "#",
