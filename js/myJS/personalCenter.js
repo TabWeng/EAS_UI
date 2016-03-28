@@ -10,29 +10,6 @@ $(function(){
 		]
 	);
 });
-
-$(function(){
-	myResponsive(
-		"#linkVIP",
-		280,751,
-		{
-			"margin-left":"83px"
-		},
-		[
-		]
-	);
-});
-$(function(){
-	myResponsive(
-		"#linkVIP",
-		280,360,
-		{
-			"margin-top":"0"
-		},
-		[
-		]
-	);
-});
 $(function(){
 	myResponsive(
 		".userInfo",
@@ -67,17 +44,17 @@ $(function(){
 		]
 	);
 });
-function change(number){
-    switch(number){
-        case 1:
-        document.getElementById("yearVIP").style.display="none";
-        document.getElementById("monthVIP").style.display="block";
-        document.getElementById("monthBox").value=12;
-        break;
-        case 2:
-        document.getElementById("yearVIP").style.display="block";
-        document.getElementById("monthVIP").style.display="none";
-        document.getElementById("monthBox").value="";
-        break;
-    }
-}
+// function change(number){
+//     switch(number){
+//         case 1:
+//         document.getElementById("yearVIP").style.display="none";
+//         document.getElementById("monthVIP").style.display="block";
+//         document.getElementById("monthBox").value=12;
+//         break;
+//         case 2:
+//         document.getElementById("yearVIP").style.display="block";
+//         document.getElementById("monthVIP").style.display="none";
+//         document.getElementById("monthBox").value="";
+//         break;
+//     }
+// }

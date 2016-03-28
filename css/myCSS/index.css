@@ -101,7 +101,10 @@ body {
 	background-color: #333;
 
 }
-
+#linkVIP{
+	font-size: 15px;
+	color: #78a355;
+}
 /*子系统*/
 #smallSys {
 	font-size: 16px;
