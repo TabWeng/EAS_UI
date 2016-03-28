@@ -83,6 +83,7 @@
 
 /*功能文字标题（体验，使用）*/
 .D-functionTitle {
+	margin-top: 10px;
 	font-size: 25px;
 	font-family: Microsoft JHenghei;
 }
@@ -108,4 +109,22 @@
 	text-align: center;
 	border: 1px solid #ccc;
 	color: #666;
+}
+
+/*限制文件上传类型*/
+.D-limitUpData {
+	font-size: 18px;
+	line-height: 24px;
+}
+
+/*隐藏高级功能*/
+#hiddenProFuntion {
+	opacity: 0;
+}
+
+
+/*高级功能区*/
+.D-help {
+	text-align: right;
+	font-size: 20px;
 }
