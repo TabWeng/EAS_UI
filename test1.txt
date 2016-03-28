@@ -1,3 +1,4 @@
 {
-"existUsername":"false"
+"vipPrice":"40",
+"tdCodeImage":"images/14.jpg"
 }

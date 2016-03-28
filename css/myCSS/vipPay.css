@@ -9,6 +9,7 @@
 	font-family: Microsoft Jhenghei;
 	overflow: hidden;
 	box-shadow: 1px 0 10px #ccc;
+	border-radius: 10px;
 }
 
 /*设置统一风格*/

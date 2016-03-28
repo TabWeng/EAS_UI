@@ -9,4 +9,12 @@ $(function(){
 		}
 	);
 
+	myResponsive(
+		".D-canChooseWord",
+		972,1183,
+		{
+			"font-size":"13px"
+		}
+	);
+
 });

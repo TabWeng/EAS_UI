@@ -13,8 +13,8 @@
     <!-- 引入按钮样式 -->
     <link rel="stylesheet" type="text/css" href="css/buttons.css">
     <!-- 引入我们自己的css文件 -->
+    <link rel="stylesheet" type="text/css" href="css/myCSS/analyzeOperation.css">
     <link rel="stylesheet" type="text/css" href="css/myCSS/index.css">
-    <link rel="stylesheet" type="text/css" href="css/myCSS/vipPay.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -96,69 +96,88 @@
 
 <!--编码内容开始*************************************************************-->
 
-<div class="container">
+<div class="container-fluid" id="conInTro">
   <div class="row">
-    <div class="col-md-offset-3 col-md-6" id="myVipPayWindow">
-      <h2>申请会员</h2>
-      <hr />
-      
-      <form id="applyVipForm" action="" method="post">
-        <div class="D-unifyStyle">
-
-          <div id="myHelp" class="col-md-offset-9 col-md-3 col-xs-3 col-xs-offset-9">
-            <a href="">使用帮助</a>
-          </div>
-
-          <div class="col-md-offset-1 col-md-7 D-myVip">
-              <p>申请用户：<span class="D-myPositionStyle">JHengHei</span></p>
-          </div>
-          <div class="col-md-3"></div>
-
-          <div class="col-md-offset-1 col-md-7 D-myVip">
-              <p>开通时长：
-                <input type="text" class="form-control" id="inputVipMonth" placeholder="输入月数"  onkeyup="this.value=this.value.replace(/[^\d]/g,'')"
-                onafterpaste="this.value=this.value.replace(/[^\d]/g,'') "
-                >
-                个月            
-              </p>
-
-          </div>
-          <div class="col-md-3"></div>
-
-          <div class="col-md-offset-1 col-md-7 D-myVip">
-            <p>应付金额：<span id="thePrice" class="D-myPositionStyle">0元</span></p>
-          </div>
-          <div class="col-md-3"></div>
-          
-          <div class="col-md-offset-1 col-md-7 D-myVip">
-            <p>请使用支付宝扫码支付：<span class="fitTo-1"></span></p>
-          </div>
-          <div class="col-md-3"></div> 
-          
-          <!-- 二维码扫描 -->
-          <div id="myVipOR" class="D-myVip">
-            <img src="images/QRCode.jpg">
-          </div>   
-
-          <div class="col-md-offset-1 col-md-7 D-myVip">
-            <p>请输入订单尾号六位数：<span class="fitTo-1"></p>
-          </div>
-          <div class="col-md-3"></div>   
-
-          <div class="col-md-offset-3 col-md-6 col-xs-offset-3 col-xs-6 D-myVip">
-            <input id="vipKey" type="text" class="form-control" placeholder="输入订单尾号5位数" onkeyup="this.value=this.value.replace(/[^\d]/g,'')"
-                onafterpaste="this.value=this.value.replace(/[^\d]/g,'') ">
-          </div>
-
-          <div class="col-md-offset-3 col-md-6 col-xs-offset-3 col-xs-6 D-myVip">
-            <a id="surePad" class="button button-block button-rounded button-action D-myBtn">确认扫描付款</a>
-          </div> 
-      </form>
-
-      </div>
+    <!-- 简介背景 -->
+    <img id="myImgBackgorund" src="images/bigData.jpg">
+    <!-- 遮罩层 -->
+    <div id="grayShade"></div>
+    
+    <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-offset-2 col-xs-8">
+      <h3 style="color:#fff; font-family: Microsoft JHenghei">方案简介</h3>
     </div>
+
+    <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-offset-2 col-xs-8" id="inTro">
+      <p id="introduceWord">
+		自1970年起，软件开发进入了软件工程阶段。由于“软件危机”的产生，迫使人们不得不研究、改变软件开发的技术手段和管理方法。从此软件产生进入了软件工程时代。此阶段的特点是：硬件已向巨型化、微型化、网络化和智能化四个方向发展，数据库技术已成熟并广泛应用，第三代、第四代语言出现；第一代软件技术：结构化程序设计在数值计算领域取得优异成绩；第二代软件技术：软件测试技术、方法、原理用于软件生产过程；第三代软件技术：处理需求定义技术用于软件需求分析和描述。
+      </p>
+    </div>
+
   </div>
 </div>
+
+<div class="container D-containerBorder">
+  <div class="row D-secondRow">
+      
+      <!-- 数据样式 -->
+      <div class="col-md-4 col-sm-4" id="myDataColOne">
+        <p class="D-fontSize">数据样式：
+          <a href="" class="button button-block button-rounded button-action D-myDataDownload">下载</a>
+        </p>
+      </div>
+      
+      <!-- 收藏方案 -->
+      <div class="col-md-offset-6 col-md-2 col-sm-offset-5 col-sm-3" id="myDataColTwo">
+        <a href="" class="button button-block button-rounded button-highlight D-myDataDownload">收藏本方案</a>
+      </div>
+  </div> 
+</div>
+
+<!-- 操作内容 -->
+<div class="container">
+  <div class="row">
+    
+    <!-- 第一个模块 -->
+    <div class="col-md-4">
+      <p>体验</p>
+      <div class="D-contrlFunction">
+       	<!-- 第一层 -->
+        <div>
+          <select class="form-control">
+            <option>请选择测试分析数据文件</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+
+        <!-- 第二层 -->
+        <div>
+
+        </div> 
+
+      </div>
+
+    </div>
+
+    <!-- 第二个模块 -->
+    <div class="col-md-4">
+
+
+
+    </div>
+
+    <!-- 第三个模块 -->
+    <div class="col-md-4">
+      
+
+    </div>
+
+  </div>
+</div>
+
 
 
 
@@ -187,27 +206,6 @@
     <!-- 引入自己写的响应式页面插件 -->
     <script src="js/myResponsive.js" type="text/javascript"></script>
     <!-- 我自己的JavaScript -->
-    <script src="js/myJS/vipPay.js" type="text/javascript"></script>
-    <script type="text/javascript">
-      
-    $(function(){
-      // 动态给出价格和ajax二维码
-      $('#inputVipMonth').blur(function(){
-        $('#inputVipMonth').css("border","1px solid #ccc");   
-        if(this.value == ''){
-          $('#thePrice').html("0元");
-        }else{
-          var month = "month="+this.value;
-          $.getJSON("test1.txt",month,function(data){
-            $('#thePrice').html(data.vipPrice + "元");
-            $('#myVipOR img').attr("src",data.tdCodeImage);
-          });
-        }
-      });
-
-    });
-
-    </script>
-    
+    <script src="js/myJS/analyzeOperation.js" type="text/javascript"></script>
   </body>
 </html>

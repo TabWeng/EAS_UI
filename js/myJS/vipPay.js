@@ -15,29 +15,13 @@ $(function(){
  		}
 	});
 
-	// 动态给出价格和ajax二维码
-	$('#inputVipMonth').blur(function(){
-		$('#inputVipMonth').css("border","1px solid #ccc");		
-		if(this.value == ''){
-			$('#thePrice').html("0元");
-		}else{
-			var price = (parseInt(this.value)*10).toString();
-			$('#thePrice').html( price + "元");
-			/**********************
-			* 1.发送价格(字符串格式) 2.返回对应二维码的路径地址
-			***********************/
-			$.get("url地址",price,function(data){
-				$("#myVipOR img").attr("src",data);
-			},"text");
-		}
-
-	});
+      // 动态给出价格和ajax二维码
 
 
 	// 限制输入字符长度
 	$('#vipKey').bind('input propertychange', function(){
-		if(this.value.length >= "5"){
-			this.value = this.value.substr(0,5);
+		if(this.value.length >= "6"){
+			this.value = this.value.substr(0,6);
 		}
 	});
 
@@ -49,9 +33,9 @@ $(function(){
 		}else{
 			var getVipKeyLength = $('#vipKey')[0].value.length;
 			if( getVipKeyLength == 0){
-				alert("请输入支付订单尾号的五位数，如果不知道如何操作，请查看“帮助”");
-			}else if(getVipKeyLength != "5"){
-				alert("输入长度有误，请输入订单尾号的五位数");
+				alert("请输入支付订单尾号的6位数，如果不知道如何操作，请查看“帮助”");
+			}else if(getVipKeyLength != "6"){
+				alert("输入长度有误，请输入订单尾号的6位数");
 			}else{
 				$("#applyVipForm").submit();
 			}
