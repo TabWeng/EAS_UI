@@ -17,4 +17,14 @@ $(function(){
 		}
 	);
 
+	myResponsive(
+		"#hiddenProFuntion",
+		0,975,
+		{
+			"display":"none"
+		}
+	);	
+
+
+
 });

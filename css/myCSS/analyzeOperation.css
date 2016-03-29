@@ -62,13 +62,31 @@
 	font-size: 20px;
 }
 
+/*大区域*/
+.D-OperationContainer {
+	background-color: #fff;
+	padding: 20px;
+	box-shadow: 1px 0 10px #ccc;
+	border-radius: 10px;
+	margin-bottom: 20px;
+}
+
 /*控制功能区框框的大小*/
 .D-contrlFunction {
 	padding: 10px 30px;
-	border: 1px solid red; 
+	border-radius: 10px;
+	overflow: hidden;
+	background-color: #EBEBEB;
+	box-shadow: 1px 0 10px #555;
+	
+}
+
+.D-contrlFunction2 {
+	padding: 10px 30px;
 	border-radius: 10px;
 	overflow: hidden;
 }
+
 
 /*控制功能区选项*/
 .D-ctrlChoose {
@@ -122,9 +140,34 @@
 	opacity: 0;
 }
 
-
 /*高级功能区*/
 .D-help {
 	text-align: right;
 	font-size: 20px;
+}
+
+.D-CtrlMargin {
+	margin-bottom: 10px;
+}
+
+.D-CtrlMargin a{
+	font-size: 20px;
+	font-family: Microsoft JHenghei;
+	font-weight: 500;
+	border: 4px solid #A7DF3C;
+	line-height: 31px;
+}
+
+
+/*连接数据库并分析*/
+#myLeftFixed {
+	margin-top: 60px;
+	width: 330px;
+	height: 900px;
+	background-color: #F7F7F7;
+	border-right: 10px solid #78a355;
+	position: fixed;
+	left: 0;
+	top: 0;
+	color: #000;
 }
