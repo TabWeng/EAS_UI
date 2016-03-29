@@ -1,0 +1,25 @@
+.Dinput{
+width: 100%;
+resize:none;
+
+}
+#applyBtn{
+position: absolute;
+right: 15px;
+
+
+}
+#Pheader{
+
+	text-align: center;
+}
+#D-footer{
+margin-top: 80px;
+
+}
+
+.error {
+   color: #a94442;
+  background-color: #f2dede;
+  border-color: #a94442;
+}
