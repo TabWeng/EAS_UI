@@ -12,9 +12,14 @@ $(document).ready(function() {
   $(".analystOperation").click(function(){
  
  var hang = $(this).parent("tr").prevAll().length+1; 
- var t=$("table tr:eq("+hang+") td:eq(0)").text();
-  $("#Dinpt").val(t);
- 
+ var id=$("#Unfinished tr:eq("+hang+") td:eq(0)").text();
+ var title=$("#Unfinished tr:eq("+hang+") td:eq(1)").text();
+ var price=$("#Unfinished tr:eq("+hang+") td:eq(3)").text();
+  $("#Dinpt").val(id);
+  $("#Pay_indentID").text(id);
+  $("#Pay_title").text(title);
+  $("#Pay_price").text(price);
+
   });
 
   $("input:radio[name=chose]").click(function(){
@@ -88,5 +93,85 @@ $('#photoCover').val(filename);
       },     
     });
 });
+  $(".Djudge").click(function(){
+		var hang = $(this).parent("#Finished tr ").prevAll().length+1; 
+        var t=$("#Finished tr:eq("+hang+") td:eq(0)").text();
+        $("#Judge_indentID").text(t);
+        $("#Modify_indentID").text(t);
+        
+
+
+	}); 
+  $(".Dmodify").click(function(){
+		var hang = $(this).parent("#Finished tr ").prevAll().length+1; 
+        var t=$("#Finished tr:eq("+hang+") td:eq(0)").text();
+        $("#Modify_indentID").text(t);
+
+
+
+	});
+
+	$(".judge").click(function(){
+		$("#judgement").modal("show");
+
+
+	});	
+	$(".Pay").click(function(){
+		$("#Payment").modal("show");
+
+
+	});
+	$(".modify").click(function(){
+		$("#modification").modal("show");
+
+
+	});
+	$("#modifyBtn").click(function(){
+
+		var getreDescriptLength = $('#reDescript')[0].value.length;
+		 
+			if( getreDescriptLength == 0){
+				alert("请输入需求概述！");
+				
+			}else if(getreDescriptLength < "10"){
+				alert("至少输入10个字的需求概述！");
+				
+			}else{
+				$("#modifyForm").submit();
+
+				
+			}
+			
+		
+	});
+  // 限制输入字符长度
+	$('#payKey').bind('input propertychange', function(){
+		if(this.value.length >= "6"){
+			this.value = this.value.substr(0,6);
+		}
+	});
+	// 提交付款表单
+	$("#payBtn").click(function(){
+		var getpayKeyLength = $('#payKey')[0].value.length;
+			if( getpayKeyLength == 0){
+				alert("请输入支付订单尾号的6位数，如果不知道如何操作，请查看“帮助”");
+				
+			}else if(getpayKeyLength != "6"){
+				alert("输入长度有误，请输入订单尾号的6位数");
+				
+			}else{
+				$("#payForm").submit();
+
+				
+			}
+			
+		
+	});
+ /*$("#Unfinished tr").each.find("td").eq(0).(function()
+ {
+
+  alert( $(this).html());
+ });*/
+
 
 });

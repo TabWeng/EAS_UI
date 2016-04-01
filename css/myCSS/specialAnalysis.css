@@ -115,3 +115,15 @@ color: rgb(255,96,0);
   background-color: #f2dede;
   border-color: #a94442;
 }
+#Pay_title{
+    text-align: center;
+  }
+  .D_label{
+    text-align: right;
+  }
+  #P_title{
+    text-align: center;
+  }
+  .table_label{
+  	text-align:left;
+  }
