@@ -185,3 +185,21 @@ a {
 .D-signColorRed {
 	color: red;
 }
+
+/*已确认付款*/
+.D-haveAlreadyPad{
+	padding-left:77px;
+	padding-right:77px;
+}
+
+/*已删除*/
+.D-haveDele{
+	padding-left: 92px;
+	padding-right: 92px;
+}
+
+/*已完成*/
+.D-haveReturn {
+	padding-left: 47px;
+	padding-right: 48px;
+}

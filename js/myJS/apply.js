@@ -41,5 +41,55 @@ $(document).ready(function() {
          alert("发生错误：" + jqXHR.status);  
       },     
     });
-});
+
+  });
+
+
+  myResponsive(
+    ".D-toRelative",
+    752,2000,
+    {
+      "position":"relative",
+      "left":"-40px"
+    }
+  );
+
+  myResponsive(
+    "#applyBtn",
+    1183,2000,
+    {
+      "position":"relative",
+      "left":"-17px"
+    }
+  );
+
+  myResponsive(
+    "#applyBtn",
+    975,1182,
+    {
+      "position":"relative",
+      "left":"-40px"
+    }
+  );
+
+  myResponsive(
+    "#applyBtn",
+    752,974,
+    {
+      "position":"relative",
+      "left":"-23px"
+    }
+  );
+
+  myResponsive(
+    "#applyBtn",
+    0,752,
+    {
+      "position":"relative",
+      "left":"0",
+      "width":"100%"
+    }
+  );  
+
+
 });

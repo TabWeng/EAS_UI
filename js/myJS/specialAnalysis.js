@@ -173,5 +173,11 @@ $('#photoCover').val(filename);
   alert( $(this).html());
  });*/
 
+// 星星评价初始化
+$("#input-21f").rating({'size':'lg'});  //带参数初始化
+
+// $("#judgementToSubmit").click(function(){
+//   alert($("#input-21f")[0].value);
+// });
 
 });

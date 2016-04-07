@@ -1,6 +1,6 @@
 
 $(function(){
-	
+
 // 各个表格的页面初始化（全局变量）****************
 	var userManagePage = 1;
 	var analystManagePage = 1;
@@ -49,11 +49,11 @@ $(function(){
 // 系统管理页面
 	//平台费调控
 		//加载到前端的Url
-		var ALLSystemProfitLoadUrl = "test1.json";
+		var ALLSystemProfitLoadUrl = "system_loadSystemInfo";
 		// 保存到数据库的Url
-		var ALLSaveProfitCtrlUrl = "test1.json";
+		var ALLSaveProfitCtrlUrl = "system_settingSystemInfo";
 	//系统统计
-	var ALLSystemUrl = "test1.json";
+	var ALLSystemUrl = "admin_systemCount";
 //*********************************************************************
 
 
@@ -86,7 +86,7 @@ $(function(){
 	analysisApplyOperation(ALLApplyPassUrl,ALLApplyNoPassUrl,ALLloadUrl);
 
 // 系统管理页面
-	//平台费调控	
+	//平台费调控
 	ctrlSystemProfit(ALLSystemProfitLoadUrl,ALLSaveProfitCtrlUrl);
 	//系统统计
 	SystemStatisticsLoad(ALLSystemUrl);
@@ -109,7 +109,7 @@ $(function(){
 **************/
 
 function myAdminAjax(url, requestParam, pageType){
-	
+
 	switch (pageType){
 		case "userManage":
 			userManageAjax(url,requestParam);
@@ -122,19 +122,19 @@ function myAdminAjax(url, requestParam, pageType){
 			break;
 		case "analysisGathering":
 			analysisGatheringAjax(url,requestParam);
-			break;								
+			break;
 		case "returnMoney":
 			returnMoneyAjax(url,requestParam);
-			break;								
+			break;
 		case "analysisApplyManage":
 			analysisApplyManageAjax(url,requestParam);
 			break;
 		case "ALL":
 			userManageAjax(url,requestParam);
 			analystManageAjax(url,requestParam);
-			vipGatheringAjax(url,requestParam);	
+			vipGatheringAjax(url,requestParam);
 			analysisGatheringAjax(url,requestParam);
-			returnMoneyAjax(url,requestParam);			
+			returnMoneyAjax(url,requestParam);
 			analysisApplyManageAjax(url,requestParam);
 			break;
 		default:
@@ -162,7 +162,7 @@ function pageUpAndDown(url){
 		if(userManagePage > 1){
 			userManagePage--;
 			requestParam = "page="+userManagePage+"&type=userManage&timeStamp=" + new Date().getTime();
-			myAdminAjax(url, requestParam, "userManage");			
+			myAdminAjax(url, requestParam, "userManage");
 		}
 	});
 	$("#userManageDown").click(function(){
@@ -179,7 +179,7 @@ function pageUpAndDown(url){
 		if(analystManagePage > 1){
 			analystManagePage--;
 			requestParam = "page="+analystManagePage+"&type=analystManage&timeStamp=" + new Date().getTime();
-			myAdminAjax(url, requestParam, "analystManage");			
+			myAdminAjax(url, requestParam, "analystManage");
 		}
 	});
 	$("#analystManageDown").click(function(){
@@ -202,7 +202,7 @@ function pageUpAndDown(url){
 		if(vipGatheringPage < vipGatheringTotalPage){
 			vipGatheringPage++;
 			requestParam = "page="+vipGatheringPage+"&type=vipGathering&timeStamp=" + new Date().getTime();
-			myAdminAjax(url, requestParam, "vipGathering");	
+			myAdminAjax(url, requestParam, "vipGathering");
 		}
 	});
 
@@ -218,7 +218,7 @@ function pageUpAndDown(url){
 		if(analysisGatheringPage < analysisGatheringTotalPage){
 			analysisGatheringPage++;
 			requestParam = "page="+analysisGatheringPage+"&type=analysisGathering&timeStamp=" + new Date().getTime();
-			myAdminAjax(url, requestParam, "analysisGathering");		
+			myAdminAjax(url, requestParam, "analysisGathering");
 		}
 	});
 
@@ -227,7 +227,7 @@ function pageUpAndDown(url){
 		if(returnMoneyPage > 1){
 			returnMoneyPage--;
 			requestParam = "page="+returnMoneyPage+"&type=returnMoney&timeStamp=" + new Date().getTime();
-			myAdminAjax(url, requestParam, "returnMoney");			
+			myAdminAjax(url, requestParam, "returnMoney");
 		}
 	});
 	$("#returnMoneyDown").click(function(){
@@ -278,7 +278,7 @@ function searchBtn(url){
 			// 获取搜索值并拼装成参数传给后端
 			var getUserPhone = "phone="+getPhone+"&type=userManage&timeStamp=" + new Date().getTime();
 			$.get(url,getUserPhone,function(data){
-				if(data.userManage.flag == true){
+				if(data.userManage.list.length != 0){
 					disposeTableToUserManage(data);
 					PageTureHiddenOrView("hidden", "userManage");
 				}else{
@@ -310,8 +310,9 @@ function searchBtn(url){
 		}else{
 			var getAnalystPhone = "phone="+getPhone+"&type=analystManage&timeStamp=" + new Date().getTime();
 			$.get(url,getAnalystPhone,function(data){
-				if(data.analystManage.flag == true){
+				if(data.analystManage.list.length != 0){
 					disposeTableToAnalystManage(data);
+					cancelQualificationSmall(ALLCancelAnalystUrl);
 					PageTureHiddenOrView("hidden", "analystManage");
 				}else{
 					$.alert({
@@ -339,12 +340,13 @@ function searchBtn(url){
 				    content: '请输入手机号码进行搜索！',
 				    confirm: function(){
 				    }
-				});			
+				});
 		}else{
 			var getVipGatheringPhone = "phone="+ getPhone +"&type=vipGathering&timeStamp=" + new Date().getTime();
 			$.get(url,getVipGatheringPhone,function(data){
-				if(data.vipGathering.flag == true){
+				if(data.vipGathering.list.length != 0){
 					disposeTableToVipGathering(data);
+					vipGatheringOperationSmall(ALLVipHavePadUrl,ALLVipCancelUrl);
 					PageTureHiddenOrView("hidden", "vipGathering");
 				}else{
 					$.alert({
@@ -356,7 +358,7 @@ function searchBtn(url){
 						    }
 						});
 				}
-			},"json");			
+			},"json");
 		}
 
 	});
@@ -373,12 +375,13 @@ function searchBtn(url){
 				    content: '请输入手机号码进行搜索！',
 				    confirm: function(){
 				    }
-				});				
+				});
 		}else{
 			var getAnalysisGatheringPhone = "phone="+getPhone+"&type=analysisGathering&timeStamp=" + new Date().getTime();
 			$.get(url,getAnalysisGatheringPhone,function(data){
-				if(data.analysisGathering.flag == true){
+				if(data.analysisGathering.list.length != 0){
 					disposeTableToAnalysisGathering(data);
+					analysisGatheringOperationSmall(ALLanalysisHavePadUrl,ALLanalysisCancelUrl);
 					PageTureHiddenOrView("hidden", "analysisGathering");
 				}else{
 					$.alert({
@@ -393,13 +396,13 @@ function searchBtn(url){
 			},"json");
 		}
 
-	});	
+	});
 
 	// 分析师回款搜索
 	$("#searchReturnMoneyBtn").click(function(){
 
 		var getPhone = $("#searchReturnPay")[0].value;
-		if(getPhone = ""){
+		if(getPhone == ""){
 			$.alert({
 					icon: 'glyphicon glyphicon-exclamation-sign D-signColorRed',
 				    title: '提示：',
@@ -407,12 +410,13 @@ function searchBtn(url){
 				    content: '请输入手机号码进行搜索！',
 				    confirm: function(){
 				    }
-				});	
+				});
 		}else{
 			var getReturnMoneyPhone = "phone="+getPhone+"&type=returnMoney&timeStamp=" + new Date().getTime();
 			$.get(url,getReturnMoneyPhone,function(data){
-				if(data.returnMoney.flag == true){
+				if(data.returnMoney.list.length != 0){
 					disposeTableToReturnMoney(data);
+					returnMoneyOperationSmall(ALLreturnMoneyOperatonUrl);
 					PageTureHiddenOrView("hidden", "returnMoney");
 				}else{
 					$.alert({
@@ -426,9 +430,27 @@ function searchBtn(url){
 				}
 			},"json");
 		}
-	});	
+	});
 
 }
+
+/*************************
+*函数名：limitInputSearch
+*功能：防止用户输入非数字字符
+*参数：
+	limitEleId 要控制的节点的 id
+*************************/
+function limitInputSearch(limitEleId){
+	var getEle = $("#"+limitEleId);
+	getEle.attr("onkeyup","this.value=this.value.replace(/[^\\d]/g,'')");
+	getEle.attr("onafterpaste","this.value=this.value.replace(/[^\\d]/g,'')");
+}
+limitInputSearch("searchUser");
+limitInputSearch("searchAnalyst");
+limitInputSearch("searchVipPay");
+limitInputSearch("searchPay");
+limitInputSearch("searchReturnPay");
+
 
 /*************************
 *函数名：refreshBtn
@@ -448,15 +470,15 @@ function refreshBtn(url){
 		PageTureHiddenOrView("view", "analystManage");
 	});
 	$("#viewAllvipGatheringRow").click(function(){
-		vipGatheringAjax(url,"page=1&type=vipGathering&timeStamp=" + new Date().getTime());	
-		PageTureHiddenOrView("view", "vipGathering");	
+		vipGatheringAjax(url,"page=1&type=vipGathering&timeStamp=" + new Date().getTime());
+		PageTureHiddenOrView("view", "vipGathering");
 	});
 	$("#viewAllanalysisGatheringRow").click(function(){
 		analysisGatheringAjax(url,"page=1&type=analysisGathering&timeStamp=" + new Date().getTime());
 		PageTureHiddenOrView("view", "analysisGathering");
 	});
 	$("#viewAllreturnMoneyRow").click(function(){
-		returnMoneyAjax(url,"page=1&type=returnMoney&timeStamp=" + new Date().getTime());		
+		returnMoneyAjax(url,"page=1&type=returnMoney&timeStamp=" + new Date().getTime());
 		PageTureHiddenOrView("view", "returnMoney");
 	});
 }
@@ -470,7 +492,6 @@ function refreshBtn(url){
 *ajax传给后端的参数举例：
 	analystId=9999999
 *****************************/
-
 function cancelQualification(cancelUrl,LoadUrl){
 	$(".D-cancelQualification").click(function(){
 		// 获取此行
@@ -490,7 +511,7 @@ function cancelQualification(cancelUrl,LoadUrl){
 			$.get(cancelUrl,cancelUID,function(data){
 				if(data.cancelAnalyst == true){
 					// 删除此行
-					// thisRow.remove();	
+					// thisRow.remove();
 					var myRequestParam = "page="+analystManagePage+"&type=analystManage&timeStamp=" + new Date().getTime();
 					// 重新加载本页面
 					myAdminAjax(LoadUrl, myRequestParam, "analystManage");
@@ -506,12 +527,53 @@ function cancelQualification(cancelUrl,LoadUrl){
 					});
 				}
 
-			},"json");	        
+			},"json");
 	      }
 	    });
 
 	});
 }
+
+// 取消资格副产品
+function cancelQualificationSmall(cancelUrl){
+	$(".D-cancelQualification").click(function(){
+		// 获取此行
+		var thisRow = $(this).parent().parent();
+		// 获得取消资格的UID
+		var cancelUID = "analystId="+ thisRow.children().eq(0).html();
+
+		$.confirm({
+	      icon: 'glyphicon glyphicon-exclamation-sign D-signColor',
+	      title: '',
+	      content: '确认取消UID为 '+thisRow.children().eq(0).html()+' 分析师的资格？',
+	      confirmButton: '确定',
+	      cancelButton: '取消',
+	      confirmButtonClass: 'D-confirm',
+	      cancelButtonClass: 'D-confirm',
+	      confirm: function(){
+			$.get(cancelUrl,cancelUID,function(data){
+				if(data.cancelAnalyst == true){
+					// 删除此行
+					thisRow.remove();
+					var myRequestParam = "page="+analystManagePage+"&type=analystManage&timeStamp=" + new Date().getTime();
+				}else{
+					$.alert({
+						icon: 'glyphicon glyphicon-exclamation-sign D-signColorRed',
+					    title: '提示：',
+					    confirmButton: '确定',
+					    content: '无法取消，请稍后重试！',
+					    confirm: function(){
+					    }
+					});
+				}
+
+			},"json");
+	      }
+	    });
+
+	});
+}
+
 
 /**********************
 *函数名：vipGatheringOperation
@@ -519,11 +581,12 @@ function cancelQualification(cancelUrl,LoadUrl){
 *参数：
 	havePadUrl 已付款的url
 	cancelUrl 删除的url
-	loadUrl 加载的url 
+	loadUrl 加载的url
 **********************/
 function vipGatheringOperation(havePadUrl,cancelUrl,loadUrl){
 	// 已付款操作
 	$(".D-VipHavePadOperation").click(function(){
+
 		var getId = "vipOrderId="+$(this).parent().prev().html();
 
 	    $.confirm({
@@ -555,7 +618,9 @@ function vipGatheringOperation(havePadUrl,cancelUrl,loadUrl){
 	});
 	// 删除操作
 	$(".D-VipCancelOperation").click(function(){
+
 		var getId = "vipOrderId="+$(this).parent().prev().html();
+
 		$.confirm({
 	      icon: 'glyphicon glyphicon-exclamation-sign D-signColor',
 	      title: '',
@@ -579,7 +644,76 @@ function vipGatheringOperation(havePadUrl,cancelUrl,loadUrl){
 					    }
 					});
 				}
-			},"json");	        
+			},"json");
+	      }
+	    });
+	});
+}
+
+//副产品
+function vipGatheringOperationSmall(havePadUrl,cancelUrl){
+	// 已付款操作
+	$(".D-VipHavePadOperation").click(function(){
+		// 获取此行
+		var thisRow = $(this).parent().parent();
+		var getId = "vipOrderId="+$(this).parent().prev().html();
+
+	    $.confirm({
+	      icon: 'glyphicon glyphicon-exclamation-sign D-signColor',
+	      title: '',
+	      content: '确认已付款？',
+	      confirmButton: '确定',
+	      cancelButton: '取消',
+	      confirmButtonClass: 'D-confirm',
+	      cancelButtonClass: 'D-confirm',
+	      confirm: function(){
+			$.get(havePadUrl,getId,function(data){
+				if(data.VipHavePadOperation == true){
+					thisRow.remove();
+				}else{
+					$.alert({
+						icon: 'glyphicon glyphicon-exclamation-sign D-signColorRed',
+					    title: '提示：',
+					    confirmButton: '确定',
+					    content: '无法取消，请稍后重试！',
+					    confirm: function(){
+					    }
+					});
+				}
+			},"json");
+	      }
+	    });
+	});
+	// 删除操作
+	$(".D-VipCancelOperation").click(function(){
+		// 获取此行
+		var thisRow = $(this).parent().parent();
+
+		var getId = "vipOrderId="+$(this).parent().prev().html();
+
+		$.confirm({
+	      icon: 'glyphicon glyphicon-exclamation-sign D-signColor',
+	      title: '',
+	      content: '确认删除？',
+	      confirmButton: '确定',
+	      cancelButton: '取消',
+	      confirmButtonClass: 'D-confirm',
+	      cancelButtonClass: 'D-confirm',
+	      confirm: function(){
+			$.get(cancelUrl, getId, function(data){
+				if(data.VipCancelOperation == true){
+					thisRow.remove();
+				}else{
+					$.alert({
+						icon: 'glyphicon glyphicon-exclamation-sign D-signColorRed',
+					    title: '提示：',
+					    confirmButton: '确定',
+					    content: '无法取消，请稍后重试！',
+					    confirm: function(){
+					    }
+					});
+				}
+			},"json");
 	      }
 	    });
 	});
@@ -591,11 +725,13 @@ function vipGatheringOperation(havePadUrl,cancelUrl,loadUrl){
 *参数：
 	havePadUrl 已付款的url
 	cancelUrl 删除的url
-	loadUrl 加载的url 	
+	loadUrl 加载的url
 ***************************/
 function analysisGatheringOperation(havePadUrl,cancelUrl,loadUrl){
 	$(".D-analysisHavePadOperation").click(function(){
-		
+
+		var getId = "specialOrderId="+$(this).parent().prev().html();
+
 	    $.confirm({
 	      icon: 'glyphicon glyphicon-exclamation-sign D-signColor',
 	      title: '',
@@ -605,7 +741,6 @@ function analysisGatheringOperation(havePadUrl,cancelUrl,loadUrl){
 	      confirmButtonClass: 'D-confirm',
 	      cancelButtonClass: 'D-confirm',
 	      confirm: function(){
-			var getId = "specialOrderId="+$(this).parent().prev().html();
 			$.get(havePadUrl,getId,function(data){
 				if(data.analysisHavePadOperation == true){
 					var myRequestParam = "page="+analysisGatheringPage+"&type=analysisGathering&timeStamp=" + new Date().getTime();
@@ -620,13 +755,15 @@ function analysisGatheringOperation(havePadUrl,cancelUrl,loadUrl){
 					    }
 					});
 				}
-			},"json");	        
+			},"json");
 	      }
-	    });		
+	    });
 
 	});
 
 	$(".D-analysisCancelOperation").click(function(){
+
+		var getId = "specialOrderId="+$(this).parent().prev().html();
 
 	    $.confirm({
 	      icon: 'glyphicon glyphicon-exclamation-sign D-signColor',
@@ -637,7 +774,6 @@ function analysisGatheringOperation(havePadUrl,cancelUrl,loadUrl){
 	      confirmButtonClass: 'D-confirm',
 	      cancelButtonClass: 'D-confirm',
 	      confirm: function(){
-			var getId = "specialOrderId="+$(this).parent().prev().html();
 			$.get(cancelUrl,getId,function(data){
 				if(data.analysisCancelOperation == true){
 					var myRequestParam = "page="+analysisGatheringPage+"&type=analysisGathering&timeStamp=" + new Date().getTime();
@@ -652,7 +788,76 @@ function analysisGatheringOperation(havePadUrl,cancelUrl,loadUrl){
 					    }
 					});
 				}
-			},"json");	        
+			},"json");
+	      }
+	    });
+
+	});
+}
+
+//副产品
+function analysisGatheringOperationSmall(havePadUrl,cancelUrl){
+	$(".D-analysisHavePadOperation").click(function(){
+		// 获取此行
+		var thisRow = $(this).parent().parent();
+		var getId = "specialOrderId="+$(this).parent().prev().html();
+
+	    $.confirm({
+	      icon: 'glyphicon glyphicon-exclamation-sign D-signColor',
+	      title: '',
+	      content: '确认已付款？',
+	      confirmButton: '确定',
+	      cancelButton: '取消',
+	      confirmButtonClass: 'D-confirm',
+	      cancelButtonClass: 'D-confirm',
+	      confirm: function(){
+			$.get(havePadUrl,getId,function(data){
+				if(data.analysisHavePadOperation == true){
+					thisRow.remove();
+				}else{
+					$.alert({
+						icon: 'glyphicon glyphicon-exclamation-sign D-signColorRed',
+					    title: '提示：',
+					    confirmButton: '确定',
+					    content: '无法取消，请稍后重试！',
+					    confirm: function(){
+					    }
+					});
+				}
+			},"json");
+	      }
+	    });
+
+	});
+
+	$(".D-analysisCancelOperation").click(function(){
+		// 获取此行
+		var thisRow = $(this).parent().parent();
+		var getId = "specialOrderId="+$(this).parent().prev().html();
+
+	    $.confirm({
+	      icon: 'glyphicon glyphicon-exclamation-sign D-signColor',
+	      title: '',
+	      content: '确认删除？',
+	      confirmButton: '确定',
+	      cancelButton: '取消',
+	      confirmButtonClass: 'D-confirm',
+	      cancelButtonClass: 'D-confirm',
+	      confirm: function(){
+			$.get(cancelUrl,getId,function(data){
+				if(data.analysisCancelOperation == true){
+					thisRow.remove();
+				}else{
+					$.alert({
+						icon: 'glyphicon glyphicon-exclamation-sign D-signColorRed',
+					    title: '提示：',
+					    confirmButton: '确定',
+					    content: '无法取消，请稍后重试！',
+					    confirm: function(){
+					    }
+					});
+				}
+			},"json");
 	      }
 	    });
 
@@ -664,10 +869,12 @@ function analysisGatheringOperation(havePadUrl,cancelUrl,loadUrl){
 *功能：回款给分析师的 完成回款 操作
 *参数：
 	feekBackUrl 完成回款的url
-	loadUrl 加载的url	
+	loadUrl 加载的url
 ********************************/
 function returnMoneyOperation(feekBackUrl,loadUrl){
 	$(".D-returnMoneyOperation").click(function(){
+
+		var getId = "specialOrderId="+$(this).parent().prev().html();
 
 	    $.confirm({
 	      icon: 'glyphicon glyphicon-exclamation-sign D-signColor',
@@ -678,7 +885,6 @@ function returnMoneyOperation(feekBackUrl,loadUrl){
 	      confirmButtonClass: 'D-confirm',
 	      cancelButtonClass: 'D-confirm',
 	      confirm: function(){
-			var getId = "specialOrderId="+$(this).parent().prev().html();
 			$.get(feekBackUrl,getId,function(data){
 				if(data.returnMoneyOperation == true){
 					var myRequestParam = "page="+returnMoneyPage+"&type=returnMoney&timeStamp=" + new Date().getTime();
@@ -693,9 +899,45 @@ function returnMoneyOperation(feekBackUrl,loadUrl){
 					    }
 					});
 				}
-			},"json");	        
+			},"json");
 	      }
-	    });		
+	    });
+
+	});
+}
+
+//副产品
+function returnMoneyOperationSmall(feekBackUrl){
+	$(".D-returnMoneyOperation").click(function(){
+		// 获取此行
+		var thisRow = $(this).parent().parent();
+		var getId = "specialOrderId="+$(this).parent().prev().html();
+
+	    $.confirm({
+	      icon: 'glyphicon glyphicon-exclamation-sign D-signColor',
+	      title: '',
+	      content: '确认回款？',
+	      confirmButton: '确定',
+	      cancelButton: '取消',
+	      confirmButtonClass: 'D-confirm',
+	      cancelButtonClass: 'D-confirm',
+	      confirm: function(){
+			$.get(feekBackUrl,getId,function(data){
+				if(data.returnMoneyOperation == true){
+					thisRow.remove();
+				}else{
+					$.alert({
+						icon: 'glyphicon glyphicon-exclamation-sign D-signColorRed',
+					    title: '提示：',
+					    confirmButton: '确定',
+					    content: '无法取消，请稍后重试！',
+					    confirm: function(){
+					    }
+					});
+				}
+			},"json");
+	      }
+	    });
 
 	});
 }
@@ -712,6 +954,8 @@ function analysisApplyOperation(passUrl,noPassUrl,loadUrl){
 	// 通过
 	$(".D-ApplyPassOperation").click(function(){
 
+		var getId = "applyAnalystId="+$(this).parent().parent().children().eq(0).html();
+
 	    $.confirm({
 	      icon: 'glyphicon glyphicon-exclamation-sign D-signColor',
 	      title: '',
@@ -721,7 +965,6 @@ function analysisApplyOperation(passUrl,noPassUrl,loadUrl){
 	      confirmButtonClass: 'D-confirm',
 	      cancelButtonClass: 'D-confirm',
 	      confirm: function(){
-			var getId = "applyAnalystId="+$(this).parent().parent().children().eq(0).html();
 			$.get(passUrl,getId,function(data){
 				if(data.ApplyPassOperation == true){
 					var myRequestParam = "page="+analysisApplyManagePage+"&type=analysisApplyManage&timeStamp=" + new Date().getTime();
@@ -736,13 +979,15 @@ function analysisApplyOperation(passUrl,noPassUrl,loadUrl){
 					    }
 					});
 				}
-			},"json");	        
+			},"json");
 	      }
 	    });
 
 	});
 
 	$(".D-ApplyNoPassOperation").click(function(){
+
+		var getId = "applyAnalystId="+$(this).parent().parent().children().eq(0).html();
 
 	    $.confirm({
 	      icon: 'glyphicon glyphicon-exclamation-sign D-signColor',
@@ -753,7 +998,6 @@ function analysisApplyOperation(passUrl,noPassUrl,loadUrl){
 	      confirmButtonClass: 'D-confirm',
 	      cancelButtonClass: 'D-confirm',
 	      confirm: function(){
-			var getId = "applyAnalystId="+$(this).parent().parent().children().eq(0).html();
 			$.get(noPassUrl,getId,function(data){
 				if(data.ApplyNoPassOperation == true){
 					var myRequestParam = "page="+analysisApplyManagePage+"&type=analysisApplyManage&timeStamp=" + new Date().getTime();
@@ -768,7 +1012,7 @@ function analysisApplyOperation(passUrl,noPassUrl,loadUrl){
 					    }
 					});
 				}
-			},"json");	        
+			},"json");
 	      }
 	    });
 
@@ -785,34 +1029,52 @@ function analysisApplyOperation(passUrl,noPassUrl,loadUrl){
 ************************************/
 function ctrlSystemProfit(SystemLoadUrl,saveSystemUrl){
 	ctrlSystemProfitLoadData(SystemLoadUrl);
+
+	ctrlInputLimit("inputPercentSome");
+	ctrlInputLimit("inputPercentAll");
+
 	$("#confirmChange").click(function(){
 
-    $.confirm({
-      icon: 'glyphicon glyphicon-exclamation-sign D-signColor',
-      title: '',
-      content: '确定按此平台费调控？',
-      confirmButton: '确定',
-      cancelButton: '取消',
-      confirmButtonClass: 'D-confirm',
-      cancelButtonClass: 'D-confirm',
-      confirm: function(){
-		var getPart = "partTime="+$("#inputPercentSome")[0].value / 100;
-	 	var getFull = "fullTime="+$("#inputPercentAll")[0].value / 100;
-	 	$.get(saveSystemUrl,getPart&getFull,function(data){
-	 		if(data.SystemCtrl == false){
-				$.alert({
-					icon: 'glyphicon glyphicon-exclamation-sign D-signColorRed',
-				    title: '提示：',
-				    confirmButton: '确定',
-				    content: '操作失败，请稍后重试！',
-				    confirm: function(){
-				    }
-				});
-	 			ctrlSystemProfitLoadData(SystemLoadUrl);
-	 		}
-	 	},"json");        
-      }
-    });
+		var getPartEleValue = $("#inputPercentSome")[0].value;
+		var getFullEleValue = $("#inputPercentAll")[0].value;
+
+		if(getPartEleValue == "" || getFullEleValue == ""){
+			$.alert({
+				icon: 'glyphicon glyphicon-exclamation-sign D-signColorRed',
+			    title: '提示：',
+			    confirmButton: '确定',
+			    content: '请输入调控值再确定！',
+			    confirm: function(){
+			    }
+			});
+		}else{
+		    $.confirm({
+		      icon: 'glyphicon glyphicon-exclamation-sign D-signColor',
+		      title: '',
+		      content: '确定按此平台费调控？',
+		      confirmButton: '确定',
+		      cancelButton: '取消',
+		      confirmButtonClass: 'D-confirm',
+		      cancelButtonClass: 'D-confirm',
+		      confirm: function(){
+				var getPart = "partTime="+$("#inputPercentSome")[0].value / 100;
+			 	var getFull = "fullTime="+$("#inputPercentAll")[0].value / 100;
+			 	$.get(saveSystemUrl,getPart+"&"+getFull,function(data){
+			 		if(data.SystemCtrl == false){
+						$.alert({
+							icon: 'glyphicon glyphicon-exclamation-sign D-signColorRed',
+						    title: '提示：',
+						    confirmButton: '确定',
+						    content: '操作失败，请稍后重试！',
+						    confirm: function(){
+						    }
+						});
+			 			ctrlSystemProfitLoadData(SystemLoadUrl);
+			 		}
+			 	},"json");
+		      }
+		    });
+		}
 
 	});
 }
@@ -820,9 +1082,41 @@ function ctrlSystemProfit(SystemLoadUrl,saveSystemUrl){
 // 加载
 function ctrlSystemProfitLoadData(SystemLoadUrl){
 	$.get(SystemLoadUrl,function(data){
-		$("#inputPercentSome")[0].value = data.System.partTime * 100;
-		$("#inputPercentAll")[0].value = data.System.fullTime * 100;
+		$("#inputPercentSome")[0].value = data.systemInfo.partTime * 100;
+		$("#inputPercentAll")[0].value = data.systemInfo.fullTime * 100;
 	},"json");
+}
+
+// 平台费 限制输入
+function ctrlInputLimit(IDelement){
+
+	$("#"+IDelement).bind('input propertychange',function(){
+		var floatNum = /^[+-]?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)([eE][+-]?[0-9]+)?$/i;
+		if(floatNum.test(this.value) == false && this.value != ""){
+			this.value = "";
+			$.alert({
+				icon: 'glyphicon glyphicon-exclamation-sign D-signColorRed',
+			    title: '提示：',
+			    confirmButton: '确定',
+			    content: '请输入合法数字！',
+			    confirm: function(){
+			    }
+			});
+		}
+
+		if(this.value > 100){
+			this.value = '';
+				$.alert({
+					icon: 'glyphicon glyphicon-exclamation-sign D-signColorRed',
+				    title: '提示：',
+				    confirmButton: '确定',
+				    content: '请输入100以内的数字！',
+				    confirm: function(){
+				    }
+				});
+		}
+
+	});
 }
 
 /*************************
@@ -847,7 +1141,7 @@ function SystemStatisticsLoad(SystemUrl){
 *参数：
 	dateTime 要处理的时间字符串
 *返回：
-	newDateTime 处理完成的时间字符串 	
+	newDateTime 处理完成的时间字符串
 ************************************/
 function dealWithDate(dateTime){
 	var pattern = /T/ig;
@@ -870,7 +1164,7 @@ function disposeTableToUserManage(data){
 	// 先清空列表
 	$("#UserTable tbody").remove();
 	// 添加tbody节点
-	$("#UserTable thead").after("<tbody></tbody>");		
+	$("#UserTable thead").after("<tbody></tbody>");
 	// 添加用户管理表格内容*******************
 	for(var i in data.userManage.list){
 		$("#UserTable tbody").append("<tr><td>"+data.userManage.list[i].id
@@ -879,8 +1173,8 @@ function disposeTableToUserManage(data){
 			+"</td><td>"+data.userManage.list[i].phone
 			+"</td><td>"+data.userManage.list[i].email
 			+"</td><td>"+dealWithDate(data.userManage.list[i].vipDeadline)
-			+"</td></tr>"								
-			);			
+			+"</td></tr>"
+			);
 	}
 	// 获取总页数
 	userManageTotalPage = data.userManage.totalPage;
@@ -902,10 +1196,10 @@ function disposeTableToAnalystManage(data){
 	// 先清空列表
 	$("#analystManage tbody").remove();
 	// 添加tbody节点
-	$("#analystManage thead").after("<tbody></tbody>");		
+	$("#analystManage thead").after("<tbody></tbody>");
 	// 添加分析师管理表格内容*****************
 	for(var i in data.analystManage.list){
-		// 转化：1为全职，0为兼职			
+		// 转化：1为全职，0为兼职
 		var typeEmployee;
 		if(data.analystManage.list[i].isEmployee == 1){
 			typeEmployee = "全职";
@@ -918,8 +1212,8 @@ function disposeTableToAnalystManage(data){
 			+"</td><td>"+data.analystManage.list[i].realName
 			+"</td><td>"+data.analystManage.list[i].phone
 			+"</td><td>"+data.analystManage.list[i].alipayAccount
-			+"</td><td>"+data.analystManage.list[i].orders
-			+"</td><td>"+data.analystManage.list[i].starAverage
+			+"</td><td>"+data.analystManage.list[i].analistOrders
+			+"</td><td>"+data.analystManage.list[i].analistStarAverage
 			+"</td><td>"+typeEmployee
 			+"</td><td><a class='D-cancelQualification D-cancelAnalizeBtn button button-caution button-rounded'>取消资格</a></td></tr>"
 			);
@@ -928,7 +1222,7 @@ function disposeTableToAnalystManage(data){
 }
 
 // 会员付款
-function vipGatheringAjax(url,requestParam){	
+function vipGatheringAjax(url,requestParam){
 
 	$.get(url,requestParam,function(data){
 		disposeTableToVipGathering(data);
@@ -947,13 +1241,15 @@ function disposeTableToVipGathering(data){
 
 	// 添加会员付款表格内容
 	for(var i in data.vipGathering.list){
-		
+
 		// 判断是否已付款-用于搜索
 		var myBtn;
-		if(data.vipGathering.list[i].isRealPay == 0){
-			myBtn = "</td><td><a class='D-VipHavePadOperation D-havePadBtn button button-action button-rounded'>已付款</a><a class='D-VipCancelOperation D-cancelAnalizeBtn button button-caution button-rounded'>删除</a></td></tr>";
+		if(data.vipGathering.list[i].isRealPay == null){
+			myBtn = "</td><td><a class='D-VipHavePadOperation D-havePadBtn button button-action button-rounded'>确认</a><a class='D-VipCancelOperation D-cancelAnalizeBtn button button-caution button-rounded'>删除</a></td></tr>";
+		}else if(data.vipGathering.list[i].isRealPay == 1){
+			myBtn = "</td><td><a class='D-haveAlreadyPad D-havePadBtn button button-rounded'>已确认付款</a></td></tr>";
 		}else{
-			myBtn = "</td><td><a class='D-havePadBtn button button-rounded'>已确认付款</a></td></tr>";
+			myBtn = "</td><td><a class='D-haveDele D-haveAlreadyPad D-havePadBtn button button-rounded'>已删除</a></td></tr>";
 		}
 
 		$("#vipGathering tbody").append("<tr><td>"+data.vipGathering.list[i].user.username
@@ -961,10 +1257,10 @@ function disposeTableToVipGathering(data){
 			+"</td><td>"+data.vipGathering.list[i].price
 			+"</td><td>"+data.vipGathering.list[i].user.phone
 			+"</td><td>"+data.vipGathering.list[i].orderSix
-			+"</td><td>"+dealWithDate(data.vipGathering.list[i].payDate)								
+			+"</td><td>"+dealWithDate(data.vipGathering.list[i].payDate)
 			+"</td><td>"+data.vipGathering.list[i].id
 			+myBtn
-			);			
+			);
 	}
 	vipGatheringTotalPage = data.vipGathering.totalPage;
 
@@ -985,16 +1281,18 @@ function disposeTableToAnalysisGathering(data){
 	// 先清空列表
 	$("#analysisGathering tbody").remove();
 	// 添加tbody节点
-	$("#analysisGathering thead").after("<tbody></tbody>");			
+	$("#analysisGathering thead").after("<tbody></tbody>");
 	// 添加专向分析付款表格内容
 	for(var i in data.analysisGathering.list){
 
 		// 判断是否已付款-用于搜索
 		var myBtn;
-		if(data.analysisGathering.list[i].isRealPay == 0){
-			myBtn = "</td><td><a class='D-analysisHavePadOperation D-havePadBtn button button-action button-rounded'>已付款</a><a class='D-analysisCancelOperation D-cancelAnalizeBtn button button-caution button-rounded'>删除</a></td></tr>";
+		if(data.analysisGathering.list[i].isRealPay == null){
+			myBtn = "</td><td><a class='D-analysisHavePadOperation D-havePadBtn button button-action button-rounded'>确认</a><a class='D-analysisCancelOperation D-cancelAnalizeBtn button button-caution button-rounded'>删除</a></td></tr>";
+		}else if(data.analysisGathering.list[i].isRealPay == 1){
+			myBtn = "</td><td><a class='D-haveAlreadyPad D-havePadBtn button button-rounded'>已确认付款</a></td></tr>";
 		}else{
-			myBtn = "</td><td><a class='D-havePadBtn button button-rounded'>已确认付款</a></td></tr>";
+			myBtn = "</td><td><a class='D-haveDele D-haveAlreadyPad D-havePadBtn button button-rounded'>已删除</a></td></tr>";
 		}
 
 		$("#analysisGathering tbody").append("<tr><td>"+data.analysisGathering.list[i].userByUserId.username
@@ -1002,29 +1300,30 @@ function disposeTableToAnalysisGathering(data){
 			+"</td><td>"+data.analysisGathering.list[i].userByUserId.phone
 			+"</td><td>"+data.analysisGathering.list[i].orderSix
 			+"</td><td>"+dealWithDate(data.analysisGathering.list[i].userPayDate)
-			+"</td><td>"+data.analysisGathering.list[i].userByAnalystId.realName									
+			+"</td><td>"+data.analysisGathering.list[i].userByAnalystId.realName
 			+"</td><td>"+data.analysisGathering.list[i].id
 			+myBtn
-			);			
+			);
 	}
 	analysisGatheringTotalPage = data.analysisGathering.totalPage;
 }
 
 // 回款分析员
 function returnMoneyAjax(url,requestParam){
-		
+
 	$.get(url,requestParam,function(data){
 		disposeTableToReturnMoney(data);
 		// 递归调用页面操作
 		returnMoneyOperation(ALLreturnMoneyOperatonUrl,url);
-	},"json");	
+
+	},"json");
 }
 // 回款分析员表格处理
 function disposeTableToReturnMoney(data){
 	// 先清空列表
 	$("#returnMoney tbody").remove();
 	// 添加tbody节点
-	$("#returnMoney thead").after("<tbody></tbody>");			
+	$("#returnMoney thead").after("<tbody></tbody>");
 	// 添加回款分析员表格内容
 	for(var i in data.returnMoney.list){
 
@@ -1033,10 +1332,10 @@ function disposeTableToReturnMoney(data){
 		if(data.returnMoney.list[i].payAnlistDate == null){
 			myBtn = "</td><td><a class='D-returnMoneyOperation D-havePadBtn button button-action button-rounded'>完成回款</a></td></tr>";
 		}else{
-			myBtn = "</td><td><a class='D-havePadBtn button button-rounded'>已完成回款</a></td></tr>";
+			myBtn = "</td><td><a class='D-haveReturn D-havePadBtn button button-rounded'>已完成</a></td></tr>";
 		}
 
-		// 转化：1为全职，0为兼职			
+		// 转化：1为全职，0为兼职
 		var typeEmployee;
 		if(data.returnMoney.list[i].userByAnalystId.isEmployee == 1){
 			typeEmployee = "全职";
@@ -1047,13 +1346,13 @@ function disposeTableToReturnMoney(data){
 			+"</td><td>"+typeEmployee
 			+"</td><td>"+data.returnMoney.list[i].userByAnalystId.phone
 			+"</td><td>"+data.returnMoney.list[i].price
-			+"</td><td>"+data.returnMoney.list[i].userByAnalystId.starAverage
+			+"</td><td>"+data.returnMoney.list[i].userByAnalystId.analistStarAverage
 			+"</td><td>"+dealWithDate(data.returnMoney.list[i].finishDate)
 			+"</td><td>"+data.returnMoney.list[i].payAnlistPrice
-			+"</td><td>"+data.returnMoney.list[i].id								
+			+"</td><td>"+data.returnMoney.list[i].id
 			+myBtn
 			);
-		returnMoneyTotalPage = data.returnMoney.totalPage;			
+		returnMoneyTotalPage = data.returnMoney.totalPage;
 	}
 }
 
@@ -1072,7 +1371,7 @@ function disposeTableToAnalysisApplyManage(data){
 	// 先清空列表
 	$("#analysisApplyManage tbody").remove();
 	// 添加tbody节点
-	$("#analysisApplyManage thead").after("<tbody></tbody>");		
+	$("#analysisApplyManage thead").after("<tbody></tbody>");
 	// 分析师申请管理
 	for(var i in data.analysisApplyManage.list){
 
@@ -1084,22 +1383,22 @@ function disposeTableToAnalysisApplyManage(data){
 		}
 		//******************
 
-		// 转化：1为全职，0为兼职			
+		// 转化：1为全职，0为兼职
 		var typeEmployee;
 		if(data.analysisApplyManage.list[i].isEmployee == 1){
 			typeEmployee = "全职";
 		}else if(data.analysisApplyManage.list[i].isEmployee == 0){
 			typeEmployee = "兼职";
-		}			
+		}
 		$("#analysisApplyManage tbody").append("<tr><td class='D-myHidden'>"+data.analysisApplyManage.list[i].id
 			+"</td><td>"+data.analysisApplyManage.list[i].user.id
 			+"</td><td>"+data.analysisApplyManage.list[i].user.username
 			+"</td><td>"+data.analysisApplyManage.list[i].user.realName
 			+"</td><td>"+typeEmployee
 			+"</td><td>"+data.analysisApplyManage.list[i].user.phone
-			+"</td><td>"+data.analysisApplyManage.list[i].alipayAccount	
-			// #@@新修改********								
-			+"</td><td><a class='D-detailBtn button button-highlight button-rounded' data-toggle='modal' data-target='#detail_"+i+"'>详情</a></td><td><a class='D-ApplyPassOperation D-havePadBtn button button-action button-rounded'>通过</a><a class='D-ApplyNoPassOperation D-cancelAnalizeBtn button button-caution button-rounded'>不通过</a></td></tr>"					
+			+"</td><td>"+data.analysisApplyManage.list[i].alipayAccount
+			// #@@新修改********
+			+"</td><td><a class='D-detailBtn button button-highlight button-rounded' data-toggle='modal' data-target='#detail_"+i+"'>详情</a></td><td><a class='D-ApplyPassOperation D-havePadBtn button button-action button-rounded'>通过</a><a class='D-ApplyNoPassOperation D-cancelAnalizeBtn button button-caution button-rounded'>不通过</a></td></tr>"
 			//******************
 			);
 
@@ -1110,7 +1409,7 @@ function disposeTableToAnalysisApplyManage(data){
 		$("#detail_"+i+" .D-mySelfContent").append(data.analysisApplyManage.list[i].selfIntroduction);
 		$("#detail_"+i+" .D-skillContent").append(data.analysisApplyManage.list[i].analyzeAbility);
 		$("#detail_"+i+" .D-experienceContent").append(data.analysisApplyManage.list[i].experience);
-	}				
+	}
 	analysisApplyManageTotalPage = data.analysisApplyManage.totalPage;
 }
 
@@ -1126,13 +1425,13 @@ function disposeTableTosystemManage(data){
 	// 先清空列表
 	$("#systemManage tbody").remove();
 	// 添加tbody节点
-	$("#systemManage thead").after("<tbody></tbody>");		
-	$("#systemManage tbody").append("<tr><td>"+data.totalUser
-		+"</td><td>"+data.totalAnalysis
-		+"</td><td>"+data.totalPartAnalysis
-		+"</td><td>"+data.totalFinishOrder
-		+"</td><td>"+data.totalNoFinishOrder
-		+"</td><td>"+data.totalVipUser+"</td><tr>"
+	$("#systemManage thead").after("<tbody></tbody>");
+	$("#systemManage tbody").append("<tr><td>"+data.userCount
+		+"</td><td>"+data.analystCount
+		+"</td><td>"+data.partTimeAnalystCount
+		+"</td><td>"+data.finishedOrdersCount
+		+"</td><td>"+data.unfinishedOrdersCount
+		+"</td><td>"+data.vipMemberCount+"</td><tr>"
 		);
 }
 
