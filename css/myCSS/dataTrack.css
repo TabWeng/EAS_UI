@@ -54,7 +54,7 @@
 /* 目录的背景*/
 .D-myContents {
 	width: 180px;
-	height: 560px;
+	max-height: 560px;
 	overflow: auto;
 }
 
@@ -173,6 +173,7 @@
 /*二级目录********************************/
 
 .D-mySecondLi {
+	overflow:hidden;
 /*	position: absolute;
 	left: 132px;
 	top: 0;*/

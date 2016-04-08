@@ -8,6 +8,8 @@ $(function() {
 	scrollNav();
 	// 时间控件调用
 	operationTime();
+	// 控制二级菜单
+	myContent();
 
 	// 监听
     $(window).resize(function() {
@@ -15,6 +17,7 @@ $(function() {
         explainHeight();
 		// 控制模态框图片的尺寸自适应窗口大小
 		ctrlModalPicSise();
+
     });
 });
 
@@ -109,7 +112,7 @@ function scrollNav() {
 	);
 }
 
-myContent();
+// 二级目录显示控制
 function myContent(){
 	var getMyLis = $(".D-firstContent");
 	var getLis = $(".D-mySecondLi");
@@ -123,4 +126,5 @@ function myContent(){
 	}
 
 }
+
 
