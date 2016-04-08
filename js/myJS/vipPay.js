@@ -15,8 +15,8 @@ $(function(){
  		}
 	});
 
-      // 动态给出价格和ajax二维码
-
+    // 动态给出价格和ajax二维码
+    // 写在html里面
 
 	// 限制输入字符长度
 	$('#vipKey').bind('input propertychange', function(){

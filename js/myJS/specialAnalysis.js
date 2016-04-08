@@ -47,7 +47,7 @@ $('input[id=lefile]').change(function() {
   var pos2 = path.lastIndexOf('\\');
   var pos = Math.max(pos1, pos2);
   var filename;
-  if( pos<0 ){filename=path;}
+  if( pos<0 ){filename= path;}
   else{filename= path.substring(pos+1);}
 $('#photoCover').val(filename);
 

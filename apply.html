@@ -97,24 +97,24 @@
 </div>
 
 <!--编码内容开始*************************************************************-->
-<div class="container">
-    <div class="col-md-9 col-md-offset-1">
+<div class="container" >
+    <div class="col-md-8 col-md-offset-2 D-myContainer">
       <div class="page-header "id="Pheader">
           <h2>申请成为本平台教育服务R语言分析师</h2>
       </div>
   
-      <div  class="form-group form-horizontal" action="#"method="post">
-          <div class="row form-group">
-          <div id="1"> 
-            <label class="control-label col-sm-3">姓名</label>
+      <div  class="form-group" action="#" method="post">
+          <div class="row form-group form-horizontal">
+          <div id="1" class="D-toRelative"> 
+            <label class="control-label col-sm-3">真实姓名</label>
              <div class="col-sm-3">
                 <input type="text"id="name" class="form-control" placeholder="请输入姓名">
                 <span id="1"></span>
              </div>
 
           </div>
-             <div id="2">
-               <label class="control-label col-sm-3">联系方式</label>
+             <div id="2" >
+               <label class="control-label col-sm-2">联系方式</label>
              <div class="col-sm-3">
                 <input type="telephone" class="form-control" id="telephone"placeholder="请输入联系方式">
                 <span id=" 2"></span>
@@ -124,17 +124,10 @@
                        
          </div>
   
-         <div class="row form-group">
-            <div id="3">
-           <label class="control-label col-sm-3">支付宝账号</label>
-             <div class="col-sm-3">
-                <input type="text" class="form-control" id="alipay_account"placeholder="请输入支付宝账号">
-                <span id=" 3"></span>
+         <div class="row form-group form-horizontal">
 
-             </div>
-            </div>
-            <div >
-            <label class="control-label col-sm-3">申请类型</label>
+            <div class="D-toRelative">
+            <label class="control-label col-sm-offset-1 col-sm-2">申请类型</label>
              <div class="col-sm-3">
                 <select class="form-control" id="isEmployee">
                   <option value="0"name="">兼职分析师</option>
@@ -143,6 +136,15 @@
                      
              </div> 
             </div>
+
+            <div id="3">
+           <label class="control-label col-sm-2">支付宝账号</label>
+             <div class="col-sm-3">
+                <input type="text" class="form-control" id="alipay_account"placeholder="请输入支付宝账号">
+                <span id=" 3"></span>
+
+             </div>
+            </div>            
              
                        
          </div>
@@ -150,35 +152,32 @@
 
          <div class="row form-group">
 
-             <label class="control-label col-sm-3">自我介绍</label>
-             <div class="col-sm-9">
+             <label class="control-label col-sm-offset-1 col-sm-11">自我介绍</label>
+             <div class="col-sm-offset-1 col-sm-10">
                <textarea name="self-introduction" id="self-introduction" rows="5"class="form-control Dinput "   ></textarea>
              </div>             
          </div>
 
          <div class="row form-group">
-             <label class="control-label col-sm-3">掌握的分析技能</label>
-             <div class="col-sm-9">
-               <textarea name="" id="skill" rows="5" class="form-control Dinput " ></textarea>
+             <label class="control-label col-sm-offset-1 col-sm-11">掌握的分析技能</label>
+             <div class="col-sm-offset-1 col-sm-10">
+               <textarea name="" id="skill" rows="5" class=" form-control Dinput " ></textarea>
              </div>             
          </div>
          <div class="row form-group">
-             <label class="control-label col-sm-3">对教育服务的理解及相关经验</label>
-             <div class="col-sm-9">
+             <label class="control-label col-sm-offset-1 col-sm-11">对教育服务的理解及相关经验</label>
+             <div class="col-sm-offset-1 col-sm-10">
                <textarea name="experience" id="experience"rows="5" class="form-control Dinput " ></textarea>
              </div>             
          </div>
-        
-      
-  
 
-
-
-
-
+          <div class="row form-group">
+            <div class="col-sm-offset-9 col-sm-3">
+              <button  type="button" class="button button-block button-rounded button-primary " id="applyBtn">申请</button>  
+            </div>
+          </div>
 
      </div>
-        <button  class=" button button-block button-rounded button-primary " id="applyBtn">申请  </button>
   
   </div> 
 </div>

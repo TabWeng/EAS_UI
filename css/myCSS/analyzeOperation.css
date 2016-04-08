@@ -167,7 +167,48 @@
 	background-color: #F7F7F7;
 	border-right: 10px solid #78a355;
 	position: fixed;
-	left: 0;
+	left: -330px;
 	top: 0;
 	color: #000;
+}
+
+/*标签 + 输入框*/
+.D-leftInput {
+	font-size: 18px;
+	background-color: #fff;
+	padding: 30px 17px 20px 13px;
+	margin: 25px 10px 10px;
+	text-align: center;
+	border-radius: 10px;
+	box-shadow: 1px 0 5px #555;
+}
+
+.D-myPandInput {
+	text-align: right;
+}
+
+.D-leftInput p {
+	margin-bottom: 20px;
+}
+
+#myLeftFixed button {
+	font-size: 16px;
+	box-shadow: 1px 0px 5px #999;
+}
+
+.D-leftInput img {
+	width: 210px;
+	margin-bottom: 20px;
+}
+
+/*IP输入框*/
+.D-inputStyle {
+	font-size: 16px;
+	margin-left: 10px;
+	display: inline-block;
+	width: 200px;	
+}
+
+#LineCancelBtn {
+	margin-top: 10px;
 }

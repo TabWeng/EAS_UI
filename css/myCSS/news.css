@@ -1,3 +1,6 @@
+.min-height{
+	height: 475px;
+}
 #orderSuccess,#orderCancel,#orderFinish{
 	margin-top: 10px;
 }

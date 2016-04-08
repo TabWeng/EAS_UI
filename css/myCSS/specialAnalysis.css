@@ -127,3 +127,9 @@ color: rgb(255,96,0);
   .table_label{
   	text-align:left;
   }
+
+
+  /*设置字体大小*/
+  #payForm {
+  	font-size: 15px;
+  }
