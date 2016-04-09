@@ -1,4 +1,3 @@
 {
-	"cancelOrderSituation": true,
-	"comfirmToPushOrder": true
+	"cancelOrderSituation": true
 }
