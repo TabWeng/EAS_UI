@@ -1,5 +1,14 @@
 $(function(){
+
+// 全局变量************************
+	// 未完成订单的分页
+	var noFinishOrderPage = 1;
+
+	// 取消订单
 	cancelOrder("test3.json");
+
+
+
 });
 
 
@@ -12,7 +21,6 @@ $(function(){
 *参数：
 	cancelOrderUrl 传给后端的url
 ***************/
-
 function cancelOrder(cancelOrderUrl){
 	// 绑定事件
 	$(".CancelOrder").bind("click",function(){
@@ -30,4 +38,43 @@ function cancelOrder(cancelOrderUrl){
 	});	
 }
 
+
+/***************
+*函数名：confirmPush
+*功能：取消付款
+*参数：
+	confirmPushUrl 传给后端的url
+***************/
+
+function confirmPush(confirmPushUrl){
+	$("#confirm").bind("click",function(){
+		var getOrderNumber = $("#Dinpt").value;
+		var getAnalystId = $("#Analyst_Id").value;
+		if(getAnalystId == ""){
+			var Params = "ASOcalcelPay?specialOrderId="+getOrderNumber;
+		}else {
+			var Params = "ASOcalcelPay?specialOrderId="+getOrderNumber+"&analyzeId="+getAnalystId;
+		}
+		// ajax
+		$.get(confirmPushUrl,Params,function(data){
+			if(data.comfirmToPushOrder == true){
+				$("#chose").css("display","none");
+				//从新加载未完成订单
+			}
+
+		},"json");
+
+
+	});
+}
+
+
+/***************
+*函数名：viewAnalysisList
+*功能：查看分析师列表
+*参数：
+***************/
+// function viewAnalysisList(){
+// 	$("#")
+// }
 
