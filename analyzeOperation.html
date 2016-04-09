@@ -12,6 +12,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- 引入按钮样式 -->
     <link rel="stylesheet" type="text/css" href="css/buttons.css">
+    <!-- 引入load样式 -->
+    <link rel="stylesheet" type="text/css" href="css/waitMe.min.css">
     <!-- 引入我们自己的css文件 -->
     <link rel="stylesheet" type="text/css" href="css/myCSS/analyzeOperation.css">
     <link rel="stylesheet" type="text/css" href="css/myCSS/index.css">
@@ -232,10 +234,10 @@
       <div class="D-contrlFunction2">
         <p class="D-help"><a href="">使用帮助</a></p>
         <div class="D-CtrlMargin">
-          <a href="" class="button button-block button-rounded">数据跟踪</a>
+          <a href="DataTrack.html" class="button button-block button-rounded">数据跟踪</a>
         </div>
         <div class="D-CtrlMargin">
-          <a href="" class="button button-block button-rounded">连接数据库并分析</a>
+          <a id="LinkDataBase" class="button button-block button-rounded">连接数据库并分析</a>
         </div>
       </div>
     </div>
@@ -246,18 +248,37 @@
 <!-- 连接数据库并分析 -->
 <div id="myLeftFixed">
 
-  <div class="container" style="color: red;">
-    <div class="row">
-      
-      <form>
-        <div class=""></div>  
-      </form>
-      
-    </div>
+  <div class="D-leftInput">
+    <form action="" method="post">
+      <div>
+        <img src="images/mysql.jpg">
+        <div class="D-myPandInput">
+          <p>
+            IP地址
+            <input type="text" class="form-control D-inputStyle" placeholder="输入IP">
+          </p>
+          <p>
+            端口
+            <input type="text" class="form-control D-inputStyle" placeholder="输入端口">
+          </p> 
+          <p>
+            库名
+            <input type="text" class="form-control D-inputStyle" placeholder="输入库名">
+          </p>                
+          <p>
+            用户名
+            <input type="text" class="form-control D-inputStyle" placeholder="输入用户名">
+          </p> 
+          <p>
+            密码
+            <input type="text" class="form-control D-inputStyle" placeholder="输入密码">
+          </p> 
+        </div>
+        <button id="submitLink" type="button" class="btn btn-block">连接并分析</button>
+      </div>  
+    </form>
+        <button  id="LineCancelBtn" type="button" class="btn btn-block">取消</button>
   </div>
-
-
-
 </div>
 
 
@@ -285,7 +306,9 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- 引入自己写的响应式页面插件 -->
     <script src="js/myResponsive.js" type="text/javascript"></script>
+    <script src="js/waitMe.min.js" type="text/javascript"></script>
     <!-- 我自己的JavaScript -->
     <script src="js/myJS/analyzeOperation.js" type="text/javascript"></script>
+    <script src="js/myJS/responseAnalyzeOperation.js" type="text/javascript"></script>
   </body>
 </html>
