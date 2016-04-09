@@ -1,6 +1,6 @@
 $(document).ready(function() {
    
-  //取消按钮   
+     
   $(".CancelPay").click(function(){
     $("#chose").css("display","block");
      
@@ -8,7 +8,7 @@ $(document).ready(function() {
   $("#cancel").click(function(){
     $("#chose").css("display","none");
   });
- //立即付款弹窗 
+  
   $(".analystOperation").click(function(){
  
  var hang = $(this).parent("tr").prevAll().length+1; 
@@ -21,7 +21,7 @@ $(document).ready(function() {
   $("#Pay_price").text(price);
 
   });
-//选择推送到服务大厅或者指定分析师
+
   $("input:radio[name=chose]").click(function(){
   var hasChk = $('#check1').is(':checked');
   if(hasChk){
@@ -40,17 +40,16 @@ $(document).ready(function() {
   }
 
  });
-  //上传材料
 $('input[id=lefile]').change(function() {
   var path=$(this).val();
   var pos1 = path.lastIndexOf('/');
   var pos2 = path.lastIndexOf('\\');
   var pos = Math.max(pos1, pos2);
   var filename;
-  if( pos<0 ){filename= path;}
+  if( pos<0 ){return path;}
   else{filename= path.substring(pos+1);}
-$('#photoCover').val(filename);
 
+$('#photoCover').val(filename);
 });
  //:input 获取的是 type=text,radio,button等select textarea等元素对象
 /*  $("input").blur(function() { //注册blur的事件
@@ -62,7 +61,6 @@ $('#photoCover').val(filename);
         }
       });
   });*/
-  //提交按钮
   $("#submitBtn").click(function(){
 
    /* $("input").each(function() { //遍历input元素对象 
@@ -80,7 +78,7 @@ $('#photoCover').val(filename);
       data: {
         type_Id: $("#type_Id").val(), 
         type_Demand: $("#type_Demand").val(), 
-        filedata: $("#lefile").val(), 
+        filedata: $("#filedata").val(), 
         descript: $("#descript").val(),
         title: $("#title").val(),
         Analyst_Id: $("#Analyst_Id").val(),
@@ -95,7 +93,6 @@ $('#photoCover').val(filename);
       },     
     });
 });
-  //评价弹窗
   $(".Djudge").click(function(){
 		var hang = $(this).parent("#Finished tr ").prevAll().length+1; 
         var t=$("#Finished tr:eq("+hang+") td:eq(0)").text();
@@ -105,7 +102,6 @@ $('#photoCover').val(filename);
 
 
 	}); 
-  //修改弹窗
   $(".Dmodify").click(function(){
 		var hang = $(this).parent("#Finished tr ").prevAll().length+1; 
         var t=$("#Finished tr:eq("+hang+") td:eq(0)").text();
@@ -177,5 +173,11 @@ $('#photoCover').val(filename);
   alert( $(this).html());
  });*/
 
+// 星星评价初始化
+$("#input-21f").rating({'size':'lg'});  //带参数初始化
+
+// $("#judgementToSubmit").click(function(){
+//   alert($("#input-21f")[0].value);
+// });
 
 });
