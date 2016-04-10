@@ -154,3 +154,9 @@ color: rgb(255,96,0);
   .D-style11 {
   	margin-top: 20px;
   }
+
+  /******************************************************/
+  /*手形*/
+  .fingleStyle {
+  	cursor: pointer;
+  }
