@@ -2,46 +2,60 @@
 
 	text-align: center;
 }
-#Mpictures{
-	width: 700px;
-	margin-top:25px;
-	position: relative;
-	font-family: 微软雅黑;
-	font-size: 12px;
-}
-#Mpictures img{
 
-	width: 100%;
-}
-.container p {
-	line-height: 12px;
-	line-height: 0px;
-	height: 0px;
-	margin: 10px;
-	color: #bbb
-}
-.action {
+
+
+ #P-modify{
+padding: 10px 10px;
+
+
+ }
+  
+ .Pbtn{
  
-}
-.cropped {
- 
-	 
- 
-	 
-	padding: 4px;
-	 
-	text-align: center;
-}
-.imageBox {
+ 	margin-top: 10px;
+ }
+
+ .imageBox {
 	position: relative;
- 
+	min-height: 220px;
+    max-height: 560px;
+	/* height: 400px;
+	width: 400px; */
 	border: 1px solid #aaa;
 	background: #fff;
 	overflow: hidden;
 	background-repeat: no-repeat;
 	cursor: move;
 	box-shadow: 4px 4px 12px #B0B0B0; 
+	text-align: center;
 }
+@media (max-width: 768px) {
+   .imageBox {
+    min-height: 500px;
+  }
+  #preview{
+  	margin-left: 33.3%
+  }
+}
+ 
+@media (max-width: 380px) {
+   .imageBox {
+    min-height: 250px;
+  }
+}
+
+@media (min-width: 768px) {
+   .imageBox {
+	
+    min-height: 400px;
+  }
+  #preview{
+  	margin-top: 33.3%
+  }
+}
+ 
+
 .imageBox .thumbBox {
 	position: absolute;
 	top: 50%;
@@ -66,24 +80,24 @@
 	background: rgba(0,0,0,0.7);
 }
  
-/*选择文件上传*/
- 
-.new-contentarea input[type=file] {
- 
-	background:#333;
- 
- 
-	 
- 
- 
-	 
-	opacity:0;
-	filter:alpha(opacity=0);
- 
+#preview{
+
+	margin-right: auto;
+	margin-left: auto;
 }
- 
-a.upload-img:hover{
-	background-color: #ec7e70;
+.D-myContainer {
+	background-color: #fff;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	box-shadow: 1px 0 10px #ccc;
+	border-radius: 10px;
 }
 
-.tc{text-align:center;}
+
+.error {
+   color: #a94442;
+  background-color: #f2dede;
+  border-color: #a94442;
+}
