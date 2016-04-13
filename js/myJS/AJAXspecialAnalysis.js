@@ -3,7 +3,7 @@ $(function(){
 //Url设置区******************************************
  
  // 表单校验*******************
- 	var formURL = "test3.json";
+ 	var formURL = "special_examineAnalystId";
 
  // 未完成订单*****************
  	// 未完成订单的表格-加载
@@ -95,6 +95,21 @@ function demandFormOperaton(examineUrl){
 	// 选中服务大厅，清空分析师ID
 	$("#check0").click(function(){
 		$("#Analyst_Id").val("");
+	});
+
+	// 限制需求概述 输入字符长度
+	$('#title').bind('input propertychange', function(){
+		if(this.value.length >= "10"){
+			this.value = this.value.substr(0,10);
+			$.alert({
+					icon: 'glyphicon glyphicon-exclamation-sign D-signColorRed',
+				    title: '提示：',
+				    confirmButton: '确定',
+				    content: '只能输入10个字',
+				    confirm: function(){
+				    }
+				});			
+		}
 	});
 
 	// 提交
@@ -675,11 +690,14 @@ function unFinishOrderTable(data){
 		}
 
 		// 获取分析员的信息, 并做相应处理
-		var getAnalysisName = data.unfinishedOrders.list[i].userByAnalystId.realName;
-		var getAnalyPhone = data.unfinishedOrders.list[i].userByAnalystId.phone;
-		if(getAnalysisName == null){
+		var getAnalysisName;
+		var getAnalyPhone
+		if(data.unfinishedOrders.list[i].userByAnalystId == null){
 			getAnalysisName = "——";
-			getAnalyPhone = "——";
+			getAnalyPhone = "——";			
+		}else{
+			var getAnalysisName = data.unfinishedOrders.list[i].userByAnalystId.realName;
+			var getAnalyPhone = data.unfinishedOrders.list[i].userByAnalystId.phone;
 		}
 
 		// 获取订单的状态
