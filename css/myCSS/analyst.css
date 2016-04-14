@@ -145,6 +145,11 @@ td {
 	font-size: 16px;
 	color: #9d9d9d;
 }
+
+
+.tab-content{
+	min-height: 300px;
+}
 #analystID,#analystName,#analystStar,#orderNum{
 	font-size: 18px;
 	font-weight: 900;
@@ -229,4 +234,11 @@ td {
 }
 #btnGroup_2 .btn{
 	margin-top: 10px;
+}
+#dataCheckBox{
+	float: right;
+	margin-top: 15px;
+}
+#usedDataCheck{
+	margin-top: 6px;
 }
