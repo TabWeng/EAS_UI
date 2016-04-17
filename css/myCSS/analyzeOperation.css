@@ -213,3 +213,7 @@
 #LineCancelBtn {
 	margin-top: 10px;
 }
+
+.no-padding{
+	padding: 0;
+}

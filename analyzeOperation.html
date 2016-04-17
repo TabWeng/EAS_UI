@@ -143,89 +143,89 @@
     
     <!-- 第一个模块 -->
     <div class="col-md-4">
-      <p class="D-functionTitle">体验</p>
-      <div class="D-contrlFunction">
-       	<!-- 第一层 -->
-        <div>
-          <div class="col-md-12 D-ctrlChoose">
-            <select class="form-control">
-              <option>请选择测试分析数据文件</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-            </select>
+      <form action="" method="post">
+        <p class="D-functionTitle">体验</p>
+        <div class="D-contrlFunction">
+          <!-- 第一层 -->
+          <div>
+            <div class="col-md-12 D-ctrlChoose">
+              <select class="form-control">
+                <option>请选择测试分析数据文件</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- 第二层 -->
+  <!--         <div>
+            <div class="col-md-9 col-sm-10 col-xs-9 D-ctrlChoose">
+              <select class="form-control">
+                <option>常模数据文件</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+              </select>
+            </div>
+            <div class="col-md-3 col-sm-2 col-xs-3 D-ctrlChoose">
+              <p class="D-canChooseWord">可选</p>
+            </div>
+          </div> --> 
+
+          <!-- 第三层 -->
+          <div>
+            <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top: 20px;">
+              <a href="analyzeResult.html" class="button button-block button-rounded button-action">开始体验</a>
+            </div>
           </div>
         </div>
-
-        <!-- 第二层 -->
-        <div>
-          <div class="col-md-9 col-sm-10 col-xs-9 D-ctrlChoose">
-            <select class="form-control">
-              <option>常模数据文件</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-            </select>
-          </div>
-          <div class="col-md-3 col-sm-2 col-xs-3 D-ctrlChoose">
-            <p class="D-canChooseWord">可选</p>
-          </div>
-        </div> 
-
-        <!-- 第三层 -->
-        <div>
-          <div class="col-md-12 col-sm-12 col-xs-12">
-            <a href="analyzeResult.html" class="button button-block button-rounded button-action">开始体验</a>
-          </div>
-        </div>
-      </div>
-
-
+      </form>
     </div>
 
-    <!-- 第二个模块 -->
+    <!-- 第二个模块 <-->
     <div class="col-md-4">
-
-      <p class="D-functionTitle">使用</p>
-      <div class="D-contrlFunction">
-        <!-- 第一层 -->
-        <div>
-          <div class="col-md-9 col-sm-10 col-xs-9 D-ctrlChoose">
-            <!-- 上传文件外层div -->
-            <div class="D-myDivInputFile">
-              <!-- 上传文件 -->
-              上传本地数据文件
-              <span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true" style="color:#78a355;"></span>
-              <input type="file" id="myInputFile" class="D-myInputFile">
+      <form action="" method="post" form-group form-horizontal>
+        <p class="D-functionTitle">使用</p>
+        <div class="D-contrlFunction form-group">
+          <!-- 第一层 -->
+          <div class="no-padding col-md-12 col-sm-12 col-xs-12 D-ctrlChoose">
+            <label class="D-canChooseWord col-md-3 col-sm-3 col-xs-12 D-ctrlChoose">CSV</label>
+            <div class="col-md-9 col-sm-9 col-xs-12 D-ctrlChoose">
+              <input id="lefile-1" type="file" style="display:none"id="filedata">
+              <div class="input-group">
+                <input id="photoCover-1" class="form-control D-myInputFile" type="text" readonly="readonly">
+                <div class="input-group-btn">
+              
+                  <a class="btn btn-primary" onclick="$('input[id=lefile-1]').click();">选择文件</a>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-md-3 col-sm-2 col-xs-3 D-ctrlChoose">
-            <p class="D-limitUpData">csv,xls</p>
-          </div>
-        </div>
-
-        <!-- 第二层 -->
-        <div>
-          <div class="col-md-9 col-sm-10 col-xs-9 D-ctrlChoose">
-            <!-- 上传文件外层div -->
-            <div class="D-myDivInputFile">
-              <!-- 上传文件 -->
-              上传本地常模文件
-              <span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true" style="color:#78a355;"></span>
-              <input type="file" id="myInputFile" class="D-myInputFile">
+          <div class="no-padding col-md-12 col-sm-12 col-xs-12 D-ctrlChoose">
+            <label class="D-canChooseWord col-md-5 col-sm-3 col-xs-12 D-ctrlChoose">本地常模</label>
+            <div class="col-md-7 col-sm-9 col-xs-12 D-ctrlChoose">
+              <input id="lefile-2" type="file" style="display:none"id="filedata">
+              <div class="input-group">
+                <input id="photoCover-2" class="form-control D-myInputFile" type="text" readonly="readonly">
+                <div class="input-group-btn">
+                  <a class="btn btn-primary" onclick="$('input[id=lefile-2]').click();">选择文件</a>
+                </div>
+              </div>
+              <div class="checkbox">
+                  <label>
+                    <input type="checkbox" value="">
+                      使用上次常模文件
+                  </label>
+                </div>
             </div>
           </div>
-          <div class="col-md-3 col-sm-2 col-xs-3 D-ctrlChoose">
-            <p class="D-canChooseWord">可选</p>
-          </div>
-        </div> 
-
-        <!-- 第三层 -->
-        <div>
-          <div class="col-md-12 col-sm-12 col-xs-12">
-            <a href="analyzeResult.html" class="button button-block button-rounded button-action">分析</a>
+          <!-- 第三层 -->
+          <div>
+            <div class="col-md-12 col-sm-12 col-xs-12" style="">
+              <a href="analyzeResult.html" class="button button-block button-rounded button-action">分析</a>
+            </div>
           </div>
         </div>
-      </div>
-
+      </form>
     </div>
 
     <!-- 第三个模块 -->
