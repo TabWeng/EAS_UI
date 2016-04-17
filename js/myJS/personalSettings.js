@@ -60,7 +60,15 @@ $(window).load(function() {
         // 手机验证码判断 - 来自短信api
         $("#zphone").click(function(){
           if($("#mobile")[0].value == ''){
-            alert("请先输入手机号码！");
+          
+            $.alert({
+            icon: 'glyphicon glyphicon-exclamation-sign D-signColorRed',
+            title: '提示：',
+            confirmButton: '确定',
+            content: '请先输入手机号码！',
+            confirm: function(){
+            }
+        });
           }else{
             get_mobile_code();            
           }
@@ -113,9 +121,10 @@ $(window).load(function() {
        $(this).each(function() { //遍历input元素对象 
         if ("" == $(this).val()) { //判断元素对象的value值
           $(this).addClass("error");//添加css样式
-          $(this).focus();
-        }else{
+          $("#verify").attr('disabled',"true");
+        }else{ 
             $(this).removeClass("error");
+            $("#verify").attr('disabled',"false");
         }
       });
      });
@@ -123,7 +132,7 @@ $(window).load(function() {
         $("#txtEmail").blur(function () {
                 
                     if (/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test($(this).val()) == false) {
-                        $("#spinfo").text("邮箱格式不正确，请重新填写！");
+                        $("#spinfo").text("邮箱格式不正确,请重新填写!");
                         $(this).val("");
                         $(this).focus();
                     }
@@ -155,7 +164,8 @@ $(window).load(function() {
           var psw=$("#psw").val();
           var repsw=$("#repsw").val();
           if (psw!=repsw) {
-            $("#pswinfo").text("两次密码不一致，请重新填写!");
+            $("#pswinfo").text("两次密码不一致,请重新填写!");
+             
           }
 
         });
@@ -167,21 +177,28 @@ $(window).load(function() {
 
 
         });
+        //密码
+        $('#psw').bind('input propertychange', function() {
+          $('#D-repsw').css("display","block");
+        });
 //提交表单
-/*$("#verify").click(function(){
-    var flag;
-    $("input").each(function() { //遍历input元素对象 
+ $("#verify").click(function(){
+       var str=true;
+       $("input").each(function() { //遍历input元素对象 
         if ("" == $(this).val()) { //判断元素对象的value值
-          $(this).addClass("error"); //添加css样式
-          
+          $(this).addClass("error");//添加css样式
+          str =false;
         }else{
             $(this).removeClass("error");
-             
- 
         }
       });
+       if(str){ 
+        $("#modifyForm").submit();
+       
+       } 
       
 
 
-  });*/
+  }); 
+
 });
