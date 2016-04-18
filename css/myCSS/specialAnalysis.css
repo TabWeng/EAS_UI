@@ -60,10 +60,11 @@ padding-left: 15px;
 
 
 .D-havePadBtn {
+  padding: 0;
 	height: 30px;
 	line-height: 30px;
 	font-size:15px;
-
+  min-width: 80px;
 	 
 }
 .Dbtn{
@@ -188,4 +189,12 @@ color: rgb(255,96,0);
 
 .D-signColorRed {
 	color: red;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+#excelDown{
+  min-width: 180px;
 }
