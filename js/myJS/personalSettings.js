@@ -121,10 +121,11 @@ $(window).load(function() {
        $(this).each(function() { //遍历input元素对象 
         if ("" == $(this).val()) { //判断元素对象的value值
           $(this).addClass("error");//添加css样式
-          $("#verify").attr('disabled',"true");
+           
+
         }else{ 
             $(this).removeClass("error");
-            $("#verify").attr('disabled',"false");
+             
         }
       });
      });
