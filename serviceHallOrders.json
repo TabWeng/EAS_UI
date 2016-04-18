@@ -1,0 +1,87 @@
+{
+    "isReceiveOrder": true,
+
+    "serviceHallOrders": {
+        "list": [
+            {
+                "applyDate": "2016-04-17 11:36:33", 
+                "ast": {
+                    "type": "学生"
+                }, 
+                "id":100123,
+                "descript": "aaaaaa", 
+                "isShellAS": 1, 
+                "title": "分析平均分", 
+                "userByUserId": {
+                    "username": "jack"
+                }
+            }, 
+            {
+                "applyDate": "2016-04-17 11:36:33", 
+                "ast": {
+                    "type": "学生"
+                }, 
+                "id":100124,
+                "descript": "bbbbbbbbbbbbb", 
+                "isShellAS": 1, 
+                "title": "分析平均分", 
+                "userByUserId": {
+                    "username": "jack"
+                }
+            }, 
+            {
+                "applyDate": "2016-04-17 11:36:33", 
+                "ast": {
+                    "type": "学生"
+                }, 
+                "id":100125,
+                "descript": "cccccccccccc", 
+                "isShellAS": 1, 
+                "title": "分析平均分", 
+                "userByUserId": {
+                    "username": "jack"
+                }
+            }, 
+            {
+                "applyDate": "2016-04-17 11:36:33", 
+                "ast": {
+                    "type": "学生"
+                }, 
+                "id":100126,
+                "descript": "ddddddddddd", 
+                "isShellAS": 1, 
+                "title": "分析平均分", 
+                "userByUserId": {
+                    "username": "jack"
+                }
+            }, 
+            {
+                "applyDate": "2016-04-17 11:36:33", 
+                "ast": {
+                    "type": "学生"
+                }, 
+                "id":100127,
+                "descript": "eeeeeeeeeeeeeeeeeee", 
+                "isShellAS": 1, 
+                "title": "分析平均分", 
+                "userByUserId": {
+                    "username": "jack"
+                }
+            }, 
+            {
+                "applyDate": "2016-04-17 11:36:33", 
+                "ast": {
+                    "type": "学生"
+                }, 
+                "id":100128,
+                "descript": "ccccccccccccrr", 
+                "isShellAS": 1, 
+                "title": "分析平均分", 
+                "userByUserId": {
+                    "username": "jack"
+                }
+            }
+        ], 
+        "totalPage": 3
+    }
+}

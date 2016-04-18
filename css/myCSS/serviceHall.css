@@ -133,6 +133,7 @@ td {
 	margin: auto;
 }
 .infoBox{
+	padding-top: 10px;
 	width: 200px;
 	margin: auto;
 }
@@ -143,9 +144,49 @@ td {
 /*设置小字体*/	
 .littleWord{
 	font-size: 16px;
-	color: #9d9d9d;
+	// color: #9d9d9d;
+	color: #666;
 }
 #analystID,#analystName,#analystStar,#orderNum{
 	font-size: 18px;
 	font-weight: 900;
+}
+
+/*隐藏*/
+.D-noDisplay {
+	display: none;
+}
+
+/*pointer*/
+.D-viewPointer {
+	cursor: pointer;
+}
+
+/*提示框样式*********************************************/
+
+  /*确认弹窗的按钮*/
+.D-confirm{
+	background-color:#A7DF3C;
+}
+
+/*确认框的内容*/
+.content {
+	text-align: center;
+	font-size: 16px;
+}
+
+.D-signColor {
+	color:#EE9A49;
+}
+
+.D-signColorRed {
+	color: red;
+}
+
+.D-signColorGreen {
+  color: #A7DF3C;
+}
+
+.D-analysisInfo {
+	display: none;
 }

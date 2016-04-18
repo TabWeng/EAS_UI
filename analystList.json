@@ -1,0 +1,35 @@
+{
+    "analystList": {
+        "list": [
+            {
+                "analistStarAverage": 3.5, 
+                "headImg": "HeadImg", 
+                "id": 14, 
+                "unfinishCount": 1, 
+                "username": "jack"
+            }, 
+            {
+                "analistStarAverage": 3.5, 
+                "headImg": "HeadImg", 
+                "id": 15, 
+                "unfinishCount": 1, 
+                "username": "jack"
+            }, 
+            {
+                "analistStarAverage": 3.5, 
+                "headImg": "HeadImg", 
+                "id": 16, 
+                "unfinishCount": 1, 
+                "username": "jack"
+            }, 
+            {
+                "analistStarAverage": 3.5, 
+                "headImg": "HeadImg", 
+                "id": 17, 
+                "unfinishCount": 1, 
+                "username": "jack"
+            }
+        ], 
+        "totalPage": 3
+    }
+}

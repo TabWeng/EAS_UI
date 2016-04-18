@@ -142,7 +142,7 @@
             </div>
     		<label class="control-label col-md-1 col-sm-2">需求名称</label>
     		<div class="col-md-3 col-sm-2">
-            <input type="text" class="form-control" id="title" >
+            <input type="text" class="form-control" id="title" placeholder="请输入15字以内的需求名称">
     		</div>
     		
     	</div>
@@ -172,7 +172,7 @@
     	    </label>
     		</div>
     		<div class="input-group col-md-3 col-sm-2" id="search" >
-            <input type="text" class="form-control inputID1" placeholder="分析师ID"id="Analyst_Id" disabled="disabled">
+            <input type="text" class="form-control inputID1" placeholder="分析师ID" id="Analyst_Id" disabled="disabled">
             <div class="input-group-btn" id="">
     			<a href="serviceHall.html?search=true" target="_blank" class="btn btn-default" id="searchTo"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a>
     		</div>
@@ -225,7 +225,7 @@
 
                           <tr>
                             <td >00000001</td>
-                            <td >学生分析学生分析</td>
+                            <td >学生分析学生分析你好啊不错咯</td>
                             <td >等待接单</td>
                             <td >400</td>
                             <td >学生</td>
@@ -307,16 +307,16 @@
          
         <div class="col-md-2 col-sm-3 col-xs-12 ">
           <label class="radio-inline">
-        <input type="radio" name="chose1" checked>发布到服务大厅
+        <input  id="check3" type="radio" name="chose1" value="1" checked>发布到服务大厅
           </label>
         </div>
         <div class="col-md-2 col-sm-3 col-xs-12 ">
           <label class="radio-inline">
-        <input type="radio" id="check2" name="chose1">指定分析师
+        <input type="radio" id="check2" name="chose1" value="2">指定分析师
           </label>
         </div>
         <div class="input-group col-md-2 col-sm-3 col-xs-12" id="search" >
-            <input type="text" class="form-control inputID2" placeholder="分析师ID" id="Analyst_Id"disabled="disabled" >
+            <input type="text" class="form-control inputID2" placeholder="分析师ID" id="Analyst_Id2"disabled="disabled" >
             <div class="input-group-btn" >
             <a href="serviceHall.html?search=true" target="_blank" class="btn btn-default"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a>
           </div>
@@ -529,7 +529,7 @@
              <div class="col-md-10  ">
                <textarea name="descript" id="descript"rows="5" class="form-control Dinput " ></textarea>
              </div>  --> 
-                  <input id="input-21f" value="0" type="number" class="rating" min=0 max=5 step=0.5 data-size="md" >   
+                  <input id="reDescript" value="0" type="number" class="rating" min=0 max=5 step=0.5 data-size="md" >   
              </div>
 
               </div>

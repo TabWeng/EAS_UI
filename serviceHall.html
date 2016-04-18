@@ -12,6 +12,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- 引入按钮样式 -->
     <link rel="stylesheet" type="text/css" href="css/buttons.css">
+    <!-- 引入确认插件的css -->
+    <link rel="stylesheet" type="text/css" href="css/jquery-confirm.min.css">    
     <!-- 引入我们自己的css文件 -->
     <link rel="stylesheet" type="text/css" href="css/myCSS/index.css">
     <link rel="stylesheet" type="text/css" href="css/myCSS/serviceHall.css">
@@ -131,67 +133,74 @@
                     <!-- 表格标题 -->
                       <thead class="D-thead">
                         <tr>
-                          <th class="">需求名称</th>
-                          <th class="">用户名</th>
-                          <th class="">需求类型</th>
-                          <th class="">分类</th>
-                          <th class="">发布时间</th>
-                          <th class="">说明</th>
-                          <th class="analystOperation">分析师操作</th>
+                          <th>需求名称</th>
+                          <th>用户名</th>
+                          <th>需求类型</th>
+                          <th>分类</th>
+                          <th>发布时间</th>
+                          <th>说明</th>
+                          <th>分析师操作</th>
                         </tr>
                       </thead>
 
                       <tbody>
 
-                          <tr id="orderCol_1">
-                            <td class="requireName">学生分析</td>
-                            <td class="userName">王晓明</td>
-                            <td class="requireType">分析模板</td>
-                            <td class="class">教育学生类</td>
-                            <td class="releaseTime">2016-3-12</td>
-                            <td class="requireDetail">
+                          <tr>
+                            <td class="D-noDisplay">102456</td>
+                            <td>学生分析</td>
+                            <td>王晓明</td>
+                            <td>分析模板</td>
+                            <td>教育学生类</td>
+                            <td>2016-3-12</td>
+                            <td>
                               <a href="#" class="D-detailBtn button button-highlight button-rounded" data-toggle="modal" data-target="#detail_1">详情</a>
                             </td>
-                            <td class="analystOperation">
+                            <td>
                               <a href="#" class="D-havePadBtn button button-action button-rounded analystOperation">接单</a>
                             </td>
                           </tr>
-                          <tr id="orderCol_2">
-                            <td class="requireName">学生分析</td>
-                            <td class="userName">你妈喊你</td>
-                            <td class="requireType">分析模板</td>
-                            <td class="class">教育学生类</td>
-                            <td class="releaseTime">2016-3-12</td>
-                            <td class="requireDetail">
+
+                          <tr>
+                            <td class="D-noDisplay">102456</td>
+                            <td>学生分析</td>
+                            <td>你妈喊你</td>
+                            <td>分析模板</td>
+                            <td>教育学生类</td>
+                            <td>2016-3-12</td>
+                            <td>
                               <a href="#" class="D-detailBtn button button-highlight button-rounded" data-toggle="modal" data-target="#detail_2">详情</a>
                             </td>
-                            <td class="analystOperation">
+                            <td>
                               <a href="#" class="D-havePadBtn button button-action button-rounded analystOperation">接单</a>
                             </td>
                           </tr>
-                          <tr id="orderCol_3">
-                            <td class="requireName">教育分析</td>
-                            <td class="userName">回家吃饭</td>
-                            <td class="requireType">分析模板</td>
-                            <td class="class">教育研究类</td>
-                            <td class="releaseTime">2016-2-31</td>
-                            <td class="requireDetail">
+
+                          <tr>
+                            <td class="D-noDisplay">102456</td>
+                            <td>教育分析</td>
+                            <td>回家吃饭</td>
+                            <td>分析模板</td>
+                            <td>教育研究类</td>
+                            <td>2016-2-31</td>
+                            <td>
                               <a href="#" class="D-detailBtn button button-highlight button-rounded" data-toggle="modal" data-target="#detail_3">详情</a>
                             </td>
-                            <td class="analystOperation">
+                            <td>
                               <a href="#" class="D-havePadBtn button button-action button-rounded analystOperation">接单</a>
                             </td>
                           </tr>
-                          <tr id="orderCol_4">
-                            <td class="requireName">教学分析</td>
-                            <td class="userName">！！！！！</td>
-                            <td class="requireType">分析模板</td>
-                            <td class="class">教育学生类</td>
-                            <td class="releaseTime">2016-3-12</td>
-                            <td class="requireDetail">
+
+                          <tr>
+                            <td class="D-noDisplay">102456</td>
+                            <td>教学分析</td>
+                            <td>！！！！！</td>
+                            <td>分析模板</td>
+                            <td>教育学生类</td>
+                            <td>2016-3-12</td>
+                            <td>
                               <a href="#" class="D-detailBtn button button-highlight button-rounded" data-toggle="modal" data-target="#detail_4">详情</a>
                             </td>
-                            <td class="analystOperation">
+                            <td>
                               <a href="#" class="D-havePadBtn button button-action button-rounded analystOperation">接单</a>
                             </td>
                           </tr>
@@ -205,8 +214,8 @@
                   <!-- 翻页 -->
                   <nav class="D-myNavPage col-md-12 col-sm-12 col-xs-12">
                     <ul class="pager">
-                      <li><a href="#">上一页</a></li>
-                      <li><a href="#">下一页</a></li>
+                      <li><a class="D-viewPointer" id="requirePageUp">上一页</a></li>
+                      <li><a class="D-viewPointer" id="requirePageDown">下一页</a></li>
                     </ul>
                   </nav> 
           
@@ -215,16 +224,16 @@
         <!-- 模态框 -->
 
         <!-- 需求简要说明模块 -->
-        <div class="modal fade" id="detail_1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal fade" id="detail_0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">需求简要说明</h4>
+                <h4 class="modal-title">需求简要说明</h4>
               </div>
-              <div class="modal-body">  
+              <div class="modal-body">
                 <div class="D-apply">
-                  <p class="h4">
+                  <p class="h4 D-demandOverView">
                     对学生成绩进行总体分析，数据量不多。
                   </p>
                 </div>
@@ -234,18 +243,39 @@
               </div>
             </div>
           </div>
-        </div>    
+        </div>  
+
+        <div class="modal fade" id="detail_1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">需求简要说明</h4>
+              </div>
+              <div class="modal-body">    
+                <div class="D-apply">
+                  <p class="h4 D-demandOverView">
+                    啊哈哈哈哈啊哈哈哈哈啊哈哈哈哈
+                  </p>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="modal fade" id="detail_2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">需求简要说明</h4>
+                <h4 class="modal-title">需求简要说明</h4>
               </div>
-              <div class="modal-body">    
+              <div class="modal-body">   
                 <div class="D-apply">
-                  <p class="h4">
-                    啊哈哈哈哈啊哈哈哈哈啊哈哈哈哈
+                  <p class="h4 D-demandOverView">
+                    就问你敢不敢接
                   </p>
                 </div>
               </div>
@@ -260,31 +290,11 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">需求简要说明</h4>
-              </div>
-              <div class="modal-body">   
-                <div class="D-apply">
-                  <p class="h4">
-                    就问你敢不敢接
-                  </p>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal fade" id="detail_4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">需求简要说明</h4>
+                <h4 class="modal-title">需求简要说明</h4>
               </div>
               <div class="modal-body"> 
                 <div class="D-apply">
-                  <p class="h4">
+                  <p class="h4 D-demandOverView">
                     是，这样吗？
                   </p>
                 </div>
@@ -301,79 +311,22 @@
         <!--分析师列表-->
         <div role="tabpanel" class="tab-pane D-someTableStyle col-md-12 col-sm-12 col-xs-12" id="analystList">
           <div class="tab-content">
-            <div class="tab-pane active" id="panel-1">
-              <!-- 在row里再添加一个div -->
-              <div class="col-md-3 col-sm-6">
-                <a href="" class="picBox">
-                  <img src="images/1.jpg" alt="分析方案1" class="img-rounded miniPic">
-                </a>
-                <div class="col-md-12">
-                  <div class="infoBox">
-                    <span class="littleWord">分析师ID：<span id="analystID">123456</span></span>
-                    <br>
-                    <span class="littleWord">分析师姓名：<span id="analystName">kumiko</span></span>
-                    <br>
-                    <span class="littleWord">分析师星级：<span id="analystStar">4.34</span>星级</span>
-                    <br>
-                    <span class="littleWord">状态：<span id="orderNum">16</span>份待处理订单</span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <a href="" class="picBox">
-                  <img src="images/2.jpg" alt="分析方案2" class="img-rounded miniPic">
-                </a>
-                <div class="col-md-12">
-                  <div class="infoBox">
-                    <span class="littleWord">分析师ID：<span id="analystID">561900</span></span>
-                    <br>
-                    <span class="littleWord">分析师姓名：<span id="analystName">merry</span></span>
-                    <br>
-                    <span class="littleWord">分析师星级：<span id="analystStar">4.17</span>星级</span>
-                    <br>
-                    <span class="littleWord">状态：<span id="orderNum">15</span>份待处理订单</span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <a href="" class="picBox">
-                  <img src="images/3.jpg" alt="分析方案3" class="img-rounded miniPic">
-                </a>
-                <div class="col-md-12">
-                  <div class="infoBox">
-                    <span class="littleWord">分析师ID：<span id="analystID">324567</span></span>
-                    <br>
-                    <span class="littleWord">分析师姓名：<span id="analystName">maki</span></span>
-                    <br>
-                    <span class="littleWord">分析师星级：<span id="analystStar">4.09</span>星级</span>
-                    <br>
-                    <span class="littleWord">状态：<span id="orderNum">23</span>份待处理订单</span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <a href="" class="picBox">
-                  <img src="images/4.jpg" alt="分析方案4" class="img-rounded miniPic">
-                </a>
-                <div class="col-md-12">
-                  <div class="infoBox">
-                    <span class="littleWord">分析师ID：<span id="analystID">242387</span></span>
-                    <br>
-                    <span class="littleWord">分析师姓名：<span id="analystName">nico</span></span>
-                    <br>
-                    <span class="littleWord">分析师星级：<span id="analystStar">4.66</span>星级</span>
-                    <br>
-                    <span class="littleWord">状态：<span id="orderNum">18</span>份待处理订单</span>
-                  </div>
-                </div>
-              </div>  
+            <div class="tab-pane active">
+              
+              <!-- 分析师列表的内容 -->
+              <div id="analysisOutList">
+
+          
+              </div><!--  <div id="analysisOutList"> -->
+
 
               <nav class="D-myNavPage col-md-12 col-sm-12 col-xs-12">
                 <ul class="pager">
-                  <li><a href="#">上一页</a></li>
-                  <li><a href="#">下一页</a></li>
+                  <li><a class="D-viewPointer" id="analysisPageUp">上一页</a></li>
+                  <li><a class="D-viewPointer" id="analysisPageDown">下一页</a></li>
                 </ul>
               </nav>
+
             </div>
           </div>
         </div>
@@ -383,6 +336,26 @@
     </div>
   </div>
 </div>
+
+
+<!-- 隐藏的div,作为模板 -->
+<div class="col-md-3 col-sm-6 D-analysisInfo">
+  <a href="" class="picBox">
+    <img src="images/1.jpg" class="img-rounded miniPic D-MyminiPic">
+  </a>
+  <div class="col-md-12">
+    <div class="infoBox">
+      <span class="littleWord">分析师ID：<span class="D-analystID">test</span></span>
+      <br>
+      <span class="littleWord">分析师姓名：<span class="D-analystName">test</span></span>
+      <br>
+      <span class="littleWord">分析师星级：<span class="D-analystStar">test</span>星级</span>
+      <br>
+      <span class="littleWord">状态：<span class="D-orderNum">test</span>份待处理订单</span>
+    </div>
+  </div>
+</div> 
+
 
 
 <!--编码内容结束************************************************************-->
@@ -403,9 +376,12 @@
     <script src="js/jquery-1.12.0.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    <!-- 引入自己写的响应式页面插件 -->
+    <!-- 引入自己写的响应式页面插件 -->    
     <script src="js/myResponsive.js" type="text/javascript"></script>
+    <!-- 引入确认框插件 -->
+    <script src="js/jquery-confirm.min.js" type="text/javascript"></script>    
     <!-- 我自己的JavaScript -->
     <script src="js/myJS/serviceHall.js" type="text/javascript"></script>
+    <script src="js/myJS/AJAXserviceHall.js" type="text/javascript"></script>
   </body>
 </html>
