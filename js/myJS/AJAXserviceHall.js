@@ -132,9 +132,9 @@ function receiveOrder(receiveOrderUrl){
 *参数：
 	receiveOrederViewUrl
 ************************************/
-function requireListViewOperation(receiveOrederViewUrl){
+// function requireListViewOperation(receiveOrederViewUrl){
 
-}
+// }
 
 /************************************
 *函数名：requirePageUpAndDown
@@ -275,6 +275,20 @@ function requireListToLoad(data){
 	
 	}
 
+	// 隐藏分析师接单操作,1,2为用户，3,4为分析师
+	if(data.gradeId == 1 || data.gradeId == 2){
+		// 隐藏tr
+		$("thead tr th").eq(6).css({"display":"none"});
+
+		$(".D-detailBtn").css("width","100px");
+		// 隐藏按钮
+		$(".analystOperation").parent().css("display","none");
+
+	}else if(data.gradeId == 3 || data.gradeId == 4){
+	}else{
+		alert("用户类别识别错误");
+	}
+
 }
 
 /***************************
@@ -314,7 +328,7 @@ function analystListToLoad(data){
 *调用：仅被 analystListToLoad 函数调用
 ***************************/
 function analysisListContant(data,getFirstEle,n){
-	getFirstEle.find(".D-MyminiPic").attr("src",data.analystList.list[n].headImg);
+	getFirstEle.find(".D-MyminiPic").attr("src","HeadImg/"+data.analystList.list[n].headImg);
 	getFirstEle.find(".D-analystID").html(data.analystList.list[n].id);
 	getFirstEle.find(".D-analystName").html(data.analystList.list[n].username);
 	getFirstEle.find(".D-analystStar").html(data.analystList.list[n].analistStarAverage);

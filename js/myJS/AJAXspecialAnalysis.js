@@ -74,7 +74,6 @@ $(function(){
 
 
 
-
 // 函数实现区====================================================================
 
 // 操作类-函数实现********************************************
@@ -529,7 +528,19 @@ function twoCodePay(twoCodePayUrl){
 					    }
 					});
 		}else{
+		
+		$.confirm({
+	      icon: 'glyphicon glyphicon-exclamation-sign D-signColor',
+	      title: '',
+	      content: '确认付款？',
+	      confirmButton: '确定',
+	      cancelButton: '取消',
+	      confirmButtonClass: 'D-confirm',
+	      cancelButtonClass: 'D-confirm',
+	      confirm: function(){
+
 			var param = "id="+$("#Pay_indentID").html()+"&orderSix="+getSixNumber;
+
 			$.get(twoCodePayUrl,param,function(data){
 				if(data.twoCodePay == true){
 					// 清空并隐藏
@@ -559,10 +570,13 @@ function twoCodePay(twoCodePayUrl){
 						    }
 						});	
 				}
+			},"json");
 
-			},"json");			
+	      }
+
+		});
+
 		}
-
 	});
 }
 
@@ -596,6 +610,7 @@ function canclePayOperation(cancelPayUrl){
 		      		requestNoFinishParam = "page="+noFinishOrderPage+"&timeStamp=" + new Date().getTime();
 		      		// 重新加载表格
 		      		unfinishedOrdersAjax(unFinishTableLoadURL, requestNoFinishParam);
+
 					$.alert({
 							icon: 'glyphicon glyphicon-ok-sign D-signColorGreen',
 						    title: '',
@@ -664,8 +679,13 @@ function commitEvalute(Url,orderId){
 		// ajax
 		$.get(Url,param,function(data){
 			if(data.commitStar == true){
+				
 				// 模态框隐藏
 				$("#judgement").modal("hide");
+
+				requestFinishParam = "page="+finishOrderPage+"&timeStamp=" + new Date().getTime();				
+				finishedOrdersAjax(finishTableLoadURL, requestFinishParam);
+
 					$.alert({
 							icon: 'glyphicon glyphicon-ok-sign D-signColorGreen',
 						    title: '',
@@ -1012,8 +1032,6 @@ function finishOrderTable(data){
 	}
 
 }
-
-
 
 
 }); // $(function(){});

@@ -135,6 +135,13 @@
 	margin-left: 5px;
 }
 
+#myOperationBtn a{
+	font-size: 18px;
+	border: none;
+	box-shadow: 1px 0 10px #ccc;
+	margin-left: 5px;
+}
+
 #inDataChoose button:hover {
 	background-color: #F0FFFF;
 }
@@ -233,4 +240,13 @@
 
 .D-signColorRed {
 	color: red;
+}
+
+/*****************************************/
+.D-signColorGreen {
+  color: #A7DF3C;
+}
+
+#hiddenInput {
+	display:none;
 }

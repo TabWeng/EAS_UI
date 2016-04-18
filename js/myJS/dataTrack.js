@@ -203,11 +203,13 @@ function submitTime(commitTimeUrl){
 			});			
 		}else{
 			// ajax 提交
-			param = "start="+getBeginTime+"&end="+getEndTime;
+			getHiddenInput = $("#hiddenInput");
+			var getValue = getHiddenInput.attr("name")+"="+getHiddenInput.val();
+			param = "start="+getBeginTime+"&end="+getEndTime+"&"+getValue;
 			
 			$.get(commitTimeUrl,param,function(data){
 				if(data.submitTimeOperation == true){
-					window.location.href="ASdataTrack?start="+getBeginTime+"&end="+getEndTime+"&result=true";
+					window.location.href="ASdataTrack?start="+getBeginTime+"&end="+getEndTime+"&result=true"+"&"+getValue;
 				}else{
 					$.alert({
 						icon: 'glyphicon glyphicon-exclamation-sign D-signColorRed',

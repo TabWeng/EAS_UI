@@ -92,6 +92,7 @@ function saveAnalyRecord(Url){
 		}else{
 			// 提交ajax
 			var getParam = {
+				"id":0
 				"title":getTitle,
 				"descript":getRemark
 			}
