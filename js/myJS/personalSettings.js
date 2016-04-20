@@ -37,30 +37,38 @@ $(window).load(function() {
 
 
   // 验证码判断
-          var flag2 = false;
-          $("#phoneNum").blur(function(){
-            var validatecode = "validateCode=" + $("#phoneNum")[0].value;
-         
-            if($("#phoneNum")[0].value != ''){         
-              $.get("${pageContext.request.contextPath}/user_checkValidateCode",validatecode,function(result){
-                 if(result == "false"){
-                  $("#phoneNum").after("<p id='validate' class='D-hint' style='color: red;'>验证码不正确！</p>");
-                    flag2 = false;
-                 }else{
-                  flag2 = true;
-                 }
-              },"text");
+    var flag2 = false;
+    $("#phoneNum").blur(function(){
+      var validatecode = "validateCode=" + $("#phoneNum")[0].value;
+   
+      if($("#phoneNum")[0].value != ''){         
+        $.get("${pageContext.request.contextPath}/user_checkValidateCode",validatecode,function(result){
+           if(result == "false"){
+            $("#phoneNum").after("<p id='validate' class='D-hint' style='color: red;'>验证码不正确！</p>");
+              flag2 = false;
+           }else{
+            flag2 = true;
+           }
+        },"text");
 
-              $("#phoneNum").focus(function(){
-                $("#validate").remove();
-              });
-            }
-          });
+        $("#phoneNum").focus(function(){
+          $("#validate").remove();
+        });
+      }
+    });
 
         // 手机验证码判断 - 来自短信api
         $("#zphone").click(function(){
           if($("#mobile")[0].value == ''){
-            alert("请先输入手机号码！");
+          
+            $.alert({
+            icon: 'glyphicon glyphicon-exclamation-sign D-signColorRed',
+            title: '提示：',
+            confirmButton: '确定',
+            content: '请先输入手机号码！',
+            confirm: function(){
+            }
+        });
           }else{
             get_mobile_code();            
           }
@@ -113,75 +121,104 @@ $(window).load(function() {
        $(this).each(function() { //遍历input元素对象 
         if ("" == $(this).val()) { //判断元素对象的value值
           $(this).addClass("error");//添加css样式
-          $(this).focus();
-        }else{
+           
+
+        }else{ 
             $(this).removeClass("error");
+             
         }
       });
      });
         //判断邮件格式
         $("#txtEmail").blur(function () {
                 
-                    if (/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test($(this).val()) == false) {
-                        $("#spinfo").text("邮箱格式不正确，请重新填写！");
-                        $(this).val("");
-                        $(this).focus();
-                    }
-                    else {
-                        $("#spinfo").text('');
-                       
-                        state=true;
-                    }
+            if (/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test($(this).val()) == false) {
+                $("#spinfo").text("邮箱格式不正确,请重新填写!");
+                $(this).val("");
+                $(this).addClass("error");
+                $(this).focus();
+            }
+            else {
+                $("#spinfo").text('');
+               
+             
+            }
                  
-            }) 
+          }) 
         //判断手机号
         $("#mobile").blur(function () {
                 
-                    if (/^((13[0-9])|(15[^4,\D])|(18[0,5-9]))\d{8}$/.test($(this).val()) == false) {
-                        $("#phonefo").text("手机号码格式不正确，请重新填写！");
-                        $(this).val("");
-                        $(this).focus();
-                    }
-                    else {
-                        $("#phonefo").text('');
-                       
-                        state=true;
-                    }
+            if (/^((13[0-9])|(15[^4,\D])|(18[0,5-9]))\d{8}$/.test($(this).val()) == false) {
+                $("#phonefo").text("手机号码格式不正确，请重新填写！");
+                $(this).val("");
+                $(this).focus();
+                $(this).addClass("error");
+            }
+            else {
+                $("#phonefo").text('');
+                
+               
+            }
                  
-            });
+          });
+        //判断姓名输入框
+        $("#name").blur(function(){
+ 
+          if (/^([a-zA-Z]|[\u4E00-\u9FA5])*$/.test($(this).val()) == false) {
+              $("#namefo").text("只输入允许中文或字母，请重新填写！");
+              $(this).val("");
+              $(this).focus();
+            }
+            else {
+              $("#namefo").text('');
+             
+              
+            }
+
+
+        });
         //判断两次密码
         $("#repsw").blur(function(){
 
           var psw=$("#psw").val();
           var repsw=$("#repsw").val();
           if (psw!=repsw) {
-            $("#pswinfo").text("两次密码不一致，请重新填写!");
+            $("#pswinfo").text("两次密码不一致,请重新填写!");
+            $(this).addClass("error");
+          }else{
+            $("#pswinfo").text(" ");
           }
 
         });
 
+
         $("#close").click(function(){
 
            $("#upload-file").val("");
-         
-
 
         });
+        //密码
+        $('#psw').bind('input propertychange', function() {
+          $('#D-repsw').css("display","block");
+        });
 //提交表单
-/*$("#verify").click(function(){
-    var flag;
-    $("input").each(function() { //遍历input元素对象 
+ $("#verify").click(function(){
+       var str=true;
+       $("input").each(function() { //遍历input元素对象 
         if ("" == $(this).val()) { //判断元素对象的value值
-          $(this).addClass("error"); //添加css样式
-          
+          $(this).addClass("error");//添加css样式
+          str =false;
         }else{
             $(this).removeClass("error");
-             
- 
         }
       });
+       if(str){ 
+        $("#modifyForm").submit();
+       
+       } 
       
 
 
-  });*/
+  }); 
+
 });
