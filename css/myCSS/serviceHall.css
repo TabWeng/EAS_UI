@@ -190,3 +190,11 @@ td {
 .D-analysisInfo {
 	display: none;
 }
+
+/**********************************/
+/********
+表格最小高
+********/
+.D-myTableStyle {
+	min-height: 500px;
+}

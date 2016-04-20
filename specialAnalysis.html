@@ -111,7 +111,7 @@
      <div class="row">
      <div class="col-md-3 col-sm-4 col-xs-12" id="apply"  >
          <span class="button-wrap">
-    <a href="#" class="button button-pill button-raised button-primary">需求表格下载</a>
+    <a href="#" class="no-padding button button-pill button-raised button-primary" id="excelDown">需求表格下载</a>
   </span>
       
     </div></div>
@@ -121,70 +121,88 @@
 
     <div  class="form-group form-horizontal" >
     	<div class="row form-group">
-    		<label class="control-label col-md-1 col-sm-2">需求类型</label>
-    		<div class="col-md-3 col-sm-2">
-                <select class="form-control" id="type_Demand">
-                <option value="0">分析模板订制</option>
-                <option value="1">分析报告订制</option>
-                </select> 
-                 
-            </div>
 
-    		<label class="control-label col-md-1 col-sm-2">分析类别</label>
-    		<div class="col-md-3 col-sm-2">
-                <select class="form-control" id="type_Id">
-                <option value="1">学生</option>
-                <option value="2">教师</option>
-                <option value="3">领导</option>
-                <option value="4">研究</option>
-                </select> 
-                         
-            </div>
-    		<label class="control-label col-md-1 col-sm-2">需求名称</label>
-    		<div class="col-md-3 col-sm-2">
+
+        <div class="no-padding col-md-4 col-sm-4">
+          <label class="control-label no-padding col-md-3 col-sm-3">需求类型</label>
+          <div class="col-md-9 col-sm-9">
+                  <select class="form-control" id="type_Demand">
+                  <option value="0">分析模板订制</option>
+                  <option value="1">分析报告订制</option>
+                  </select> 
+                   
+              </div>
+        </div>
+      		
+        <div class="no-padding col-md-4 col-sm-4">
+          <label class="control-label no-padding col-md-3 col-sm-3">分析类别</label>
+          <div class="col-md-9 col-sm-9">
+                  <select class="form-control" id="type_Id">
+                  <option value="1">学生</option>
+                  <option value="2">教师</option>
+                  <option value="3">领导</option>
+                  <option value="4">研究</option>
+                  </select> 
+                           
+              </div>
+        </div>
+      		
+        <div class="no-padding col-md-4 col-sm-4">
+          <label class="control-label no-padding col-md-3 col-sm-3">需求名称</label>
+          <div class="col-md-9 col-sm-9">
             <input type="text" class="form-control" id="title" placeholder="请输入15字以内的需求名称">
-    		</div>
+          </div>
+        </div>
+
     		
     	</div>
 
     	<div class="row form-group">
-    		
-    		<label class="control-label col-md-1 col-sm-2">上传材料</label>
-    		<div class="col-md-3 col-sm-2 ">
-            <input id="lefile" type="file" style="display:none"id="filedata">
-            <div class="input-group">
-            <input id="photoCover" class="form-control" type="text" readonly="readonly">
-            <div class="input-group-btn">
-            
-             <a class="btn btn-primary" onclick="$('input[id=lefile]').click();">选择文件</a>
-            </div>
-         </div>
-    		</div>
-    		<div class="col-md-1 col-sm-2"></div>
-    		<div class="col-md-2 col-sm-2"style="text-align: left;">
-    	    <label class="radio-inline">
-    		<input type="radio" name="chose" value="1" id="check0" checked>发布到服务大厅
-    	    </label>
-    		</div>
-    		<div class="col-md-2 col-sm-2 "style="text-align: left;">
-    	    <label class="radio-inline">
-    		<input type="radio" id="check1" name="chose" value="2">发布到指定分析师处
-    	    </label>
-    		</div>
-    		<div class="input-group col-md-3 col-sm-2" id="search" >
-            <input type="text" class="form-control inputID1" placeholder="分析师ID" id="Analyst_Id" disabled="disabled">
+
+    	   
+        <div class="no-padding col-md-4 col-sm-4">
+          <label class="control-label no-padding col-md-3 col-sm-3">上传材料</label>
+          <div class="col-md-9 col-sm-9">
+              <input id="lefile" type="file" style="display:none"id="filedata">
+              <div class="input-group">
+              <input id="photoCover" class="form-control" type="text" readonly="readonly">
+              <div class="input-group-btn">
+              
+               <a class="btn btn-primary" onclick="$('input[id=lefile]').click();">选择文件</a>
+              </div>
+           </div>
+          </div>
+        </div>  
+        
+        <div class="no-padding col-md-8 col-sm-8">
+          <div class="col-md-1 col-sm-1"></div>
+          <div class="no-padding col-md-4 col-sm-4"style="text-align: left;">
+            <label class="radio-inline">
+              <input type="radio" name="chose" value="1" id="check0" checked>发布到服务大厅
+            </label>
+          </div>
+          <div class="no-padding col-md-4 col-sm-4 "style="text-align: left;">
+            <label class="radio-inline">
+              <input type="radio" id="check1" name="chose" value="2">发布到指定分析师处
+            </label>
+          </div>
+          <div class="input-group no-padding col-md-3 col-sm-3" id="search" >
+            <input type="text" class="form-control inputID1" placeholder="分析师ID"id="Analyst_Id" disabled="disabled">
+<!-- >>>>>>> 9af1478d91fe2eb906421ca8d75b02cc06e92a7f -->
             <div class="input-group-btn" id="">
-    			<a href="serviceHall.html?search=true" target="_blank" class="btn btn-default" id="searchTo"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a>
-    		</div>
-    		</div>
-    		
+               <a href="serviceHall.html?search=true" target="_blank" class="btn btn-default" id="searchTo"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a>
+            </div>
+          </div>
+        </div>
     	</div>
-             <div class="row form-group">
-                 <label class="control-label col-md-1 col-sm-2">需求概述</label>
-                 <div class="col-md-11 col-sm-10">
-                   <textarea name="descript" id="descript"rows="5" class="form-control Dinput " ></textarea>
-                 </div>             
-             </div>
+      <div class="row form-group">
+        <div class="no-padding col-md-12"></div>
+          <!-- <div class="col-md-1 col-sm-1"></div> -->
+          <label class="control-label no-padding col-md-1 col-sm-1">需求概述</label>
+          <div class="col-md-11 col-sm-11">
+            <textarea name="descript" id="descript"rows="5" class="form-control Dinput " ></textarea>
+          </div>             
+      </div>
     </div>
 
 </form>

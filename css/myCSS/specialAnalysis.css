@@ -60,10 +60,11 @@ padding-left: 15px;
 
 
 .D-havePadBtn {
+  padding: 0;
 	height: 30px;
 	line-height: 30px;
 	font-size:15px;
-
+  min-width: 80px;
 	 
 }
 .Dbtn{
@@ -204,5 +205,12 @@ color: rgb(255,96,0);
   padding-right: 5px;
   width: 110px;
   text-align: center;
+}
 
+.no-padding {
+  padding: 0;
+}
+
+#excelDown{
+  min-width: 180px;
 }

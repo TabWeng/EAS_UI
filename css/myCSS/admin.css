@@ -203,3 +203,14 @@ a {
 	padding-left: 47px;
 	padding-right: 48px;
 }
+
+
+.D-cancelQualification,
+.D-VipHavePadOperation,
+.D-VipCancelOperation,
+.D-analysisHavePadOperation,
+.D-analysisCancelOperation,
+.D-returnMoneyOperation{
+	padding: 0;
+	min-width: 80px;
+}
