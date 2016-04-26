@@ -1350,6 +1350,7 @@ function disposeTableToReturnMoney(data){
 			+"</td><td>"+dealWithDate(data.returnMoney.list[i].finishDate)
 			+"</td><td>"+data.returnMoney.list[i].payAnlistPrice
 			+"</td><td>"+data.returnMoney.list[i].id
+			+"</td><td>"+data.analystManage.list[i].alipayAccount
 			+myBtn
 			);
 		// 获得表格的总页数

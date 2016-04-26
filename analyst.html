@@ -12,6 +12,9 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- 引入按钮样式 -->
     <link rel="stylesheet" type="text/css" href="css/buttons.css">
+    <!-- 引入确认插件的css -->
+    <link rel="stylesheet" type="text/css" href="css/jquery-confirm.min.css">
+
     <!-- 引入我们自己的css文件 -->
     <link rel="stylesheet" type="text/css" href="css/myCSS/index.css">
     <link rel="stylesheet" type="text/css" href="css/myCSS/analyst.css">
@@ -288,7 +291,7 @@
                     </ul>
                   </nav>
                   <div id="putCusModelPart" class="col-md-12 col-sm-12 col-xs-12">
-                    <form action="" method="post">
+                    <form method="post" id="getRForm">
                       <div class="col-md-6 col-sm-12 col-xs-12">
                         <div class=" no-padding col-md-12 col-sm-12 col-xs-12 D-ctrlChoose">
                             <span class="D-canChooseWord no-padding col-md-3 col-sm-3 col-xs-3 D-ctrlChoose">ID：</span>
@@ -384,9 +387,9 @@
                       </div>
                       <div class="col-md-6 col-sm-12 col-xs-12" id="btnGroup_2">
                         <div class="col-md-5 col-sm-5"></div>
-                        <a href="" class="btn btn-primary col-md-3 col-sm-3 col-xs-12">测试</a>
+                        <a id="myTest" class="btn btn-primary col-md-3 col-sm-3 col-xs-12">测试</a>
                         <div class="col-md-1 col-sm-1"></div>
-                        <button type="submit" class="btn btn-success col-md-3 col-sm-3 col-xs-12" disabled="disabled">提交</button>
+                        <button id="formToSubmit" type="button" class="btn btn-success col-md-3 col-sm-3 col-xs-12" disabled="disabled">提交</button>
                         <div style="clear: both;"></div>
                       </div>
                     </form>
@@ -444,7 +447,7 @@
                     </ul>
                   </nav>
                   <div id="putCusModelPart" class="col-md-12 col-sm-12 col-xs-12">
-                    <form action="" method="post">
+                    <form  method="post">
                       <div class="col-md-6 col-sm-6 col-xs-12">
                         <p style="font-size: 18px;">ID：&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 18px;">123456</span></p>
                         <div class=" no-padding col-md-12 col-sm-12 col-xs-12">
@@ -470,7 +473,7 @@
         <!-- 制作公用模板-->
         <div role="tabpanel" class="tab-pane D-someTableStyle" id="makePubModel">
           <div id="putCusModelPart" class="col-md-12 col-sm-12 col-xs-12" style="margin-top: 10px;">
-            <form action="" method="post">
+            <form method="post" id="publicForm">
               <div class="col-md-6 col-sm-12 col-xs-12">
                 <div class=" no-padding col-md-12 col-sm-12 col-xs-12 D-ctrlChoose">
                   <span class="D-canChooseWord no-padding col-md-3 col-sm-3 col-xs-12 D-ctrlChoose">名称：</span>
@@ -557,9 +560,9 @@
               </div>
               <div class="col-md-6 col-sm-12 col-xs-12" id="btnGroup_2">
                 <div class="col-md-5 col-sm-5"></div>
-                <a href="" class="btn btn-primary col-md-3 col-sm-3 col-xs-12">测试</a>
+                <a id="publicTestId" class="btn btn-primary col-md-3 col-sm-3 col-xs-12">测试</a>
                 <div class="col-md-1 col-sm-1"></div>
-                <button type="submit" class="btn btn-success col-md-3 col-sm-3 col-xs-12" disabled="disabled">提交</button>
+                <button id="publicId" type="button" class="btn btn-success col-md-3 col-sm-3 col-xs-12" disabled="disabled">提交</button>
                 <div style="clear: both;"></div>
               </div>
             </form>
@@ -717,6 +720,8 @@
     <script src="js/jquery-1.12.0.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <!-- 引入确认框插件 -->
+    <script src="js/jquery-confirm.min.js" type="text/javascript"></script> 
     <!-- 引入自己写的响应式页面插件 -->
     <script src="js/myResponsive.js" type="text/javascript"></script>
     <!-- 我自己的JavaScript -->

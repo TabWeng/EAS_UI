@@ -1,9 +1,22 @@
 $(function(){
 	// 调用操作方法
-	operation();
-
+	goToServerHall();
 });
 
+
+// analystLoad
+
+function goToServerHall(){
+	var reg = /analystLoad/i;
+	var getUrl = window.location.href;
+	if(reg.test(getUrl)){
+		$("#toClick").click();
+	}
+}
+
+/**********************************************************************
+获得参数-以下暂时不用
+*********************************************/
 // 分析师搜索过来的操作
 function operation(){
 	var getParam = GetQueryString("search");

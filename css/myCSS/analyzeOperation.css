@@ -170,6 +170,7 @@
 	left: -330px;
 	top: 0;
 	color: #000;
+	z-index: 1000;
 }
 
 /*标签 + 输入框*/
@@ -217,3 +218,50 @@
 .no-padding{
 	padding: 0;
 }
+
+/*******************************************************/
+  /*提示框样式*/
+
+  /*确认弹窗的按钮*/
+.D-confirm{
+	background-color:#A7DF3C;
+}
+
+/*确认框的内容*/
+.content {
+	text-align: center;
+	font-size: 16px;
+}
+
+.D-signColor {
+	color:#EE9A49;
+}
+
+.D-signColorRed {
+	color: red;
+}
+
+.D-signColorGreen {
+  color: #A7DF3C;
+}
+
+.D-confirmRed{
+	background-color:red;
+}
+
+/***************************************/
+/*隐藏标签a*/
+.D-hiddenA{
+	display: none;
+}
+
+/**添加数据库分析的sql注入样式**/
+.D-inSql{
+	display: block;
+	color: #A7DF3C;
+	margin:0;
+	padding:0;
+	float: right;
+	cursor: pointer;
+}
+

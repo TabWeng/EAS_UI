@@ -242,3 +242,29 @@ td {
 #usedDataCheck{
 	margin-top: 6px;
 }
+
+/*******************************************************/
+  /*提示框样式*/
+
+  /*确认弹窗的按钮*/
+.D-confirm{
+	background-color:#A7DF3C;
+}
+
+/*确认框的内容*/
+.content {
+	text-align: center;
+	font-size: 16px;
+}
+
+.D-signColor {
+	color:#EE9A49;
+}
+
+.D-signColorRed {
+	color: red;
+}
+
+.D-signColorGreen {
+  color: #A7DF3C;
+}

@@ -491,7 +491,7 @@ function toPushView(){
 		$("#Dinpt").val(id);
 		$("#Pay_indentID").text(id);
 		$("#Pay_title").text(title);
-		$("#Pay_price").text(price);
+		$("#myCodePay").attr("src","payImages/pay"+price+".jpg");
 	});	
 
 }

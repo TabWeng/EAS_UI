@@ -24,7 +24,9 @@ $(window).load(function() {
 		$('.cropped').html('');
 		$('.cropped').append('<img src="'+img+'" align="absmiddle" style="width:150px;margin-top:10px;border-radius:150px;box-shadow:0px 0px 12px #7E7E7E;">');
 		$('#pic').replaceWith('<img src="'+img+'"style="width: 100%;max-width: 150px;border-radius:150px;box-shadow:0px 0px 12px #7E7E7E;cursor:pointer; "title="点击更改头像" id="pic">');
-		  
+		// 隐藏模态框
+    $("#modifyPictures").modal("hide");
+
 	})
 	$('#btnZoomIn').on('click', function(){
 		cropper.zoomIn();
@@ -38,16 +40,22 @@ $(window).load(function() {
 
   // 验证码判断
     var flag2 = false;
+    var change = false;
+    var change2 = true;
+  // 获得原来的电话号码
+    var getPhone = $("#mobile").val();
+
     $("#phoneNum").blur(function(){
       var validatecode = "validateCode=" + $("#phoneNum")[0].value;
    
       if($("#phoneNum")[0].value != ''){         
-        $.get("${pageContext.request.contextPath}/user_checkValidateCode",validatecode,function(result){
-           if(result == "false"){
+        $.get("user_checkValidateCode",validatecode,function(data){
+           if(data == "false"){
             $("#phoneNum").after("<p id='validate' class='D-hint' style='color: red;'>验证码不正确！</p>");
               flag2 = false;
            }else{
             flag2 = true;
+            change2 = false;
            }
         },"text");
 
@@ -59,28 +67,47 @@ $(window).load(function() {
 
         // 手机验证码判断 - 来自短信api
         $("#zphone").click(function(){
-          if($("#mobile")[0].value == ''){
-          
+          var getNewPhone = $("#mobile")[0].value;
+          if( getNewPhone == ''){    
+            // 没有变化
+            change = false;
+
+            $.alert({
+              icon: 'glyphicon glyphicon-exclamation-sign D-signColorRed',
+              title: '提示：',
+              confirmButton: '确定',
+              content: '请先输入手机号码！',
+              confirm: function(){
+              }
+            });
+
+          }else if(getNewPhone == getPhone){
+            
+            // 没有变化
+            change = false;
+
             $.alert({
             icon: 'glyphicon glyphicon-exclamation-sign D-signColorRed',
             title: '提示：',
             confirmButton: '确定',
-            content: '请先输入手机号码！',
+            content: '手机号码没有做修改',
             confirm: function(){
             }
-        });
-          }else{
+            });}
+          else{
+            // 有变化
+            change = true;
             get_mobile_code();            
           }
         });
 
         function get_mobile_code(){
-              $.post('${pageContext.request.contextPath}/user_sendValidateCode', {mobile:jQuery.trim($('#mobile').val())}, function(msg) {
-            if(msg=='提交成功'){
+          $.post('user_sendValidateCode', {mobile:jQuery.trim($('#mobile').val())}, function(msg) {
+            if(data == "提交成功"){
               RemainTime();
             }
-              });
-        };
+            },"text");
+          };
 
         var iTime = 59;
         var Account;
@@ -90,8 +117,10 @@ $(window).load(function() {
           document.getElementById('zphone').disabled = true;
           var iSecond,sSecond="",sTime="";
           if (iTime >= 0){
+
             iSecond = parseInt(iTime%60);
-            iMinute = parseInt(iTime/60)
+            iMinute = parseInt(iTime/60);
+
             if (iSecond >= 0){
               if(iMinute>0){
                 sSecond = iMinute + "分" + iSecond + "秒";
@@ -112,7 +141,8 @@ $(window).load(function() {
           }else{
             sTime='没有倒计时';
           }
-          document.getElementById('zphone').value = sTime;
+
+          $("#zphone").html(sTime);
         } 
 
 
@@ -172,7 +202,6 @@ $(window).load(function() {
             else {
               $("#namefo").text('');
              
-              
             }
 
 
@@ -192,19 +221,31 @@ $(window).load(function() {
         });
 
 
-        $("#close").click(function(){
+        // $("#close").click(function(){
 
-           $("#upload-file").val("");
+        //    $("#upload-file").val("");
 
-        });
+        // });
+
         //密码
         $('#psw').bind('input propertychange', function() {
           $('#D-repsw').css("display","block");
         });
+
 //提交表单
  $("#verify").click(function(){
        var str=true;
-       $("input").each(function() { //遍历input元素对象 
+       var getNewPhone = $("#mobile")[0].value;
+
+       // 判断前后是否有变化
+       if(getNewPhone != getPhone){
+          change2 = false;
+       }else{
+        change2 = true;
+       }
+
+      $("#modifyForm input:not(.not-Post)").each(function() { //遍历input元素对象 
+
         if ("" == $(this).val()) { //判断元素对象的value值
           $(this).addClass("error");//添加css样式
           str =false;
@@ -212,10 +253,50 @@ $(window).load(function() {
             $(this).removeClass("error");
         }
       });
-       if(str){ 
-        $("#modifyForm").submit();
-       
-       } 
+
+      var getPassword = $("#psw").val();
+      var getRepassword = $("#repsw").val();
+
+      if(getPassword == getRepassword){
+
+         if(str && flag2 && change){ 
+          $("#modifyForm").submit();
+         }
+         // 如果什么都没有变化
+         if(str && change2){
+          $("#modifyForm").submit(); 
+         }
+
+         if(!change2){
+            $.alert({
+              icon: 'glyphicon glyphicon-exclamation-sign D-signColorRed',
+              title: '提示：',
+              confirmButton: '确定',
+              content: '请先验证手机号码',
+              confirm: function(){
+              }
+            });
+         }
+
+      }else if(getRepassword == ""){
+            $.alert({
+              icon: 'glyphicon glyphicon-exclamation-sign D-signColorRed',
+              title: '提示：',
+              confirmButton: '确定',
+              content: '请确认密码',
+              confirm: function(){
+              }
+            });        
+      }else{
+            $.alert({
+              icon: 'glyphicon glyphicon-exclamation-sign D-signColorRed',
+              title: '提示：',
+              confirmButton: '确定',
+              content: '两次密码输入不一致',
+              confirm: function(){
+              }
+            });
+      }
       
 
 

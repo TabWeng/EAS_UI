@@ -12,6 +12,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- 引入按钮样式 -->
     <link rel="stylesheet" type="text/css" href="css/buttons.css">
+    <!-- 引入确认插件的css -->
+    <link rel="stylesheet" type="text/css" href="css/jquery-confirm.min.css">        
     <!-- 引入load样式 -->
     <link rel="stylesheet" type="text/css" href="css/waitMe.min.css">
     <!-- 引入我们自己的css文件 -->
@@ -142,12 +144,12 @@
   <div class="row">
     
     <!-- 第一个模块 -->
-    <div class="col-md-4">
+<!--     <div class="col-md-4">
       <form action="" method="post">
         <p class="D-functionTitle">体验</p>
-        <div class="D-contrlFunction">
+        <div class="D-contrlFunction"> -->
           <!-- 第一层 -->
-          <div>
+<!--           <div>
             <div class="col-md-12 D-ctrlChoose">
               <select class="form-control">
                 <option>请选择测试分析数据文件</option>
@@ -155,7 +157,7 @@
                 <option value="2">2</option>
               </select>
             </div>
-          </div>
+          </div> -->
 
           <!-- 第二层 -->
   <!--         <div>
@@ -172,18 +174,18 @@
           </div> --> 
 
           <!-- 第三层 -->
-          <div>
+<!--           <div>
             <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top: 20px;">
               <a href="analyzeResult.html" class="button button-block button-rounded button-action">开始体验</a>
             </div>
           </div>
         </div>
       </form>
-    </div>
+    </div> -->
 
     <!-- 第二个模块 <-->
     <div class="col-md-4">
-      <form action="" method="post" form-group form-horizontal>
+      <form action="" id="useFolder" method="post" class="form-group form-horizontal">
         <p class="D-functionTitle">使用</p>
         <div class="D-contrlFunction form-group">
           <!-- 第一层 -->
@@ -221,7 +223,7 @@
           <!-- 第三层 -->
           <div>
             <div class="col-md-12 col-sm-12 col-xs-12" style="">
-              <a href="analyzeResult.html" class="button button-block button-rounded button-action">分析</a>
+              <input id="useAnaly" type="button" class="button button-block button-rounded button-action" value="分析"/>
             </div>
           </div>
         </div>
@@ -238,6 +240,8 @@
         </div>
         <div class="D-CtrlMargin">
           <a id="LinkDataBase" class="button button-block button-rounded">连接数据库并分析</a>
+          <a class="button button-block button-rounded D-notVip">连接数据库并分析</a>
+          <a href="ccc" class="D-hiddenA"><span id="hiddenA">隐藏的标签</span></a>
         </div>
       </div>
     </div>
@@ -249,8 +253,12 @@
 <div id="myLeftFixed">
 
   <div class="D-leftInput">
-    <form action="http://localhost:8080/ajaxTest/test" method="post">
+    <form id="fixedForm" action="http://localhost:8080/ajaxTest/test" method="post">
       <div>
+        
+        <!-- 小图标，添加sql代码 -->
+        <span class="glyphicon glyphicon-log-in D-inSql" aria-hidden="true" data-toggle="modal" data-target="#myModal"></span>
+
         <img src="images/mysql.jpg">
         <div class="D-myPandInput">
           <p>
@@ -273,15 +281,37 @@
             密码
             <input type="password" class="form-control D-inputStyle" name="dbPassword" placeholder="输入密码">
           </p> 
+          
+          <!-- 输入的sql语句 -->
+          <textarea class="D-hiddenA" id="formSql" name="myFormSql"></textarea>
+
         </div>
-        <button id="submitLink" type="submit" class="btn btn-block">连接并分析</button>
+        <button id="submitLink" type="button" class="btn btn-block">连接并分析</button>
       </div>  
     </form>
         <button  id="LineCancelBtn" type="button" class="btn btn-block">取消</button>
   </div>
 </div>
 
-
+<!-- 输入sql的模态框 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">请输入sql语句</h4>
+      </div>
+      <div class="modal-body">
+        <textarea class="form-control" rows="9" id="myTextarea">
+        </textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary" id="saveTextarea">保存</button>
+      </div>
+    </div>
+  </div>
+</div><!-- 输入sql的模态框 end-->
 
 
 
@@ -307,6 +337,10 @@
     <!-- 引入自己写的响应式页面插件 -->
     <script src="js/myResponsive.js" type="text/javascript"></script>
     <script src="js/waitMe.min.js" type="text/javascript"></script>
+    <!-- 引入异步提交form表单的插件 -->
+    <script src="js/jquery.form.js" type="text/javascript"></script>
+    <!-- 引入确认框插件 -->
+    <script src="js/jquery-confirm.min.js" type="text/javascript"></script>        
     <!-- 我自己的JavaScript -->
     <script src="js/myJS/analyzeOperation.js" type="text/javascript"></script>
     <script src="js/myJS/responseAnalyzeOperation.js" type="text/javascript"></script>
