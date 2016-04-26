@@ -14,7 +14,6 @@
     <link rel="stylesheet" type="text/css" href="css/buttons.css">
     <!-- 引入我们自己的css文件 -->
     <link rel="stylesheet" type="text/css" href="css/myCSS/index.css">
-    <link rel="stylesheet" type="text/css" href="css/myCSS/vipPay.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -98,69 +97,33 @@
 
 <!--编码内容开始*************************************************************-->
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-offset-3 col-md-6" id="myVipPayWindow">
-      <h2>申请会员</h2>
-      <hr />
-      
-      <form id="applyVipForm" action="" method="post">
-        <div class="D-unifyStyle">
 
-          <div id="myHelp" class="col-md-offset-9 col-md-3 col-xs-3 col-xs-offset-9">
-            <a href="vipPayHelp.html">使用帮助</a>
-          </div>
-
-          <div class="col-md-offset-1 col-md-7 D-myVip">
-              <p>申请用户：<span class="D-myPositionStyle">JHengHei</span></p>
-          </div>
-          <div class="col-md-3"></div>
-
-          <div class="col-md-offset-1 col-md-7 D-myVip">
-              <p>开通时长：
-                <input type="text" class="form-control" id="inputVipMonth" placeholder="输入月数"  onkeyup="this.value=this.value.replace(/[^\d]/g,'')"
-                onafterpaste="this.value=this.value.replace(/[^\d]/g,'') "
-                >
-                个月            
-              </p>
-
-          </div>
-          <div class="col-md-3"></div>
-
-          <div class="col-md-offset-1 col-md-7 D-myVip">
-            <p>应付金额：<span id="thePrice" class="D-myPositionStyle">0元</span></p>
-          </div>
-          <div class="col-md-3"></div>
-          
-          <div class="col-md-offset-1 col-md-7 D-myVip">
-            <p>请使用支付宝扫码支付：<span class="fitTo-1"></span></p>
-          </div>
-          <div class="col-md-3"></div> 
-          
-          <!-- 二维码扫描 -->
-          <div id="myVipOR" class="D-myVip">
-            <img src="images/QRCode.jpg">
-          </div>   
-
-          <div class="col-md-offset-1 col-md-7 D-myVip">
-            <p>请输入订单尾号六位数：<span class="fitTo-1"/></p>
-          </div>
-          <div class="col-md-3"></div>   
-
-          <div class="col-md-offset-3 col-md-6 col-xs-offset-3 col-xs-6 D-myVip">
-            <input id="vipKey" type="text" class="form-control" placeholder="输入订单尾号6位数" onkeyup="this.value=this.value.replace(/[^\d]/g,'')"
-                onafterpaste="this.value=this.value.replace(/[^\d]/g,'') ">
-          </div>
-
-          <div class="col-md-offset-3 col-md-6 col-xs-offset-3 col-xs-6 D-myVip">
-            <a id="surePad" class="button button-block button-rounded button-action D-myBtn">确认扫描付款</a>
-          </div> 
-      </form>
-
-      </div>
+<div class="container-fluid" style="margin: 20px 0;">
+     
+    <div class="col-md-offset-10 col-md-2  " style="text-align: center;margin-bottom: 20px;">
+      <a href="specialAnalysis.html" style="font-size: 20px;">返回付款</a>
     </div>
-  </div>
+ 
+    <div class="col-md-offset-3 col-md-6">
+       <img src="images/specialAnalysisHelp.png" title="点击放大" style="width: 100%;box-shadow: 1px 0 10px #ccc;"data-toggle="modal" data-target="#myModal">  
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="overflow: scroll;">
+
+        <div class="modal-dialog" role="document">
+          <div data-dismiss="modal">
+            <!-- 模态框的图片 -->
+           <img src="images/specialAnalysisHelp.png"  >
+          </div>
+        </div>
+        
+     </div>
+  
 </div>
+
+
+
+
 
 
 
@@ -179,7 +142,7 @@
   </div>
 </div>
 
-</div>
+ 
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -189,27 +152,6 @@
     <!-- 引入自己写的响应式页面插件 -->
     <script src="js/myResponsive.js" type="text/javascript"></script>
     <!-- 我自己的JavaScript -->
-    <script src="js/myJS/vipPay.js" type="text/javascript"></script>
-    <script type="text/javascript">
-      
-    $(function(){
-      // 动态给出价格和ajax二维码
-      $('#inputVipMonth').blur(function(){
-        $('#inputVipMonth').css("border","1px solid #ccc");   
-        if(this.value == ''){
-          $('#thePrice').html("0元");
-        }else{
-          var month = "month="+this.value;
-          $.getJSON("test1.txt",month,function(data){
-            $('#thePrice').html(data.vipPrice + "元");
-            $('#myVipOR img').attr("src",data.tdCodeImage);
-          });
-        }
-      });
-
-    });
-
-    </script>
     
   </body>
 </html>
